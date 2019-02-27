@@ -1,0 +1,356 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		069F291B2226321D006EB035 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 069F291A2226321D006EB035 /* AppDelegate.m */; };
+		069F291D2226321D006EB035 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 069F291C2226321D006EB035 /* GameScene.sks */; };
+		069F291F2226321D006EB035 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 069F291E2226321D006EB035 /* Actions.sks */; };
+		069F29222226321D006EB035 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 069F29212226321D006EB035 /* GameScene.m */; };
+		069F29252226321D006EB035 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 069F29242226321D006EB035 /* GameViewController.m */; };
+		069F29282226321D006EB035 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 069F29262226321D006EB035 /* Main.storyboard */; };
+		069F292A2226321F006EB035 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 069F29292226321F006EB035 /* Assets.xcassets */; };
+		069F292D2226321F006EB035 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 069F292B2226321F006EB035 /* LaunchScreen.storyboard */; };
+		069F29302226321F006EB035 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 069F292F2226321F006EB035 /* main.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		069F29162226321D006EB035 /* GTA5Doomsday3HackerGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GTA5Doomsday3HackerGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		069F29192226321D006EB035 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		069F291A2226321D006EB035 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		069F291C2226321D006EB035 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		069F291E2226321D006EB035 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		069F29202226321D006EB035 /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		069F29212226321D006EB035 /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
+		069F29232226321D006EB035 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		069F29242226321D006EB035 /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		069F29272226321D006EB035 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		069F29292226321F006EB035 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		069F292C2226321F006EB035 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		069F292E2226321F006EB035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		069F292F2226321F006EB035 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		069F29132226321D006EB035 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		069F290D2226321D006EB035 = {
+			isa = PBXGroup;
+			children = (
+				069F29182226321D006EB035 /* GTA5Doomsday3HackerGame */,
+				069F29172226321D006EB035 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		069F29172226321D006EB035 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				069F29162226321D006EB035 /* GTA5Doomsday3HackerGame.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		069F29182226321D006EB035 /* GTA5Doomsday3HackerGame */ = {
+			isa = PBXGroup;
+			children = (
+				069F29192226321D006EB035 /* AppDelegate.h */,
+				069F291A2226321D006EB035 /* AppDelegate.m */,
+				069F291C2226321D006EB035 /* GameScene.sks */,
+				069F291E2226321D006EB035 /* Actions.sks */,
+				069F29202226321D006EB035 /* GameScene.h */,
+				069F29212226321D006EB035 /* GameScene.m */,
+				069F29232226321D006EB035 /* GameViewController.h */,
+				069F29242226321D006EB035 /* GameViewController.m */,
+				069F29262226321D006EB035 /* Main.storyboard */,
+				069F29292226321F006EB035 /* Assets.xcassets */,
+				069F292B2226321F006EB035 /* LaunchScreen.storyboard */,
+				069F292E2226321F006EB035 /* Info.plist */,
+				069F292F2226321F006EB035 /* main.m */,
+			);
+			path = GTA5Doomsday3HackerGame;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		069F29152226321D006EB035 /* GTA5Doomsday3HackerGame */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 069F29332226321F006EB035 /* Build configuration list for PBXNativeTarget "GTA5Doomsday3HackerGame" */;
+			buildPhases = (
+				069F29122226321D006EB035 /* Sources */,
+				069F29132226321D006EB035 /* Frameworks */,
+				069F29142226321D006EB035 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GTA5Doomsday3HackerGame;
+			productName = GTA5Doomsday3HackerGame;
+			productReference = 069F29162226321D006EB035 /* GTA5Doomsday3HackerGame.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		069F290E2226321D006EB035 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = Jam;
+				TargetAttributes = {
+					069F29152226321D006EB035 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = 069F29112226321D006EB035 /* Build configuration list for PBXProject "GTA5Doomsday3HackerGame" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 069F290D2226321D006EB035;
+			productRefGroup = 069F29172226321D006EB035 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				069F29152226321D006EB035 /* GTA5Doomsday3HackerGame */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		069F29142226321D006EB035 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				069F29282226321D006EB035 /* Main.storyboard in Resources */,
+				069F291D2226321D006EB035 /* GameScene.sks in Resources */,
+				069F292A2226321F006EB035 /* Assets.xcassets in Resources */,
+				069F292D2226321F006EB035 /* LaunchScreen.storyboard in Resources */,
+				069F291F2226321D006EB035 /* Actions.sks in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		069F29122226321D006EB035 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				069F29222226321D006EB035 /* GameScene.m in Sources */,
+				069F29252226321D006EB035 /* GameViewController.m in Sources */,
+				069F29302226321F006EB035 /* main.m in Sources */,
+				069F291B2226321D006EB035 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		069F29262226321D006EB035 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				069F29272226321D006EB035 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		069F292B2226321F006EB035 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				069F292C2226321F006EB035 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		069F29312226321F006EB035 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		069F29322226321F006EB035 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		069F29342226321F006EB035 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5Q82V2U2B5;
+				INFOPLIST_FILE = GTA5Doomsday3HackerGame/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cn.dabby.GTA5Doomsday3HackerGame;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		069F29352226321F006EB035 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5Q82V2U2B5;
+				INFOPLIST_FILE = GTA5Doomsday3HackerGame/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = cn.dabby.GTA5Doomsday3HackerGame;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		069F29112226321D006EB035 /* Build configuration list for PBXProject "GTA5Doomsday3HackerGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				069F29312226321F006EB035 /* Debug */,
+				069F29322226321F006EB035 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		069F29332226321F006EB035 /* Build configuration list for PBXNativeTarget "GTA5Doomsday3HackerGame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				069F29342226321F006EB035 /* Debug */,
+				069F29352226321F006EB035 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 069F290E2226321D006EB035 /* Project object */;
+}
