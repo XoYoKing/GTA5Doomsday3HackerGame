@@ -1,0 +1,28 @@
+//
+//  PrefixHeader.pch
+//  GTA5Doomsday3HackerGame
+//
+//  Created by dabby on 2019/2/27.
+//  Copyright © 2019 Jam. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#import "MyTextureAtlas.h"
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+// sizes
+#define OBJ_BLOCK_WIDTH (20)
+#define OBJ_BLOCK_SIZE (CGSizeMake(OBJ_BLOCK_WIDTH, OBJ_BLOCK_WIDTH))
+
+// frames
+#define GAME_FPS (60)
+
+// randoms
+#define ZZRandom_0_1() ((CGFloat)(arc4random() % 100000 / (CGFloat)100000))
+#define ZZRandom_1_0_1() (ZZRandom_0_1() * (arc4random() % 2 == 0 ? 1 : -1))
+
+#endif /* PrefixHeader_pch */

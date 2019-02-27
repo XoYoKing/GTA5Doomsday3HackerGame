@@ -8,22 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		069F291B2226321D006EB035 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 069F291A2226321D006EB035 /* AppDelegate.m */; };
-		069F291D2226321D006EB035 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 069F291C2226321D006EB035 /* GameScene.sks */; };
-		069F291F2226321D006EB035 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 069F291E2226321D006EB035 /* Actions.sks */; };
 		069F29222226321D006EB035 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 069F29212226321D006EB035 /* GameScene.m */; };
 		069F29252226321D006EB035 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 069F29242226321D006EB035 /* GameViewController.m */; };
 		069F29282226321D006EB035 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 069F29262226321D006EB035 /* Main.storyboard */; };
 		069F292A2226321F006EB035 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 069F29292226321F006EB035 /* Assets.xcassets */; };
 		069F292D2226321F006EB035 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 069F292B2226321F006EB035 /* LaunchScreen.storyboard */; };
 		069F29302226321F006EB035 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 069F292F2226321F006EB035 /* main.m */; };
+		069F2939222634DF006EB035 /* BaseSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 069F2938222634DF006EB035 /* BaseSprite.m */; };
+		069F293C22263506006EB035 /* LazerSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 069F293B22263506006EB035 /* LazerSource.m */; };
+		069F293F2226355D006EB035 /* LazerParticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 069F293E2226355D006EB035 /* LazerParticle.m */; };
+		069F294622265CB4006EB035 /* NormalReflector.m in Sources */ = {isa = PBXBuildFile; fileRef = 069F294522265CB4006EB035 /* NormalReflector.m */; };
+		069F294922265CD3006EB035 /* ManualReflector.m in Sources */ = {isa = PBXBuildFile; fileRef = 069F294822265CD3006EB035 /* ManualReflector.m */; };
+		069F294D22266117006EB035 /* MyTextureAtlas.m in Sources */ = {isa = PBXBuildFile; fileRef = 069F294B22266116006EB035 /* MyTextureAtlas.m */; };
+		069F294F22266128006EB035 /* texture.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 069F294E22266128006EB035 /* texture.atlas */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		069F29162226321D006EB035 /* GTA5Doomsday3HackerGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GTA5Doomsday3HackerGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		069F29192226321D006EB035 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		069F291A2226321D006EB035 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		069F291C2226321D006EB035 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		069F291E2226321D006EB035 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
 		069F29202226321D006EB035 /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
 		069F29212226321D006EB035 /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
 		069F29232226321D006EB035 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
@@ -33,6 +36,20 @@
 		069F292C2226321F006EB035 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		069F292E2226321F006EB035 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		069F292F2226321F006EB035 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		069F2937222634DF006EB035 /* BaseSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseSprite.h; sourceTree = "<group>"; };
+		069F2938222634DF006EB035 /* BaseSprite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseSprite.m; sourceTree = "<group>"; };
+		069F293A22263506006EB035 /* LazerSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LazerSource.h; sourceTree = "<group>"; };
+		069F293B22263506006EB035 /* LazerSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LazerSource.m; sourceTree = "<group>"; };
+		069F293D2226355D006EB035 /* LazerParticle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LazerParticle.h; sourceTree = "<group>"; };
+		069F293E2226355D006EB035 /* LazerParticle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LazerParticle.m; sourceTree = "<group>"; };
+		069F294022263896006EB035 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		069F294422265CB4006EB035 /* NormalReflector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NormalReflector.h; sourceTree = "<group>"; };
+		069F294522265CB4006EB035 /* NormalReflector.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NormalReflector.m; sourceTree = "<group>"; };
+		069F294722265CD3006EB035 /* ManualReflector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ManualReflector.h; sourceTree = "<group>"; };
+		069F294822265CD3006EB035 /* ManualReflector.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ManualReflector.m; sourceTree = "<group>"; };
+		069F294B22266116006EB035 /* MyTextureAtlas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTextureAtlas.m; sourceTree = "<group>"; };
+		069F294C22266117006EB035 /* MyTextureAtlas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTextureAtlas.h; sourceTree = "<group>"; };
+		069F294E22266128006EB035 /* texture.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = texture.atlas; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,21 +82,81 @@
 		069F29182226321D006EB035 /* GTA5Doomsday3HackerGame */ = {
 			isa = PBXGroup;
 			children = (
+				069F294A222660FA006EB035 /* Texture */,
+				069F2936222634A7006EB035 /* Objects */,
+				06F3D07B222669E300056627 /* Games */,
 				069F29192226321D006EB035 /* AppDelegate.h */,
 				069F291A2226321D006EB035 /* AppDelegate.m */,
-				069F291C2226321D006EB035 /* GameScene.sks */,
-				069F291E2226321D006EB035 /* Actions.sks */,
-				069F29202226321D006EB035 /* GameScene.h */,
-				069F29212226321D006EB035 /* GameScene.m */,
-				069F29232226321D006EB035 /* GameViewController.h */,
-				069F29242226321D006EB035 /* GameViewController.m */,
 				069F29262226321D006EB035 /* Main.storyboard */,
 				069F29292226321F006EB035 /* Assets.xcassets */,
 				069F292B2226321F006EB035 /* LaunchScreen.storyboard */,
 				069F292E2226321F006EB035 /* Info.plist */,
 				069F292F2226321F006EB035 /* main.m */,
+				069F294022263896006EB035 /* PrefixHeader.pch */,
 			);
 			path = GTA5Doomsday3HackerGame;
+			sourceTree = "<group>";
+		};
+		069F2936222634A7006EB035 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				069F2937222634DF006EB035 /* BaseSprite.h */,
+				069F2938222634DF006EB035 /* BaseSprite.m */,
+				069F294322265C75006EB035 /* Reflector */,
+				069F294222265AEB006EB035 /* Blocks */,
+				069F294122265ADD006EB035 /* Lazers */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
+		069F294122265ADD006EB035 /* Lazers */ = {
+			isa = PBXGroup;
+			children = (
+				069F293A22263506006EB035 /* LazerSource.h */,
+				069F293B22263506006EB035 /* LazerSource.m */,
+				069F293D2226355D006EB035 /* LazerParticle.h */,
+				069F293E2226355D006EB035 /* LazerParticle.m */,
+			);
+			path = Lazers;
+			sourceTree = "<group>";
+		};
+		069F294222265AEB006EB035 /* Blocks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Blocks;
+			sourceTree = "<group>";
+		};
+		069F294322265C75006EB035 /* Reflector */ = {
+			isa = PBXGroup;
+			children = (
+				069F294422265CB4006EB035 /* NormalReflector.h */,
+				069F294522265CB4006EB035 /* NormalReflector.m */,
+				069F294722265CD3006EB035 /* ManualReflector.h */,
+				069F294822265CD3006EB035 /* ManualReflector.m */,
+			);
+			path = Reflector;
+			sourceTree = "<group>";
+		};
+		069F294A222660FA006EB035 /* Texture */ = {
+			isa = PBXGroup;
+			children = (
+				069F294E22266128006EB035 /* texture.atlas */,
+				069F294C22266117006EB035 /* MyTextureAtlas.h */,
+				069F294B22266116006EB035 /* MyTextureAtlas.m */,
+			);
+			path = Texture;
+			sourceTree = "<group>";
+		};
+		06F3D07B222669E300056627 /* Games */ = {
+			isa = PBXGroup;
+			children = (
+				069F29202226321D006EB035 /* GameScene.h */,
+				069F29212226321D006EB035 /* GameScene.m */,
+				069F29232226321D006EB035 /* GameViewController.h */,
+				069F29242226321D006EB035 /* GameViewController.m */,
+			);
+			path = Games;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,10 +217,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				069F29282226321D006EB035 /* Main.storyboard in Resources */,
-				069F291D2226321D006EB035 /* GameScene.sks in Resources */,
+				069F294F22266128006EB035 /* texture.atlas in Resources */,
 				069F292A2226321F006EB035 /* Assets.xcassets in Resources */,
 				069F292D2226321F006EB035 /* LaunchScreen.storyboard in Resources */,
-				069F291F2226321D006EB035 /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,6 +232,12 @@
 			files = (
 				069F29222226321D006EB035 /* GameScene.m in Sources */,
 				069F29252226321D006EB035 /* GameViewController.m in Sources */,
+				069F293F2226355D006EB035 /* LazerParticle.m in Sources */,
+				069F294D22266117006EB035 /* MyTextureAtlas.m in Sources */,
+				069F294622265CB4006EB035 /* NormalReflector.m in Sources */,
+				069F2939222634DF006EB035 /* BaseSprite.m in Sources */,
+				069F293C22263506006EB035 /* LazerSource.m in Sources */,
+				069F294922265CD3006EB035 /* ManualReflector.m in Sources */,
 				069F29302226321F006EB035 /* main.m in Sources */,
 				069F291B2226321D006EB035 /* AppDelegate.m in Sources */,
 			);
@@ -301,7 +383,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5Q82V2U2B5;
+				GCC_PREFIX_HEADER = GTA5Doomsday3HackerGame/PrefixHeader.pch;
 				INFOPLIST_FILE = GTA5Doomsday3HackerGame/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -318,7 +402,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5Q82V2U2B5;
+				GCC_PREFIX_HEADER = GTA5Doomsday3HackerGame/PrefixHeader.pch;
 				INFOPLIST_FILE = GTA5Doomsday3HackerGame/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
