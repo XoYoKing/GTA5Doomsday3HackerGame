@@ -7,6 +7,7 @@
 //
 
 #import "BaseSprite.h"
+#import "LazerParticle.h"
 
 ZZLine ZZLineMake(CGFloat x, CGFloat y, CGFloat alpha) {
     ZZLine line;
@@ -66,7 +67,9 @@ CGPoint CGPointRotatePoint(CGPoint targetPoint, CGPoint originPoint, CGFloat rad
 }
 
 - (void)testWithObject:(BaseSprite *)object {
-    // do some test
+    if ([self intersectsNode:object] && [object isMemberOfClass:[LazerParticle class]] && ![self isMemberOfClass:[LazerParticle class]]) {
+        [object crash];
+    }
 }
 
 - (BOOL)intersectsNode:(SKNode *)node {

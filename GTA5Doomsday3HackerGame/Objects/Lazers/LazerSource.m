@@ -23,11 +23,14 @@
     } else {
         sour.zRotation = 0;
     }
+    BaseSprite *shooter = [BaseSprite spriteNodeWithColor:[SKColor grayColor] size:CGSizeMake(8, 6)];
+    shooter.position = CGPointMake(sour.size.width / 2, 0);
+    [sour addChild:shooter];
     return sour;
 }
 
 - (void)run {
-    for (int i = 1; i < 5; i++) {
+    for (int i = 0; i < 1; i++) {
         CGFloat shootingOffset = self.size.width / 2 + 20 * ZZRandom_0_1() + 4;
         CGFloat zRota = self.zRotation;
         CGPoint shootingVector = CGPointMake(shootingOffset * cos(zRota), shootingOffset * sin(zRota));

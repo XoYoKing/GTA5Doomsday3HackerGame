@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+    <device id="retina4_7" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,13 +13,64 @@
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModuleProvider="" sceneMemberID="viewController">
-                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="BV1-FR-VrT" customClass="GameViewController" sceneMemberID="viewController">
+                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R94-eH-OFR" customClass="SKView">
+                                <rect key="frame" x="182" y="101" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0078431372549019607" green="0.16470588235294117" blue="0.18431372549019609" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xpo-pl-Jsr">
+                                <rect key="frame" x="0.0" y="0.0" width="64" height="375"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f4g-qO-2Tr">
+                                        <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="f4g-qO-2Tr" secondAttribute="height" multiplier="1:1" id="auC-Vk-80T"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                        <state key="normal" title="L"/>
+                                        <connections>
+                                            <action selector="pressLeft:" destination="BV1-FR-VrT" eventType="touchUpInside" id="oIy-Pa-Hmk"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQs-yq-qm8">
+                                        <rect key="frame" x="0.0" y="64" width="64" height="64"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="hQs-yq-qm8" secondAttribute="height" id="PKo-pv-Gl2"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                        <state key="normal" title="R"/>
+                                        <connections>
+                                            <action selector="pressRight:" destination="BV1-FR-VrT" eventType="touchUpInside" id="vfC-ad-O6O"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="f4g-qO-2Tr" firstAttribute="top" secondItem="xpo-pl-Jsr" secondAttribute="top" id="4Ty-cJ-LKj"/>
+                                    <constraint firstItem="hQs-yq-qm8" firstAttribute="leading" secondItem="xpo-pl-Jsr" secondAttribute="leading" id="9nD-49-LKM"/>
+                                    <constraint firstAttribute="trailing" secondItem="f4g-qO-2Tr" secondAttribute="trailing" id="CDO-1Z-5jD"/>
+                                    <constraint firstAttribute="width" constant="64" id="RHf-cC-QhK"/>
+                                    <constraint firstItem="f4g-qO-2Tr" firstAttribute="leading" secondItem="xpo-pl-Jsr" secondAttribute="leading" id="db2-xs-LrB"/>
+                                    <constraint firstAttribute="trailing" secondItem="hQs-yq-qm8" secondAttribute="trailing" id="pbS-66-FA2"/>
+                                    <constraint firstItem="hQs-yq-qm8" firstAttribute="top" secondItem="f4g-qO-2Tr" secondAttribute="bottom" id="tCk-CJ-DON"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.086274509803921567" green="0.34509803921568627" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="xpo-pl-Jsr" firstAttribute="top" secondItem="4qk-I5-YsI" secondAttribute="top" id="TeV-LG-agT"/>
+                            <constraint firstItem="xpo-pl-Jsr" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" id="ghL-EG-lx8"/>
+                            <constraint firstItem="4qk-I5-YsI" firstAttribute="bottom" secondItem="xpo-pl-Jsr" secondAttribute="bottom" id="zze-ct-JHP"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
                     </view>
+                    <connections>
+                        <outlet property="skView" destination="R94-eH-OFR" id="uQp-yN-xJ5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>

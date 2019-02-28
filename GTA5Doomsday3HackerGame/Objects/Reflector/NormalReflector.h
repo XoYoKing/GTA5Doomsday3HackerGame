@@ -6,11 +6,11 @@
 //  Copyright © 2019 Jam. All rights reserved.
 //
 
-#import "BaseSprite.h"
+#import "BaseReflector.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface NormalReflector : BaseSprite
+@interface NormalReflector : BaseReflector
 
 + (instancetype)normalReflectorWithFacing:(DirectionFacing)facing position:(CGPoint)position;
 

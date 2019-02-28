@@ -15,6 +15,7 @@
 
 + (instancetype)normalReflectorWithFacing:(DirectionFacing)facing position:(CGPoint)position {
     NormalReflector *reflec = [NormalReflector spriteNodeWithTexture:[MyTextureAtlas textureNamed:@"NormalReflector"] size:OBJ_BLOCK_SIZE];
+//    NormalReflector *reflec = [NormalReflector spriteNodeWithColor:[SKColor clearColor] size:OBJ_BLOCK_SIZE];
     reflec.position = position;
     if (facing == DirectionFacingQuadrantTwo) {
         reflec.zRotation = M_PI_2;
@@ -25,50 +26,32 @@
     } else {
         reflec.zRotation = 0;
     }
-    reflec.zRotation = reflec.zRotation - M_PI/3;
+//    reflec.zRotation = reflec.zRotation - M_PI/3;
     reflec -> _facing = facing;
+    
+    [reflec addHiddenChildren];
+    
     return reflec;
 }
 
-- (void)testWithObject:(BaseSprite *)object {
-    if (![super intersectsNode:object]) {
-        return;
+- (void)addHiddenChildren {
+    NSInteger rows = 3;
+    CGFloat width = self.size.width;
+    CGFloat widthForBlock = width / rows;
+    CGFloat halfWidth = width / 2;
+    CGFloat halfWidthForBlock = widthForBlock / 2;
+    for (NSInteger i = 0; i < rows; i ++) {
+        NSInteger blocksForRow = rows - i;
+        for (NSInteger c = 0; c < blocksForRow; c++) {
+            SKSpriteNode *hiddenNode = [SKSpriteNode spriteNodeWithColor:[SKColor clearColor] size:CGSizeMake(widthForBlock, widthForBlock)];
+            [self addChild:hiddenNode];
+            hiddenNode.position = CGPointMake(-halfWidth + i * widthForBlock + halfWidthForBlock, -halfWidth + c * widthForBlock + halfWidthForBlock);
+        }
     }
-    if (![object isKindOfClass:[LazerParticle class]]) {
-        return;
-    }
-    // 如何计算斜边上的反射？
-    LazerParticle *laz = (LazerParticle *)object;
-    if (laz.hitObjects.lastObject == self) {
-        return;
-    }
-    
-    ZZLine lazLine = ZZLineMake(laz.position.x, laz.position.y, laz.zRotation);
-    
-    CGFloat selfRealRotation = self.zRotation - M_PI_4;
-    ZZLine selfLine = ZZLineMake(self.position.x, self.position.y, selfRealRotation);
-    
-    CGPoint intersectionPoint = CGPointIntersectionFromLines(lazLine, selfLine);
-    if (!CGRectContainsPoint(self.frame, intersectionPoint)) {
-        return;
-    }
-    
-    CGFloat reflectedZRotation = (selfRealRotation - laz.zRotation) + selfRealRotation;
-    CGFloat deltaRotation = reflectedZRotation - laz.zRotation + M_PI;
-    CGPoint reflectedPosition = CGPointRotatePoint(laz.position, intersectionPoint, deltaRotation);
-    
-    laz.zRotation = reflectedZRotation;
-    laz.position = reflectedPosition;
-    
-    [laz.hitObjects addObject:self];
-    
-    BaseSprite *testPointSpr = [BaseSprite spriteNodeWithColor:[SKColor redColor] size:CGSizeMake(2, 2)];
-    testPointSpr.position = intersectionPoint;
-    [self.parent addChild:testPointSpr];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [testPointSpr removeFromParent];
-    });
-    
+}
+
+- (CGFloat)realZRotation {
+    return self.zRotation - M_PI_4;
 }
 
 @end

@@ -21,6 +21,11 @@
 		069F294922265CD3006EB035 /* ManualReflector.m in Sources */ = {isa = PBXBuildFile; fileRef = 069F294822265CD3006EB035 /* ManualReflector.m */; };
 		069F294D22266117006EB035 /* MyTextureAtlas.m in Sources */ = {isa = PBXBuildFile; fileRef = 069F294B22266116006EB035 /* MyTextureAtlas.m */; };
 		069F294F22266128006EB035 /* texture.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 069F294E22266128006EB035 /* texture.atlas */; };
+		06E8FE412227E3AF00EC85CB /* DataPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 06E8FE402227E3AF00EC85CB /* DataPacket.m */; };
+		06E8FE442227EDA300EC85CB /* FirePacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 06E8FE432227EDA300EC85CB /* FirePacket.m */; };
+		06F3D07F2227A9FF00056627 /* BaseReflector.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F3D07E2227A9FF00056627 /* BaseReflector.m */; };
+		06F3D0832227B6E600056627 /* NormalBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F3D0822227B6E600056627 /* NormalBlock.m */; };
+		06F3D0862227C2C300056627 /* Mission01.json in Resources */ = {isa = PBXBuildFile; fileRef = 06F3D0852227C2C300056627 /* Mission01.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +55,15 @@
 		069F294B22266116006EB035 /* MyTextureAtlas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTextureAtlas.m; sourceTree = "<group>"; };
 		069F294C22266117006EB035 /* MyTextureAtlas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTextureAtlas.h; sourceTree = "<group>"; };
 		069F294E22266128006EB035 /* texture.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = texture.atlas; sourceTree = "<group>"; };
+		06E8FE3F2227E3AF00EC85CB /* DataPacket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataPacket.h; sourceTree = "<group>"; };
+		06E8FE402227E3AF00EC85CB /* DataPacket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataPacket.m; sourceTree = "<group>"; };
+		06E8FE422227EDA300EC85CB /* FirePacket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirePacket.h; sourceTree = "<group>"; };
+		06E8FE432227EDA300EC85CB /* FirePacket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirePacket.m; sourceTree = "<group>"; };
+		06F3D07D2227A9FF00056627 /* BaseReflector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseReflector.h; sourceTree = "<group>"; };
+		06F3D07E2227A9FF00056627 /* BaseReflector.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseReflector.m; sourceTree = "<group>"; };
+		06F3D0812227B6E600056627 /* NormalBlock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NormalBlock.h; sourceTree = "<group>"; };
+		06F3D0822227B6E600056627 /* NormalBlock.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NormalBlock.m; sourceTree = "<group>"; };
+		06F3D0852227C2C300056627 /* Mission01.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Mission01.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +96,8 @@
 		069F29182226321D006EB035 /* GTA5Doomsday3HackerGame */ = {
 			isa = PBXGroup;
 			children = (
-				069F294A222660FA006EB035 /* Texture */,
+				06F3D0842227C26B00056627 /* Configs */,
+				069F294A222660FA006EB035 /* Textures */,
 				069F2936222634A7006EB035 /* Objects */,
 				06F3D07B222669E300056627 /* Games */,
 				069F29192226321D006EB035 /* AppDelegate.h */,
@@ -100,8 +115,8 @@
 		069F2936222634A7006EB035 /* Objects */ = {
 			isa = PBXGroup;
 			children = (
-				069F2937222634DF006EB035 /* BaseSprite.h */,
-				069F2938222634DF006EB035 /* BaseSprite.m */,
+				06F3D0802227B28000056627 /* Base */,
+				06E8FE3E2227E36B00EC85CB /* Packet */,
 				069F294322265C75006EB035 /* Reflector */,
 				069F294222265AEB006EB035 /* Blocks */,
 				069F294122265ADD006EB035 /* Lazers */,
@@ -123,6 +138,8 @@
 		069F294222265AEB006EB035 /* Blocks */ = {
 			isa = PBXGroup;
 			children = (
+				06F3D0812227B6E600056627 /* NormalBlock.h */,
+				06F3D0822227B6E600056627 /* NormalBlock.m */,
 			);
 			path = Blocks;
 			sourceTree = "<group>";
@@ -130,6 +147,8 @@
 		069F294322265C75006EB035 /* Reflector */ = {
 			isa = PBXGroup;
 			children = (
+				06F3D07D2227A9FF00056627 /* BaseReflector.h */,
+				06F3D07E2227A9FF00056627 /* BaseReflector.m */,
 				069F294422265CB4006EB035 /* NormalReflector.h */,
 				069F294522265CB4006EB035 /* NormalReflector.m */,
 				069F294722265CD3006EB035 /* ManualReflector.h */,
@@ -138,14 +157,25 @@
 			path = Reflector;
 			sourceTree = "<group>";
 		};
-		069F294A222660FA006EB035 /* Texture */ = {
+		069F294A222660FA006EB035 /* Textures */ = {
 			isa = PBXGroup;
 			children = (
 				069F294E22266128006EB035 /* texture.atlas */,
 				069F294C22266117006EB035 /* MyTextureAtlas.h */,
 				069F294B22266116006EB035 /* MyTextureAtlas.m */,
 			);
-			path = Texture;
+			path = Textures;
+			sourceTree = "<group>";
+		};
+		06E8FE3E2227E36B00EC85CB /* Packet */ = {
+			isa = PBXGroup;
+			children = (
+				06E8FE3F2227E3AF00EC85CB /* DataPacket.h */,
+				06E8FE402227E3AF00EC85CB /* DataPacket.m */,
+				06E8FE422227EDA300EC85CB /* FirePacket.h */,
+				06E8FE432227EDA300EC85CB /* FirePacket.m */,
+			);
+			path = Packet;
 			sourceTree = "<group>";
 		};
 		06F3D07B222669E300056627 /* Games */ = {
@@ -157,6 +187,23 @@
 				069F29242226321D006EB035 /* GameViewController.m */,
 			);
 			path = Games;
+			sourceTree = "<group>";
+		};
+		06F3D0802227B28000056627 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				069F2937222634DF006EB035 /* BaseSprite.h */,
+				069F2938222634DF006EB035 /* BaseSprite.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		06F3D0842227C26B00056627 /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+				06F3D0852227C2C300056627 /* Mission01.json */,
+			);
+			path = Configs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -216,6 +263,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06F3D0862227C2C300056627 /* Mission01.json in Resources */,
 				069F29282226321D006EB035 /* Main.storyboard in Resources */,
 				069F294F22266128006EB035 /* texture.atlas in Resources */,
 				069F292A2226321F006EB035 /* Assets.xcassets in Resources */,
@@ -231,15 +279,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				069F29222226321D006EB035 /* GameScene.m in Sources */,
+				06E8FE412227E3AF00EC85CB /* DataPacket.m in Sources */,
 				069F29252226321D006EB035 /* GameViewController.m in Sources */,
 				069F293F2226355D006EB035 /* LazerParticle.m in Sources */,
 				069F294D22266117006EB035 /* MyTextureAtlas.m in Sources */,
+				06F3D0832227B6E600056627 /* NormalBlock.m in Sources */,
 				069F294622265CB4006EB035 /* NormalReflector.m in Sources */,
+				06F3D07F2227A9FF00056627 /* BaseReflector.m in Sources */,
 				069F2939222634DF006EB035 /* BaseSprite.m in Sources */,
 				069F293C22263506006EB035 /* LazerSource.m in Sources */,
 				069F294922265CD3006EB035 /* ManualReflector.m in Sources */,
 				069F29302226321F006EB035 /* main.m in Sources */,
 				069F291B2226321D006EB035 /* AppDelegate.m in Sources */,
+				06E8FE442227EDA300EC85CB /* FirePacket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

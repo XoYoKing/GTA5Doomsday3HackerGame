@@ -10,21 +10,19 @@
 #import "GameScene.h"
 
 @implementation GameViewController {
-    SKView* skView;
+    IBOutlet SKView* skView;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Configure the view.
     
-    CGFloat w = self.view.frame.size.width;
-    CGFloat h = self.view.frame.size.height;
+    skView.frame = CGRectMake(0, 0, OBJ_BLOCK_WIDTH * OBJ_HORIZONTAL_COUNT, OBJ_BLOCK_WIDTH * OBJ_VERTICAL_COUNT);
+    skView.center = self.view.center;
+    [self.view insertSubview:skView atIndex:0];
     
-    skView = [[SKView alloc] initWithFrame:CGRectMake(0, 0, w > h ? w : h, w < h ? w : h)];
-    [self.view addSubview:skView];
-    
-    skView.showsFPS = YES;
-    skView.showsNodeCount = YES;
-    skView.showsDrawCount=YES;
+//    skView.showsFPS = YES;
+//    skView.showsNodeCount = YES;
+//    skView.showsDrawCount=YES;
     /* Sprite Kit applies additional optimizations to improve rendering performance */
     skView.ignoresSiblingOrder = YES;
     
@@ -38,6 +36,18 @@
 
 - (BOOL)prefersStatusBarHidden {
     return YES;
+}
+
+- (IBAction)pressLeft:(id)sender {
+    [self sendRotationNotification:-1];
+}
+
+- (IBAction)pressRight:(id)sender {
+    [self sendRotationNotification:1];
+}
+
+- (void)sendRotationNotification:(NSInteger)rota {
+    [[NSNotificationCenter defaultCenter] postNotificationName:RotationActionNotificatioin object:@(rota)];
 }
 
 @end

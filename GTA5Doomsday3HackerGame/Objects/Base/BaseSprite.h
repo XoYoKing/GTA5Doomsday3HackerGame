@@ -10,8 +10,8 @@
 
 typedef NS_ENUM(NSInteger, DirectionFacing) {
     DirectionFacingRight = 0,
-    DirectionFacingLeft = 1,
-    DirectionFacingUp = 2,
+    DirectionFacingUp = 1,
+    DirectionFacingLeft = 2,
     DirectionFacingDown = 3,
     
     //
