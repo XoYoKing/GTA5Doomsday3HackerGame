@@ -26,6 +26,8 @@
 		06F3D07F2227A9FF00056627 /* BaseReflector.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F3D07E2227A9FF00056627 /* BaseReflector.m */; };
 		06F3D0832227B6E600056627 /* NormalBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F3D0822227B6E600056627 /* NormalBlock.m */; };
 		06F3D0862227C2C300056627 /* Mission01.json in Resources */ = {isa = PBXBuildFile; fileRef = 06F3D0852227C2C300056627 /* Mission01.json */; };
+		3909EBC5222831170030740F /* AutoReflector.m in Sources */ = {isa = PBXBuildFile; fileRef = 3909EBC4222831170030740F /* AutoReflector.m */; };
+		3909EBC9222832280030740F /* NSTimer+HICategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3909EBC8222832280030740F /* NSTimer+HICategory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +66,10 @@
 		06F3D0812227B6E600056627 /* NormalBlock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NormalBlock.h; sourceTree = "<group>"; };
 		06F3D0822227B6E600056627 /* NormalBlock.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NormalBlock.m; sourceTree = "<group>"; };
 		06F3D0852227C2C300056627 /* Mission01.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Mission01.json; sourceTree = "<group>"; };
+		3909EBC3222831170030740F /* AutoReflector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutoReflector.h; sourceTree = "<group>"; };
+		3909EBC4222831170030740F /* AutoReflector.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutoReflector.m; sourceTree = "<group>"; };
+		3909EBC7222832280030740F /* NSTimer+HICategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+HICategory.h"; sourceTree = "<group>"; };
+		3909EBC8222832280030740F /* NSTimer+HICategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+HICategory.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +102,7 @@
 		069F29182226321D006EB035 /* GTA5Doomsday3HackerGame */ = {
 			isa = PBXGroup;
 			children = (
+				3909EBC6222832070030740F /* Tools */,
 				06F3D0842227C26B00056627 /* Configs */,
 				069F294A222660FA006EB035 /* Textures */,
 				069F2936222634A7006EB035 /* Objects */,
@@ -153,6 +160,8 @@
 				069F294522265CB4006EB035 /* NormalReflector.m */,
 				069F294722265CD3006EB035 /* ManualReflector.h */,
 				069F294822265CD3006EB035 /* ManualReflector.m */,
+				3909EBC3222831170030740F /* AutoReflector.h */,
+				3909EBC4222831170030740F /* AutoReflector.m */,
 			);
 			path = Reflector;
 			sourceTree = "<group>";
@@ -204,6 +213,15 @@
 				06F3D0852227C2C300056627 /* Mission01.json */,
 			);
 			path = Configs;
+			sourceTree = "<group>";
+		};
+		3909EBC6222832070030740F /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				3909EBC7222832280030740F /* NSTimer+HICategory.h */,
+				3909EBC8222832280030740F /* NSTimer+HICategory.m */,
+			);
+			path = Tools;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,6 +299,7 @@
 				069F29222226321D006EB035 /* GameScene.m in Sources */,
 				06E8FE412227E3AF00EC85CB /* DataPacket.m in Sources */,
 				069F29252226321D006EB035 /* GameViewController.m in Sources */,
+				3909EBC5222831170030740F /* AutoReflector.m in Sources */,
 				069F293F2226355D006EB035 /* LazerParticle.m in Sources */,
 				069F294D22266117006EB035 /* MyTextureAtlas.m in Sources */,
 				06F3D0832227B6E600056627 /* NormalBlock.m in Sources */,
@@ -288,6 +307,7 @@
 				06F3D07F2227A9FF00056627 /* BaseReflector.m in Sources */,
 				069F2939222634DF006EB035 /* BaseSprite.m in Sources */,
 				069F293C22263506006EB035 /* LazerSource.m in Sources */,
+				3909EBC9222832280030740F /* NSTimer+HICategory.m in Sources */,
 				069F294922265CD3006EB035 /* ManualReflector.m in Sources */,
 				069F29302226321F006EB035 /* main.m in Sources */,
 				069F291B2226321D006EB035 /* AppDelegate.m in Sources */,

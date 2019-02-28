@@ -12,7 +12,7 @@
 @implementation LazerSource
 
 + (instancetype)lazerSourceWithFacing:(DirectionFacing)facing position:(CGPoint)position {
-    LazerSource *sour = [LazerSource spriteNodeWithColor:[SKColor grayColor] size:OBJ_BLOCK_SIZE];
+    LazerSource *sour = [LazerSource spriteNodeWithTexture:[MyTextureAtlas textureNamed:@"LazerSource"] size:OBJ_BLOCK_SIZE];
     sour.position = position;
     if (facing == DirectionFacingUp) {
         sour.zRotation = M_PI_2;
@@ -23,9 +23,6 @@
     } else {
         sour.zRotation = 0;
     }
-    BaseSprite *shooter = [BaseSprite spriteNodeWithColor:[SKColor grayColor] size:CGSizeMake(8, 6)];
-    shooter.position = CGPointMake(sour.size.width / 2, 0);
-    [sour addChild:shooter];
     return sour;
 }
 

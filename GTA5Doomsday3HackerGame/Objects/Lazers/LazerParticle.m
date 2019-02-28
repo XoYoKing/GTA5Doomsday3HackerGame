@@ -8,17 +8,17 @@
 
 #import "LazerParticle.h"
 
-const CGFloat _lazer_particle_flying_speed = 300; // points per second
+const CGFloat _lazer_particle_flying_speed = 600; // points per second
 
 @implementation LazerParticle {
     BOOL dying;
 }
 
 + (instancetype)lazerParticleWithZRotation:(CGFloat)zRotation position:(CGPoint)position {
-    LazerParticle *par = [LazerParticle spriteNodeWithColor:[SKColor clearColor] size:CGSizeMake(1, 1)];
+    LazerParticle *par = [LazerParticle spriteNodeWithColor:[SKColor clearColor] size:CGSizeMake(10, 10)];
     par.zRotation = zRotation;
     par.position = position;
-    BaseSprite *light = [BaseSprite spriteNodeWithColor:[SKColor cyanColor] size:CGSizeMake(6, 3)];
+    BaseSprite *light = [BaseSprite spriteNodeWithColor:[SKColor cyanColor] size:CGSizeMake(8, 4)];
     [par addChild:light];
     return par;
 }

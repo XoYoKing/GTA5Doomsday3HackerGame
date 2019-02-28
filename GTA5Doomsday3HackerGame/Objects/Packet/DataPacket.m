@@ -9,7 +9,7 @@
 #import "DataPacket.h"
 #import "LazerParticle.h"
 
-const NSInteger hitsToDie = 500;
+const NSInteger hitsToDie = 1000;
 
 @implementation DataPacket {
     NSInteger hits;
@@ -31,6 +31,15 @@ const NSInteger hitsToDie = 500;
             [self crash];
         }
     }
+}
+
+- (BOOL)intersectsNode:(SKNode *)node {
+    if (![super intersectsNode:node]) {
+        return NO;
+    }
+    CGFloat dx = node.position.x - self.position.x;
+    CGFloat dy = node.position.y - self.position.y;
+    return (self.size.width * self.size.width / 4) > (dx * dx + dy * dy);
 }
 
 - (void)crash {

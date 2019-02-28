@@ -15,10 +15,12 @@
 #import "NormalBlock.h"
 #import "DataPacket.h"
 #import "FirePacket.h"
+#import "AutoReflector.h"
 
 @implementation GameScene {
     CFTimeInterval lastUpdateTime;
-    ManualReflector *currentReflector;
+    ManualReflector *currentManualReflector;
+    BaseSprite *currentIndicator;
 }
 
 - (void)dealloc {
@@ -41,7 +43,7 @@
     for (BaseSprite *node in children) {
         if ([node isMemberOfClass:[ManualReflector class]]) {
             if (CGRectContainsPoint(node.frame, pointInSelf)) {
-                currentReflector = (ManualReflector *)node;
+                [self setCurrentManualReflector:(ManualReflector *)node];
                 return;
             }
         }
@@ -50,7 +52,7 @@
 
 - (void)rotationActionNotification:(NSNotification *)notification {
     NSNumber *num = notification.object;
-    currentReflector.zRotation += (-num.integerValue) * M_PI / 48;
+    currentManualReflector.zRotation += (-num.integerValue) * M_PI / 48;
 }
 
 - (void)update:(CFTimeInterval)currentTime {
@@ -65,7 +67,7 @@
         [node run];
         if ([node isMemberOfClass:[LazerParticle class]]) {
             [lazers addObject:node];
-        } else {
+        } else if (node != currentIndicator){
             [others addObject:node];
         }
     }
@@ -76,6 +78,16 @@
             [oth testWithObject:par];
         }
     }
+}
+
+- (void)setCurrentManualReflector:(ManualReflector *)reflector {
+    currentManualReflector = reflector;
+    if (currentIndicator == nil) {
+        currentIndicator = [BaseSprite spriteNodeWithTexture:[MyTextureAtlas textureNamed:@"CurrentIndicator"] size:CGSizeMake(OBJ_BLOCK_WIDTH + 4, OBJ_BLOCK_WIDTH + 4)];
+        currentIndicator.zPosition = 10;
+        [self addChild:currentIndicator];
+    }
+    currentIndicator.position = currentManualReflector.position;
 }
 
 - (void)loadObjectsFromFile {
@@ -94,9 +106,15 @@
         if (class == [LazerSource class]) {
             [self addChild:[LazerSource lazerSourceWithFacing:face position:realPosition]];
         } else if (class == [ManualReflector class]) {
-            [self addChild:[ManualReflector manualReflectorWithFacing:face position:realPosition]];
+            ManualReflector *reflector = [ManualReflector manualReflectorWithFacing:face position:realPosition];
+            [self addChild:reflector];
+            if (currentManualReflector == nil) {
+                [self setCurrentManualReflector:reflector];
+            }
         } else if (class == [NormalReflector class]) {
             [self addChild:[NormalReflector normalReflectorWithFacing:face position:realPosition]];
+        } else if (class == [AutoReflector class]) {
+            [self addChild:[AutoReflector autoReflectorWithPosition:realPosition]];
         } else if (class == [NormalBlock class]) {
             [self addChild:[NormalBlock normalBlockWithFacing:face position:realPosition type:type]];
         } else if (class == [DataPacket class]) {

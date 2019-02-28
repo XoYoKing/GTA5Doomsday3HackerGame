@@ -7,7 +7,6 @@
 //
 
 #import "BaseReflector.h"
-#import "LazerParticle.h"
 
 @implementation BaseReflector
 
@@ -38,12 +37,8 @@
     return NO;
 }
 
-- (BOOL)intersectsNode:(SKNode *)node {
-    return [self accurateIntersectsNode:node];
-}
-
 - (void)testWithObject:(BaseSprite *)object {
-    if (![self intersectsNode:object]) {
+    if (![self accurateIntersectsNode:object]) {
         return;
     }
     if (![object isMemberOfClass:[LazerParticle class]]) {

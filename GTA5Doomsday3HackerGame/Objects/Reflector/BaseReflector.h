@@ -7,6 +7,7 @@
 //
 
 #import "BaseSprite.h"
+#import "LazerParticle.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
