@@ -18,53 +18,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f4g-qO-2Tr">
+                                <rect key="frame" x="0.0" y="0.0" width="64" height="375"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="bHi-YH-NDa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <state key="normal" title="L">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="turnLeft:" destination="BV1-FR-VrT" eventType="touchDown" id="LMc-kA-psj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQs-yq-qm8">
+                                <rect key="frame" x="603" y="0.0" width="64" height="375"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="kiB-o9-6A0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <state key="normal" title="R">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="turnRight:" destination="BV1-FR-VrT" eventType="touchDown" id="m4u-df-xnQ"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R94-eH-OFR" customClass="SKView">
-                                <rect key="frame" x="182" y="101" width="240" height="128"/>
+                                <rect key="frame" x="213" y="123" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0078431372549019607" green="0.16470588235294117" blue="0.18431372549019609" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xpo-pl-Jsr">
-                                <rect key="frame" x="0.0" y="0.0" width="64" height="375"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f4g-qO-2Tr">
-                                        <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="f4g-qO-2Tr" secondAttribute="height" multiplier="1:1" id="auC-Vk-80T"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
-                                        <state key="normal" title="L"/>
-                                        <connections>
-                                            <action selector="turnLeft:" destination="BV1-FR-VrT" eventType="touchDown" id="LMc-kA-psj"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQs-yq-qm8">
-                                        <rect key="frame" x="0.0" y="64" width="64" height="64"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="hQs-yq-qm8" secondAttribute="height" id="PKo-pv-Gl2"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
-                                        <state key="normal" title="R"/>
-                                        <connections>
-                                            <action selector="turnRight:" destination="BV1-FR-VrT" eventType="touchDown" id="m4u-df-xnQ"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="f4g-qO-2Tr" firstAttribute="top" secondItem="xpo-pl-Jsr" secondAttribute="top" id="4Ty-cJ-LKj"/>
-                                    <constraint firstItem="hQs-yq-qm8" firstAttribute="leading" secondItem="xpo-pl-Jsr" secondAttribute="leading" id="9nD-49-LKM"/>
-                                    <constraint firstAttribute="trailing" secondItem="f4g-qO-2Tr" secondAttribute="trailing" id="CDO-1Z-5jD"/>
-                                    <constraint firstAttribute="width" constant="64" id="RHf-cC-QhK"/>
-                                    <constraint firstItem="f4g-qO-2Tr" firstAttribute="leading" secondItem="xpo-pl-Jsr" secondAttribute="leading" id="db2-xs-LrB"/>
-                                    <constraint firstAttribute="trailing" secondItem="hQs-yq-qm8" secondAttribute="trailing" id="pbS-66-FA2"/>
-                                    <constraint firstItem="hQs-yq-qm8" firstAttribute="top" secondItem="f4g-qO-2Tr" secondAttribute="bottom" id="tCk-CJ-DON"/>
-                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.086274509803921567" green="0.34509803921568627" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="xpo-pl-Jsr" firstAttribute="top" secondItem="4qk-I5-YsI" secondAttribute="top" id="TeV-LG-agT"/>
-                            <constraint firstItem="xpo-pl-Jsr" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" id="ghL-EG-lx8"/>
-                            <constraint firstItem="4qk-I5-YsI" firstAttribute="bottom" secondItem="xpo-pl-Jsr" secondAttribute="bottom" id="zze-ct-JHP"/>
+                            <constraint firstItem="4qk-I5-YsI" firstAttribute="bottom" secondItem="hQs-yq-qm8" secondAttribute="bottom" id="TU9-an-V65"/>
+                            <constraint firstItem="f4g-qO-2Tr" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" id="aES-RW-WYK"/>
+                            <constraint firstItem="f4g-qO-2Tr" firstAttribute="top" secondItem="4qk-I5-YsI" secondAttribute="top" id="dha-FQ-AgZ"/>
+                            <constraint firstItem="4qk-I5-YsI" firstAttribute="trailing" secondItem="hQs-yq-qm8" secondAttribute="trailing" id="gFC-wm-Vl3"/>
+                            <constraint firstItem="hQs-yq-qm8" firstAttribute="top" secondItem="4qk-I5-YsI" secondAttribute="top" id="gTD-6r-zSQ"/>
+                            <constraint firstItem="4qk-I5-YsI" firstAttribute="bottom" secondItem="f4g-qO-2Tr" secondAttribute="bottom" id="lwX-ih-eTq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
                     </view>
