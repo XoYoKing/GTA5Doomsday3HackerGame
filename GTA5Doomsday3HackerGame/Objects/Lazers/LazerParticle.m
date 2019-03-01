@@ -7,62 +7,64 @@
 //
 
 #import "LazerParticle.h"
-
-const CGFloat _lazer_particle_flying_speed = 600; // points per second
+#import "BaseReflector.h"
 
 @implementation LazerParticle {
-    BOOL dying;
+    CGFloat startZRotation;
+    __weak NSArray *testObjects;
 }
 
 + (instancetype)lazerParticleWithZRotation:(CGFloat)zRotation position:(CGPoint)position {
-    LazerParticle *par = [LazerParticle spriteNodeWithColor:[SKColor clearColor] size:CGSizeMake(10, 10)];
-    par.zRotation = zRotation;
+    LazerParticle *par = [LazerParticle spriteNodeWithColor:[SKColor yellowColor] size:CGSizeMake(10, 10)];
+    par->startZRotation = zRotation;
     par.position = position;
-    BaseSprite *light = [BaseSprite spriteNodeWithColor:[SKColor cyanColor] size:CGSizeMake(8, 4)];
-    [par addChild:light];
     return par;
 }
 
 - (void)run {
-    if (dying) {
-        return;
-    }
-    CGFloat zRota = self.zRotation;
-    CGFloat speedInAFrame = _lazer_particle_flying_speed / GAME_FPS;
-    CGFloat speedX = speedInAFrame * cos(zRota);
-    CGFloat speedY = speedInAFrame * sin(zRota);
-    self.position = CGPointOffset(self.position, speedX, speedY);
-    
-    [self crashIfNeed];
+    [self drawAndCrash];
 }
 
-- (void)crashIfNeed {
-    CGRect rect = self.parent.frame;
-    rect.origin = CGPointZero;
-//    rect = CGRectInset(rect, 50, 50);
-    if (!CGRectContainsPoint(rect, self.position)) {
-        [self crash];
+- (void)drawAndCrash {
+    [self removeFromParent];
+}
+
+- (void)testWithObjects:(NSArray *)objects {
+    if (testObjects) {
+        return;
+    }
+    CGRect parentRect = self.parent.frame;
+    parentRect.origin = CGPointZero;
+    testObjects = objects;
+    ZZLine lastLine = ZZLineMake(self.position.x, self.position.y, startZRotation);
+    BaseSprite *lastObject = nil;
+    for (BaseSprite *testObj in testObjects) {
+        if (testObj == lastObject) {
+            continue;
+        }
+        lastObject = testObj;
+        CGPoint hitPoint = CGPointIntersectionFromLineToRect(lastLine, lastObject.frame);
+        if (CGRectContainsPoint(parentRect, hitPoint)) {
+            if ([lastObject isKindOfClass:[BaseReflector class]]) {
+                BaseReflector *reflector = (BaseReflector *)lastObject;
+                ZZLine newLine = [reflector getNewLineWithOldLine:lastLine];
+                hitPoint = CGPointMake(newLine.x, newLine.y);
+            }
+            
+            [self showPoint:hitPoint];
+        } else {
+            // end of lazer
+        }
     }
 }
 
-- (void)crash {
-    if (dying) {
-        return;
-    }
-    dying = YES;
-    self.zRotation = ZZRandom_0_1() * M_PI * 2;
-    self.xScale = 2;
-    self.yScale = 2;
+- (void)showPoint:(CGPoint)point {
+    BaseSprite *testPointSpr = [BaseSprite spriteNodeWithColor:[SKColor redColor] size:CGSizeMake(4, 4)];
+    testPointSpr.position = point;
+    [self.parent addChild:testPointSpr];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self removeFromParent];
+        [testPointSpr removeFromParent];
     });
-}
-
-- (NSMutableArray *)hitObjects {
-    if (_hitObjects == nil) {
-        _hitObjects = [NSMutableArray array];
-    }
-    return _hitObjects;
 }
 
 @end

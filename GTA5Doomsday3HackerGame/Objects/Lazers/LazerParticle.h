@@ -12,9 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LazerParticle : BaseSprite
 
+@property (nonatomic, strong) NSMutableArray *hitObjects;
+
 + (instancetype)lazerParticleWithZRotation:(CGFloat)zRotation position:(CGPoint)position;
 
-@property (nonatomic, strong) NSMutableArray *hitObjects;
+- (void)testWithObjects:(NSArray *)objects;
 
 @end
 

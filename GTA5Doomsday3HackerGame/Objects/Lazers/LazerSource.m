@@ -27,16 +27,14 @@
 }
 
 - (void)run {
-    for (int i = 0; i < 1; i++) {
-        CGFloat shootingOffset = self.size.width / 2 + 20 * ZZRandom_0_1() + 4;
-        CGFloat zRota = self.zRotation;
-        CGPoint shootingVector = CGPointMake(shootingOffset * cos(zRota), shootingOffset * sin(zRota));
-        CGPoint shootingPoint = CGPointOffsetVector(self.position, shootingVector);
-        
-        // shoot a Particle
-        LazerParticle *par = [LazerParticle lazerParticleWithZRotation:zRota position:shootingPoint];
-        [self.parent addChild:par];
-    }
+    CGFloat shootingOffset = self.size.width / 2 + 4;
+    CGFloat zRota = self.zRotation;
+    CGPoint shootingVector = CGPointMake(shootingOffset * cos(zRota), shootingOffset * sin(zRota));
+    CGPoint shootingPoint = CGPointOffsetVector(self.position, shootingVector);
+    
+    // shoot a Particle
+    LazerParticle *par = [LazerParticle lazerParticleWithZRotation:zRota position:shootingPoint];
+    [self.parent addChild:par];
 }
 
 @end

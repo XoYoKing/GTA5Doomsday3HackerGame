@@ -18,6 +18,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)addHiddenChildren;
 - (BOOL)simpleIntersectsNode:(SKNode *)node;
 
+- (ZZLine)getNewLineWithOldLine:(ZZLine)oldLine;
+
 @end
 
 NS_ASSUME_NONNULL_END

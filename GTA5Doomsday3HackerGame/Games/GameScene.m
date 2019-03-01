@@ -74,9 +74,7 @@
     
     // test hits
     for (LazerParticle *par in lazers) {
-        for (BaseSprite *oth in others) {
-            [oth testWithObject:par];
-        }
+        [par testWithObjects:others];
     }
 }
 

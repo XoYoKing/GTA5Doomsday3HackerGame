@@ -1,8 +1,8 @@
 [
 {"name":"LazerSource","x":0,"y":8,"face":0},
+{"name":"ManualReflector","x":5,"y":8,"face":1},
 {"name":"ManualReflector","x":0,"y":0,"face":1},
 {"name":"ManualReflector","x":0,"y":4,"face":1},
-{"name":"ManualReflector","x":5,"y":8,"face":1},
 {"name":"ManualReflector","x":5,"y":4,"face":1},
 {"name":"ManualReflector","x":7,"y":1,"face":1},
 {"name":"ManualReflector","x":9,"y":0,"face":1},

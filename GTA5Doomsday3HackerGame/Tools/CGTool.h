@@ -23,6 +23,7 @@ typedef struct ZZLine ZZLine;
 
 ZZLine ZZLineMake(CGFloat x, CGFloat y, CGFloat alpha);
 
+CGFloat CGDistanceFromPoints(CGPoint point1, CGPoint point2);
 CGPoint CGPointOffsetVector(CGPoint point, CGPoint vector);
 CGPoint CGPointOffset(CGPoint point, CGFloat dx, CGFloat dy);
 CGPoint CGPointIntersectionFromLines(ZZLine line1, ZZLine line2);
