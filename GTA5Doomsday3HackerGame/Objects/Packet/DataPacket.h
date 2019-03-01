@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)dataPacketWithPosition:(CGPoint)position;
 
+@property (nonatomic, strong, readonly) SKTexture *explosionTexture;
+
 @end
 
 NS_ASSUME_NONNULL_END

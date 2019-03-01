@@ -34,7 +34,7 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
                                         <state key="normal" title="L"/>
                                         <connections>
-                                            <action selector="pressLeft:" destination="BV1-FR-VrT" eventType="touchUpInside" id="oIy-Pa-Hmk"/>
+                                            <action selector="turnLeft:" destination="BV1-FR-VrT" eventType="touchDown" id="LMc-kA-psj"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hQs-yq-qm8">
@@ -45,7 +45,7 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
                                         <state key="normal" title="R"/>
                                         <connections>
-                                            <action selector="pressRight:" destination="BV1-FR-VrT" eventType="touchUpInside" id="vfC-ad-O6O"/>
+                                            <action selector="turnRight:" destination="BV1-FR-VrT" eventType="touchDown" id="m4u-df-xnQ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -70,10 +70,13 @@
                     </view>
                     <connections>
                         <outlet property="skView" destination="R94-eH-OFR" id="uQp-yN-xJ5"/>
+                        <outlet property="turnLeftButton" destination="f4g-qO-2Tr" id="oVG-2C-eIJ"/>
+                        <outlet property="turnRightButton" destination="hQs-yq-qm8" id="a7H-yn-rl5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="107" y="119"/>
         </scene>
     </scenes>
 </document>

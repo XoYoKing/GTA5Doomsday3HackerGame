@@ -8,10 +8,15 @@
 
 #import "GameViewController.h"
 #import "GameScene.h"
+#import "NSTimer+HICategory.h"
 
 @implementation GameViewController {
     IBOutlet SKView* skView;
+    IBOutlet UIButton *turnLeftButton;
+    IBOutlet UIButton *turnRightButton;
+    NSTimer *_timer;
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Configure the view.
@@ -32,18 +37,27 @@
     
     // Present the scene.
     [skView presentScene:scene];
+
+    _timer = [NSTimer db_scheduledTimerWithTimeInterval:0.25 repeats:YES block:^(NSTimer *timer) {
+        if (self->turnLeftButton.isTouchInside) {
+            [self turnLeft:nil];
+        }
+        if (self->turnRightButton.isTouchInside) {
+            [self turnRight:nil];
+        }
+    }];
+}
+
+- (IBAction)turnLeft:(id)sender {
+    [self sendRotationNotification:1];
+}
+
+- (IBAction)turnRight:(id)sender {
+    [self sendRotationNotification:-1];
 }
 
 - (BOOL)prefersStatusBarHidden {
     return YES;
-}
-
-- (IBAction)pressLeft:(id)sender {
-    [self sendRotationNotification:-1];
-}
-
-- (IBAction)pressRight:(id)sender {
-    [self sendRotationNotification:1];
 }
 
 - (void)sendRotationNotification:(NSInteger)rota {

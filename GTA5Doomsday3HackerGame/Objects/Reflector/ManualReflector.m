@@ -41,4 +41,14 @@
     }
 }
 
+- (void)rotateWithRotation:(ReflectorRotation)reflecRotation {
+    CGFloat rotation = M_PI / 48;
+    if (reflecRotation == ReflectorRotationNone) {
+        return;
+    } else if (reflecRotation == ReflectorRotationClockwise) {
+        rotation = -rotation;
+    }
+    [self runAction:[SKAction rotateByAngle:rotation duration:0.25]];
+}
+
 @end

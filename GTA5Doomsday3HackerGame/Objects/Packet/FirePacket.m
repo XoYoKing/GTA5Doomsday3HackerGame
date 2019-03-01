@@ -13,7 +13,12 @@
 + (instancetype)firePacketWithPosition:(CGPoint)position {
     FirePacket *pack = [FirePacket spriteNodeWithTexture:[MyTextureAtlas textureNamed:@"FirePacket"] size:OBJ_BLOCK_SIZE];
     pack.position = position;
+//    pack.color = [SKColor whiteColor];
     return pack;
+}
+
+- (SKTexture *)explosionTexture {
+    return [MyTextureAtlas textureNamed:@"RedExplosion"];
 }
 
 @end

@@ -23,24 +23,6 @@ typedef NS_ENUM(NSInteger, DirectionFacing) {
 
 NS_ASSUME_NONNULL_BEGIN
 
-struct
-ZZLine {
-    CGFloat x;
-    CGFloat y;
-    CGFloat alpha;
-};
-typedef struct ZZLine ZZLine;
-
-#define CGPointNotFound CGPointMake(CGFLOAT_MIN, CGFLOAT_MIN)
-
-ZZLine ZZLineMake(CGFloat x, CGFloat y, CGFloat alpha);
-
-CGPoint CGPointOffsetVector(CGPoint point, CGPoint vector);
-CGPoint CGPointOffset(CGPoint point, CGFloat dx, CGFloat dy);
-CGPoint CGPointIntersectionFromLines(ZZLine line1, ZZLine line2);
-CGPoint CGPointRotateVector(CGPoint vector, CGFloat radius);
-CGPoint CGPointRotatePoint(CGPoint targetPoint, CGPoint originPoint, CGFloat radius);
-
 @interface BaseSprite : SKSpriteNode
 
 - (void)run;

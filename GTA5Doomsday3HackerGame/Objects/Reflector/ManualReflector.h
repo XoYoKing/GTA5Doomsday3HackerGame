@@ -10,9 +10,17 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_ENUM(NSInteger, ReflectorRotation) {
+    ReflectorRotationNone = 0,
+    ReflectorRotationCounterClockwise = 1,
+    ReflectorRotationClockwise = -1,
+};
+
 @interface ManualReflector : BaseReflector
 
 + (instancetype)manualReflectorWithFacing:(DirectionFacing)facing position:(CGPoint)position;
+
+- (void)rotateWithRotation:(ReflectorRotation)reflecRotation;
 
 @end
 

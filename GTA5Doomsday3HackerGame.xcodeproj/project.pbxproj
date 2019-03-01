@@ -21,6 +21,7 @@
 		069F294922265CD3006EB035 /* ManualReflector.m in Sources */ = {isa = PBXBuildFile; fileRef = 069F294822265CD3006EB035 /* ManualReflector.m */; };
 		069F294D22266117006EB035 /* MyTextureAtlas.m in Sources */ = {isa = PBXBuildFile; fileRef = 069F294B22266116006EB035 /* MyTextureAtlas.m */; };
 		069F294F22266128006EB035 /* texture.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 069F294E22266128006EB035 /* texture.atlas */; };
+		06CD4F412229051C00A172FB /* CGTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CD4F402229051C00A172FB /* CGTool.m */; };
 		06E8FE412227E3AF00EC85CB /* DataPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 06E8FE402227E3AF00EC85CB /* DataPacket.m */; };
 		06E8FE442227EDA300EC85CB /* FirePacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 06E8FE432227EDA300EC85CB /* FirePacket.m */; };
 		06F3D07F2227A9FF00056627 /* BaseReflector.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F3D07E2227A9FF00056627 /* BaseReflector.m */; };
@@ -57,6 +58,8 @@
 		069F294B22266116006EB035 /* MyTextureAtlas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTextureAtlas.m; sourceTree = "<group>"; };
 		069F294C22266117006EB035 /* MyTextureAtlas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTextureAtlas.h; sourceTree = "<group>"; };
 		069F294E22266128006EB035 /* texture.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = texture.atlas; sourceTree = "<group>"; };
+		06CD4F3F2229051C00A172FB /* CGTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGTool.h; sourceTree = "<group>"; };
+		06CD4F402229051C00A172FB /* CGTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGTool.m; sourceTree = "<group>"; };
 		06E8FE3F2227E3AF00EC85CB /* DataPacket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataPacket.h; sourceTree = "<group>"; };
 		06E8FE402227E3AF00EC85CB /* DataPacket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataPacket.m; sourceTree = "<group>"; };
 		06E8FE422227EDA300EC85CB /* FirePacket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirePacket.h; sourceTree = "<group>"; };
@@ -102,8 +105,8 @@
 		069F29182226321D006EB035 /* GTA5Doomsday3HackerGame */ = {
 			isa = PBXGroup;
 			children = (
-				3909EBC6222832070030740F /* Tools */,
 				06F3D0842227C26B00056627 /* Configs */,
+				3909EBC6222832070030740F /* Tools */,
 				069F294A222660FA006EB035 /* Textures */,
 				069F2936222634A7006EB035 /* Objects */,
 				06F3D07B222669E300056627 /* Games */,
@@ -220,6 +223,8 @@
 			children = (
 				3909EBC7222832280030740F /* NSTimer+HICategory.h */,
 				3909EBC8222832280030740F /* NSTimer+HICategory.m */,
+				06CD4F3F2229051C00A172FB /* CGTool.h */,
+				06CD4F402229051C00A172FB /* CGTool.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -311,6 +316,7 @@
 				069F294922265CD3006EB035 /* ManualReflector.m in Sources */,
 				069F29302226321F006EB035 /* main.m in Sources */,
 				069F291B2226321D006EB035 /* AppDelegate.m in Sources */,
+				06CD4F412229051C00A172FB /* CGTool.m in Sources */,
 				06E8FE442227EDA300EC85CB /* FirePacket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

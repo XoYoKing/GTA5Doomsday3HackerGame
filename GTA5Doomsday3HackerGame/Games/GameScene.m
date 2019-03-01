@@ -52,7 +52,7 @@
 
 - (void)rotationActionNotification:(NSNotification *)notification {
     NSNumber *num = notification.object;
-    currentManualReflector.zRotation += (-num.integerValue) * M_PI / 48;
+    [currentManualReflector rotateWithRotation:num.integerValue];
 }
 
 - (void)update:(CFTimeInterval)currentTime {

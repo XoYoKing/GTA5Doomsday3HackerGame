@@ -19,6 +19,7 @@ const NSInteger hitsToDie = 1000;
 + (instancetype)dataPacketWithPosition:(CGPoint)position {
     DataPacket *pack = [DataPacket spriteNodeWithTexture:[MyTextureAtlas textureNamed:@"DataPacket"] size:OBJ_BLOCK_SIZE];
     pack.position = position;
+//    pack.color = [SKColor whiteColor];
     return pack;
 }
 
@@ -26,6 +27,7 @@ const NSInteger hitsToDie = 1000;
     if ([self intersectsNode:object] && [object isMemberOfClass:[LazerParticle class]] && ![self isMemberOfClass:[LazerParticle class]]) {
         [object crash];
         hits ++;
+//        self.colorBlendFactor = (CGFloat)hits / (CGFloat)hitsToDie;
         self.anchorPoint = CGPointMake(0.5 + 0.05 * ZZRandom_1_0_1(), 0.5 + 0.05 * ZZRandom_1_0_1());
         if (hits >= hitsToDie) {
             [self crash];
@@ -50,9 +52,14 @@ const NSInteger hitsToDie = 1000;
     self.zRotation = ZZRandom_0_1() * M_PI * 2;
     self.xScale = 1.5;
     self.yScale = 1.5;
+    self.texture = self.explosionTexture;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self removeFromParent];
     });
+}
+
+- (SKTexture *)explosionTexture {
+    return [MyTextureAtlas textureNamed:@"CyanExplosion"];
 }
 
 @end
