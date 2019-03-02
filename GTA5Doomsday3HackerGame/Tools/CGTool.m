@@ -16,18 +16,18 @@ ZZLine ZZLineMake(CGFloat x, CGFloat y, CGFloat alpha) {
     return line;
 }
 
-CGFloat CGDistanceFromPoints(CGPoint point1, CGPoint point2) {
-    CGFloat dx = point1.x - point2.x;
-    CGFloat dy = point1.y - point2.y;
-    return sqrt(dx * dx + dy * dy);
-}
-
-CGPoint CGPointOffsetVector(CGPoint point, CGPoint vector) {
-    return CGPointMake(point.x + vector.x, point.y + vector.y);
-}
-
-CGPoint CGPointOffset(CGPoint point, CGFloat dx, CGFloat dy) {
-    return CGPointMake(point.x + dx, point.y + dy);
+bool CGRectIntersectsLine(CGRect rect, ZZLine line) {
+    CGFloat testStep = rect.size.height > rect.size.width ? rect.size.width : rect.size.height; // 用矩形的最小边长来测试
+    if (CGRectContainsPoint(rect, CGPointMake(line.x, line.y))) {
+        return true;
+    }
+    for (CGFloat currentStep = 0; currentStep < 10000; currentStep += testStep) {
+        CGPoint point = CGPointMake(line.x + currentStep * cos(line.alpha), line.y + currentStep * sin(line.alpha));
+        if (CGRectContainsPoint(rect, point)) {
+            return true;
+        }
+    }
+    return false;
 }
 
 CGPoint CGPointIntersectionFromLines(ZZLine line1, ZZLine line2) {
@@ -44,17 +44,10 @@ CGPoint CGPointIntersectionFromLines(ZZLine line1, ZZLine line2) {
     
     CGFloat xValue = (c2 - c1) / (k1 - k2);
     CGFloat yValue = k1 * xValue + c1;
-    return CGPointMake(xValue, yValue);
+    return CGPointMake(round(xValue), round(yValue)); // 四舍五入
 }
 
-CGPoint CGPointRotateVector(CGPoint vector, CGFloat radius)
-{
-    CGFloat x = vector.x * cos(radius) - vector.y * sin(radius);
-    CGFloat y = vector.x * sin(radius) + vector.y * cos(radius);
-    return CGPointMake(x, y);
-}
-
-CGPoint CGPointIntersectionFromLineToRect(ZZLine line, CGRect rect) {
+CGPoint CGPointIntersectionFromRectToLine(CGRect rect, ZZLine line) {
     CGPoint rectOriginPoint = rect.origin;
     CGPoint rectDiagonalPoint = CGPointMake(CGRectGetMaxX(rect), CGRectGetMaxY(rect));
     
@@ -65,12 +58,12 @@ CGPoint CGPointIntersectionFromLineToRect(ZZLine line, CGRect rect) {
     
     CGRect biggerRect = CGRectInset(rect, -1, -1);
     
-    CGPoint selectedPoint = CGPointZero;
+    CGPoint selectedPoint = CGPointNotFound;
     CGFloat minDistance = 10000000;
     
     ZZLine lines[4] = {l1, l2, l3, l4};
     for (int i = 0; i < 4; i ++) {
-        ZZLine tl = lines[0];
+        ZZLine tl = lines[i];
         CGPoint interPoint = CGPointIntersectionFromLines(tl, line);
         if (CGRectContainsPoint(biggerRect, interPoint)) {
             CGFloat dist = CGDistanceFromPoints(CGPointMake(line.x, line.y), interPoint);
@@ -82,6 +75,28 @@ CGPoint CGPointIntersectionFromLineToRect(ZZLine line, CGRect rect) {
     }
     return selectedPoint;
 }
+
+CGFloat CGDistanceFromPoints(CGPoint point1, CGPoint point2) {
+    CGFloat dx = point1.x - point2.x;
+    CGFloat dy = point1.y - point2.y;
+    return sqrt(dx * dx + dy * dy);
+}
+
+CGPoint CGPointOffsetVector(CGPoint point, CGPoint vector) {
+    return CGPointMake(point.x + vector.x, point.y + vector.y);
+}
+
+CGPoint CGPointOffset(CGPoint point, CGFloat dx, CGFloat dy) {
+    return CGPointMake(point.x + dx, point.y + dy);
+}
+
+CGPoint CGPointRotateVector(CGPoint vector, CGFloat radius)
+{
+    CGFloat x = vector.x * cos(radius) - vector.y * sin(radius);
+    CGFloat y = vector.x * sin(radius) + vector.y * cos(radius);
+    return CGPointMake(x, y);
+}
+
 
 CGPoint CGPointRotatePoint(CGPoint targetPoint, CGPoint originPoint, CGFloat radius) {
     CGPoint tempVector = CGPointMake(targetPoint.x - originPoint.x, targetPoint.y - originPoint.y);

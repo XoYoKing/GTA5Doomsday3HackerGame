@@ -11,6 +11,7 @@
 
 @implementation LazerParticle {
     CGFloat startZRotation;
+    BOOL drawed;
     __weak NSArray *testObjects;
 }
 
@@ -22,40 +23,25 @@
 }
 
 - (void)run {
-    [self drawAndCrash];
-}
-
-- (void)drawAndCrash {
-    [self removeFromParent];
+    if (drawed) {
+        [self removeFromParent];
+    }
 }
 
 - (void)testWithObjects:(NSArray *)objects {
     if (testObjects) {
         return;
     }
+    if (drawed) {
+        return;
+    }
+    drawed = YES;
     CGRect parentRect = self.parent.frame;
     parentRect.origin = CGPointZero;
     testObjects = objects;
     ZZLine lastLine = ZZLineMake(self.position.x, self.position.y, startZRotation);
-    BaseSprite *lastObject = nil;
-    for (BaseSprite *testObj in testObjects) {
-        if (testObj == lastObject) {
-            continue;
-        }
-        lastObject = testObj;
-        CGPoint hitPoint = CGPointIntersectionFromLineToRect(lastLine, lastObject.frame);
-        if (CGRectContainsPoint(parentRect, hitPoint)) {
-            if ([lastObject isKindOfClass:[BaseReflector class]]) {
-                BaseReflector *reflector = (BaseReflector *)lastObject;
-                ZZLine newLine = [reflector getNewLineWithOldLine:lastLine];
-                hitPoint = CGPointMake(newLine.x, newLine.y);
-            }
-            
-            [self showPoint:hitPoint];
-        } else {
-            // end of lazer
-        }
-    }
+    
+    // 找出上述直线与objects的所有碰撞点，然后挑选最近的点为碰撞点作为下一个的起点
 }
 
 - (void)showPoint:(CGPoint)point {

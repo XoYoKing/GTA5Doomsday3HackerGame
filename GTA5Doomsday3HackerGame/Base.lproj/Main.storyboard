@@ -24,7 +24,7 @@
                                     <constraint firstAttribute="width" constant="64" id="bHi-YH-NDa"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
-                                <state key="normal" title="L">
+                                <state key="normal" title="◁">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -37,7 +37,7 @@
                                     <constraint firstAttribute="width" constant="64" id="kiB-o9-6A0"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
-                                <state key="normal" title="R">
+                                <state key="normal" title="▷">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>

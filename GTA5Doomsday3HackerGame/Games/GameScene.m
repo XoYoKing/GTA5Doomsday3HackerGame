@@ -33,7 +33,14 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(rotationActionNotification:) name:RotationActionNotificatioin object:nil];
     
-    [self loadObjectsFromFile];
+//    [self loadObjectsFromFile];
+    
+    // test line Intersects Rect
+    ZZLine line = ZZLineMake(0, 2, 0);
+    CGRect rect = CGRectMake(-100, -50, 100, 100);
+    BOOL inter = CGRectIntersectsLine(rect, line);
+    CGPoint point = CGPointIntersectionFromRectToLine(rect, line);
+    NSLog(@"inter :%@ POINT: %@", inter ? @"YES" : @"NO", NSStringFromCGPoint(point));
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
