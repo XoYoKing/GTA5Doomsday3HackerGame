@@ -36,8 +36,8 @@
 //    [self loadObjectsFromFile];
     
     // test line Intersects Rect
-    ZZLine line = ZZLineMake(0, 2, 0);
-    CGRect rect = CGRectMake(-100, -50, 100, 100);
+    ZZLine line = ZZLineMake(70, 50, M_PI_4);
+    CGRect rect = CGRectMake(0, 0, 100, 100);
     BOOL inter = CGRectIntersectsLine(rect, line);
     CGPoint point = CGPointIntersectionFromRectToLine(rect, line);
     NSLog(@"inter :%@ POINT: %@", inter ? @"YES" : @"NO", NSStringFromCGPoint(point));

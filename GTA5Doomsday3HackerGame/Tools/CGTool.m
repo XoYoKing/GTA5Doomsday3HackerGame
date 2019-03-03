@@ -61,15 +61,30 @@ CGPoint CGPointIntersectionFromRectToLine(CGRect rect, ZZLine line) {
     CGPoint selectedPoint = CGPointNotFound;
     CGFloat minDistance = 10000000;
     
+    bool isInside = CGRectContainsPoint(rect, CGPointMake(line.x, line.y));
+    
     ZZLine lines[4] = {l1, l2, l3, l4};
     for (int i = 0; i < 4; i ++) {
         ZZLine tl = lines[i];
-        CGPoint interPoint = CGPointIntersectionFromLines(tl, line);
-        if (CGRectContainsPoint(biggerRect, interPoint)) {
-            CGFloat dist = CGDistanceFromPoints(CGPointMake(line.x, line.y), interPoint);
-            if (dist < minDistance) {
-                minDistance = dist;
-                selectedPoint = interPoint;
+        CGPoint intersectPoint = CGPointIntersectionFromLines(tl, line);
+        if (CGRectContainsPoint(biggerRect, intersectPoint)) {
+            
+            // 如果起点在矩形外，那么去距离最近的点便可；若在内，则很根据方向判断
+//            if (isInside) {
+//                // 起点在内，做一个测试的矩形测试一下一下情况
+//                CGRect testRect = CGRectZero;
+//                testRect.origin = intersectPoint;
+//                testRect = CGRectInset(testRect, -1, -1);
+//                if (CGRectIntersectsLine(testRect, line)) {
+//                    selectedPoint = intersectPoint;
+//                    break;
+//                }
+//            } else {
+                CGFloat dist = CGDistanceFromPoints(CGPointMake(line.x, line.y), intersectPoint);
+                if (dist < minDistance) {
+                    minDistance = dist;
+                    selectedPoint = intersectPoint;
+//                }
             }
         }
     }
