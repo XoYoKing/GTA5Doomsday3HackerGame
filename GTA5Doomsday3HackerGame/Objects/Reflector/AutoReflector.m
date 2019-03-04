@@ -18,7 +18,8 @@
 }
 
 + (instancetype)autoReflectorWithPosition:(CGPoint)position {
-    AutoReflector *reflec = [AutoReflector spriteNodeWithTexture:[MyTextureAtlas textureNamed:@"AutoReflector"] size:OBJ_BLOCK_SIZE];
+    AutoReflector *reflec = [AutoReflector spriteNodeWithTexture:[MyTextureAtlas textureNamed:@"AutoReflector"]
+                                                            size:OBJ_BLOCK_SIZE];
     reflec.position = position;
     [reflec startRotate];
     return reflec;
@@ -29,6 +30,14 @@
     _timer = [NSTimer db_scheduledTimerWithTimeInterval:1 repeats:YES block:^(NSTimer *timer) {
         weakSelf.zRotation += M_PI_4;
     }];
+}
+
+- (ZZLine)getNewLineWithOldLine:(ZZLine)oldLine {
+    CGFloat shootingOffset = OBJ_BLOCK_WIDTH / 2 + 20 * ZZRandom_0_1() + 4;
+    CGFloat zRota = self.zRotation;
+    CGPoint shootingVector = CGPointMake(shootingOffset * cos(zRota), shootingOffset * sin(zRota));
+    CGPoint shootingPoint = CGPointOffsetVector(self.position, shootingVector);
+    return ZZLineMake(shootingPoint.x, shootingPoint.y, zRota);
 }
 
 - (void)testWithObject:(BaseSprite *)object {

@@ -33,9 +33,10 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(rotationActionNotification:) name:RotationActionNotificatioin object:nil];
     
-//    [self loadObjectsFromFile];
+    [self loadObjectsFromFile];
     
     // test line Intersects Rect
+/**
     ZZLine line = ZZLineMake(150, 150, M_PI + M_PI / 6);
     CGRect rect = CGRectMake(100, 100, 100, 100);
     BOOL inter = CGRectIntersectsLine(rect, line);
@@ -56,6 +57,7 @@
     intersectSpr.position = point;
     intersectSpr.zPosition = 100;
     [self addChild:intersectSpr];
+//*/
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -113,7 +115,7 @@
 }
 
 - (void)loadObjectsFromFile {
-    NSData *dataFromFile = [NSData dataWithContentsOfFile:[NSBundle.mainBundle pathForResource:@"Mission01" ofType:@"json"]];
+    NSData *dataFromFile = [NSData dataWithContentsOfFile:[NSBundle.mainBundle pathForResource:@"mission01" ofType:@"json"]];
     NSArray *objects = [NSJSONSerialization JSONObjectWithData:dataFromFile options:NSJSONReadingAllowFragments error:nil];
 //    NSLog(@"%@", objects);
     

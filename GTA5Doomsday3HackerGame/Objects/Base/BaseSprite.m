@@ -29,4 +29,12 @@
     return CGRectIntersectsRect(self.frame, node.frame);
 }
 
+- (CGRect)frame {
+    CGRect rect = CGRectZero;
+    rect.origin = self.position;
+    return CGRectInset(rect, -self.size.width / 2, -self.size.height / 2);
+    
+    // 原始的frame会根据scale、zRotation缩放。。。
+}
+
 @end

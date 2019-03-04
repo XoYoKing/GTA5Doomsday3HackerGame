@@ -27,11 +27,12 @@ CGFloat CGFloatABS(CGFloat value);
 #define CGPointNotFound CGPointMake(-10000000, -10000000)
 
 ZZLine ZZLineMake(CGFloat x, CGFloat y, CGFloat alpha);
+bool ZZLineEqualsToLine(ZZLine line1, ZZLine line2);
 
 bool CGRectIntersectsLine(CGRect rect, ZZLine line); // 检测直线是否交矩形，仅判断alpha方向
 CGPoint CGPointIntersectionFromLines(ZZLine line1, ZZLine line2); // 两条直线的交点
 CGPoint CGPointIntersectionFromRectToLine(CGRect rect, ZZLine line); // 直线与矩形的焦点，取距离最近的那个点
-
+CGPoint CGPointCenterFromPoints(CGPoint point1, CGPoint point2); // 求中点
 CGFloat CGDistanceFromPoints(CGPoint point1, CGPoint point2); // 两点间的距离
 CGPoint CGPointOffsetVector(CGPoint point, CGPoint vector); // 点偏移
 CGPoint CGPointOffset(CGPoint point, CGFloat dx, CGFloat dy); // 点偏移2

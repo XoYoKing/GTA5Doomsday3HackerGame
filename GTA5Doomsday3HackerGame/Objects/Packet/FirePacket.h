@@ -6,11 +6,11 @@
 //  Copyright © 2019 Jam. All rights reserved.
 //
 
-#import "DataPacket.h"
+#import "BasePacket.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface FirePacket : DataPacket
+@interface FirePacket : BasePacket
 
 + (instancetype)firePacketWithPosition:(CGPoint)position;
 

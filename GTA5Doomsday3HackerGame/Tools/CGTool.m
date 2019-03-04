@@ -23,6 +23,10 @@ ZZLine ZZLineMake(CGFloat x, CGFloat y, CGFloat alpha) {
     return line;
 }
 
+bool ZZLineEqualsToLine(ZZLine line1, ZZLine line2) {
+    return line1.x == line2.x && line1.y == line2.y && line1.alpha == line2.alpha;
+}
+
 bool CGRectIntersectsLine(CGRect rect, ZZLine line) {
     CGFloat testStep = rect.size.height > rect.size.width ? rect.size.width : rect.size.height; // 用矩形的最小边长来测试
     if (CGRectContainsPoint(rect, CGPointMake(line.x, line.y))) {
@@ -102,6 +106,10 @@ CGPoint CGPointIntersectionFromRectToLine(CGRect rect, ZZLine line) {
         }
     }
     return selectedPoint;
+}
+
+CGPoint CGPointCenterFromPoints(CGPoint point1, CGPoint point2) {
+    return CGPointMake((point1.x + point2.x) / 2, (point1.y + point2.y) / 2);
 }
 
 CGFloat CGDistanceFromPoints(CGPoint point1, CGPoint point2) {

@@ -6,15 +6,13 @@
 //  Copyright © 2019 Jam. All rights reserved.
 //
 
-#import "BaseSprite.h"
+#import "BasePacket.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface DataPacket : BaseSprite
+@interface DataPacket : BasePacket
 
 + (instancetype)dataPacketWithPosition:(CGPoint)position;
-
-@property (nonatomic, strong, readonly) SKTexture *explosionTexture;
 
 @end
 
