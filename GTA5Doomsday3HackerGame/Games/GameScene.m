@@ -115,7 +115,7 @@
 }
 
 - (void)loadObjectsFromFile {
-    NSData *dataFromFile = [NSData dataWithContentsOfFile:[NSBundle.mainBundle pathForResource:@"mission01" ofType:@"json"]];
+    NSData *dataFromFile = [NSData dataWithContentsOfFile:[NSBundle.mainBundle pathForResource:@"test" ofType:@"json"]];
     NSArray *objects = [NSJSONSerialization JSONObjectWithData:dataFromFile options:NSJSONReadingAllowFragments error:nil];
 //    NSLog(@"%@", objects);
     

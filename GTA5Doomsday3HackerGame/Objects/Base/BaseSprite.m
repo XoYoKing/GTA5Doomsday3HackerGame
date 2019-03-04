@@ -19,12 +19,6 @@
     // do nothing
 }
 
-- (void)testWithObject:(BaseSprite *)object {
-    if ([self intersectsNode:object] && [object isMemberOfClass:[LazerParticle class]] && ![self isMemberOfClass:[LazerParticle class]]) {
-        [object crash];
-    }
-}
-
 - (BOOL)intersectsNode:(SKNode *)node {
     return CGRectIntersectsRect(self.frame, node.frame);
 }

@@ -43,28 +43,29 @@
     testObjects = objects;
     
     // 找出上述直线与objects的所有碰撞点，然后挑选最近的点为碰撞点作为下一个的起点
-    ZZLine lastLine = ZZLineMake(self.position.x, self.position.y, startZRotation);
-    BaseSprite *lastHitSpr = nil;
+    ZZLine lastLine = ZZLineMake(self.position.x, self.position.y, startZRotation); // 射线和反射线
+    BaseSprite *lastHitSpr = nil; // 撞到的物体
+    
     BOOL ended = NO;
     NSInteger testTime = 0;
-    
     while (!ended) {
         testTime ++;
-        if (testTime > 100) {
+        if (testTime > 100) { // 防止死循环
             ended = YES;
+            break;
         }
         CGFloat testMinDistance = 1000000;
         CGPoint thisHitPoint = CGPointNotFound;
         NSMutableArray *objectsWithoutLastOne = [NSMutableArray arrayWithArray:testObjects];
         if (lastHitSpr) {
-            [objectsWithoutLastOne removeObject:lastHitSpr];
+            [objectsWithoutLastOne removeObject:lastHitSpr]; // 移除上次撞过的物体（通常是Reflector），防止重复检测
         }
         BaseSprite *thisHitSpr = nil;
         for (BaseSprite *tSpr in objectsWithoutLastOne) {
             CGRect testRect = tSpr.frame;
             if (CGRectIntersectsLine(testRect, lastLine)) { // 看看他们是否有机会撞上
                 CGPoint hitPoint = CGPointIntersectionFromRectToLine(testRect, lastLine);
-                if ([tSpr isKindOfClass:[BaseReflector class]]) { // 反射与特殊拐弯
+                if ([tSpr isKindOfClass:[BaseReflector class]]) { // Reflector反应
                     ZZLine thisReflectedLine = [((BaseReflector*)tSpr) getNewLineWithOldLine:lastLine];
                     if (ZZLineEqualsToLine(thisReflectedLine, lastLine)) { // 无反射现象就直接下一个
                         continue;

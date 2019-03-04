@@ -24,21 +24,7 @@
     } else {
         reflec.zRotation = 0;
     }
-    [reflec addHiddenChildren];
     return reflec;
-}
-
-- (void)addHiddenChildren {
-    NSInteger count = 2;
-    CGFloat width = self.size.width;
-    CGFloat widthForBlock = width / count;
-    CGFloat halfWidth = width / 2;
-    CGFloat halfWidthForBlock = widthForBlock / 2;
-    for (NSInteger i = 0; i < count; i ++) {
-        SKSpriteNode *hiddenNode = [SKSpriteNode spriteNodeWithColor:[SKColor clearColor] size:CGSizeMake(widthForBlock, widthForBlock)];
-        hiddenNode.position = CGPointMake(-halfWidth + i * widthForBlock + halfWidthForBlock, 0);
-        [self addChild:hiddenNode];
-    }
 }
 
 - (void)rotateWithRotation:(ReflectorRotation)reflecRotation {

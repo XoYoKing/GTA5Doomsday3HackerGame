@@ -28,8 +28,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)run;
 - (void)crash;
 
-- (void)testWithObject:(BaseSprite *)object;
-
 @end
 
 NS_ASSUME_NONNULL_END

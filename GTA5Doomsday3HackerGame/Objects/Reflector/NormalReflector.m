@@ -9,9 +9,7 @@
 #import "NormalReflector.h"
 #import "LazerParticle.h"
 
-@implementation NormalReflector {
-    DirectionFacing _facing;
-}
+@implementation NormalReflector
 
 + (instancetype)normalReflectorWithFacing:(DirectionFacing)facing position:(CGPoint)position {
     NormalReflector *reflec = [NormalReflector spriteNodeWithTexture:[MyTextureAtlas textureNamed:@"NormalReflector"] size:OBJ_BLOCK_SIZE];
@@ -26,28 +24,7 @@
     } else {
         reflec.zRotation = 0;
     }
-//    reflec.zRotation = reflec.zRotation - M_PI/3;
-    reflec -> _facing = facing;
-    
-    [reflec addHiddenChildren];
-    
     return reflec;
-}
-
-- (void)addHiddenChildren {
-    NSInteger rows = 3;
-    CGFloat width = self.size.width;
-    CGFloat widthForBlock = width / rows;
-    CGFloat halfWidth = width / 2;
-    CGFloat halfWidthForBlock = widthForBlock / 2;
-    for (NSInteger i = 0; i < rows; i ++) {
-        NSInteger blocksForRow = rows - i;
-        for (NSInteger c = 0; c < blocksForRow; c++) {
-            SKSpriteNode *hiddenNode = [SKSpriteNode spriteNodeWithColor:[SKColor clearColor] size:CGSizeMake(widthForBlock, widthForBlock)];
-            [self addChild:hiddenNode];
-            hiddenNode.position = CGPointMake(-halfWidth + i * widthForBlock + halfWidthForBlock, -halfWidth + c * widthForBlock + halfWidthForBlock);
-        }
-    }
 }
 
 - (CGFloat)realZRotation {

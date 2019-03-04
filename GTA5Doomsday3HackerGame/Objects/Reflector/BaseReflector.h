@@ -15,9 +15,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign, readonly) CGFloat realZRotation;
 
-- (void)addHiddenChildren;
-- (BOOL)simpleIntersectsNode:(SKNode *)node;
-
 - (ZZLine)getNewLineWithOldLine:(ZZLine)oldLine;
 
 @end
