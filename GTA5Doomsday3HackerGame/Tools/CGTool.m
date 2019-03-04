@@ -8,6 +8,13 @@
 
 #include "CGTool.h"
 
+CGFloat CGFloatABS(CGFloat value) {
+    if (value < 0) {
+        value = value * -1;
+    }
+    return value;
+}
+
 ZZLine ZZLineMake(CGFloat x, CGFloat y, CGFloat alpha) {
     ZZLine line;
     line.x = x;
@@ -38,13 +45,19 @@ CGPoint CGPointIntersectionFromLines(ZZLine line1, ZZLine line2) {
     CGFloat k2 = tan(line2.alpha);
     CGFloat c2 = line2.y - k2 * line2.x;
     
-    if (k1 == k2) {
+    if (k1 == k2) { // 平行的不存在交点
         return CGPointNotFound;
     }
+    // 如果k无穷大或0，则是特殊情况
     
     CGFloat xValue = (c2 - c1) / (k1 - k2);
-    CGFloat yValue = k1 * xValue + c1;
-    return CGPointMake(round(xValue), round(yValue)); // 四舍五入
+    CGFloat yValue;
+    if (CGFloatABS(k1) > CGFloatABS(k2)) { // 选一个斜率小的来计算y值
+        yValue = k2 * xValue + c2;
+    } else {
+        yValue = k1 * xValue + c1;
+    }
+    return CGPointMake((xValue), (yValue)); // 四舍五入
 }
 
 CGPoint CGPointIntersectionFromRectToLine(CGRect rect, ZZLine line) {
@@ -62,29 +75,29 @@ CGPoint CGPointIntersectionFromRectToLine(CGRect rect, ZZLine line) {
     CGFloat minDistance = 10000000;
     
     bool isInside = CGRectContainsPoint(rect, CGPointMake(line.x, line.y));
-    
+//    isInside = NO;
     ZZLine lines[4] = {l1, l2, l3, l4};
     for (int i = 0; i < 4; i ++) {
         ZZLine tl = lines[i];
         CGPoint intersectPoint = CGPointIntersectionFromLines(tl, line);
         if (CGRectContainsPoint(biggerRect, intersectPoint)) {
             
-            // 如果起点在矩形外，那么去距离最近的点便可；若在内，则很根据方向判断
-//            if (isInside) {
-//                // 起点在内，做一个测试的矩形测试一下一下情况
-//                CGRect testRect = CGRectZero;
-//                testRect.origin = intersectPoint;
-//                testRect = CGRectInset(testRect, -1, -1);
-//                if (CGRectIntersectsLine(testRect, line)) {
-//                    selectedPoint = intersectPoint;
-//                    break;
-//                }
-//            } else {
+            // 如果起点在矩形外，那么去距离最近的点便可；若在内，则根据方向判断
+            if (isInside) {
+                // 起点在内，做一个测试的矩形测试一下一下情况
+                CGRect testRect = CGRectZero;
+                testRect.origin = intersectPoint;
+                testRect = CGRectInset(testRect, -1, -1);
+                if (CGRectIntersectsLine(testRect, line)) {
+                    selectedPoint = intersectPoint;
+                    break;
+                }
+            } else {
                 CGFloat dist = CGDistanceFromPoints(CGPointMake(line.x, line.y), intersectPoint);
                 if (dist < minDistance) {
                     minDistance = dist;
                     selectedPoint = intersectPoint;
-//                }
+                }
             }
         }
     }

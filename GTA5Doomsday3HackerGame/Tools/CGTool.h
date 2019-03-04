@@ -22,7 +22,9 @@ struct ZZLine {
 };
 typedef struct ZZLine ZZLine;
 
-#define CGPointNotFound CGPointMake(-100000, -100000)
+CGFloat CGFloatABS(CGFloat value);
+
+#define CGPointNotFound CGPointMake(-10000000, -10000000)
 
 ZZLine ZZLineMake(CGFloat x, CGFloat y, CGFloat alpha);
 

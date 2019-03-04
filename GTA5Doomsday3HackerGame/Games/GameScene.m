@@ -36,11 +36,26 @@
 //    [self loadObjectsFromFile];
     
     // test line Intersects Rect
-    ZZLine line = ZZLineMake(70, 50, M_PI_4);
-    CGRect rect = CGRectMake(0, 0, 100, 100);
+    ZZLine line = ZZLineMake(150, 150, M_PI + M_PI / 6);
+    CGRect rect = CGRectMake(100, 100, 100, 100);
     BOOL inter = CGRectIntersectsLine(rect, line);
     CGPoint point = CGPointIntersectionFromRectToLine(rect, line);
     NSLog(@"inter :%@ POINT: %@", inter ? @"YES" : @"NO", NSStringFromCGPoint(point));
+    
+    SKSpriteNode *rectSpr = [SKSpriteNode spriteNodeWithColor:[SKColor grayColor] size:rect.size];
+    rectSpr.position = CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect));
+    [self addChild:rectSpr];
+    
+    SKSpriteNode *pointerSpr = [SKSpriteNode spriteNodeWithTexture:[MyTextureAtlas textureNamed:@"Pointer"]];
+    pointerSpr.position = CGPointMake(line.x, line.y);
+    pointerSpr.zRotation = line.alpha;
+    pointerSpr.zPosition = 50;
+    [self addChild:pointerSpr];
+    
+    SKSpriteNode *intersectSpr = [SKSpriteNode spriteNodeWithColor:[SKColor redColor] size:CGSizeMake(4, 4)];
+    intersectSpr.position = point;
+    intersectSpr.zPosition = 100;
+    [self addChild:intersectSpr];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
@@ -71,11 +86,13 @@
     
     NSArray *children = self.children;
     for (BaseSprite *node in children) {
-        [node run];
-        if ([node isMemberOfClass:[LazerParticle class]]) {
-            [lazers addObject:node];
-        } else if (node != currentIndicator){
-            [others addObject:node];
+        if ([node isKindOfClass:[BaseSprite class]]) {
+            [node run];
+            if ([node isMemberOfClass:[LazerParticle class]]) {
+                [lazers addObject:node];
+            } else if (node != currentIndicator){
+                [others addObject:node];
+            }
         }
     }
     
