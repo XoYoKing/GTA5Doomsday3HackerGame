@@ -7,6 +7,7 @@
 //
 
 #import "FirePacket.h"
+#import "LazerSource.h"
 
 @implementation FirePacket
 
@@ -19,6 +20,16 @@
 
 - (SKTexture *)explosionTexture {
     return [MyTextureAtlas textureNamed:@"RedExplosion"];
+}
+
+- (void)crash {
+    NSArray *parentsChildren = self.parent.children;
+    for (LazerSource *lazSour in parentsChildren) {
+        if ([lazSour isMemberOfClass:[LazerSource class]]) {
+            [lazSour stopShootingForAWhile]; // 打爆了红点要稍微暂停一下下
+        }
+    }
+    [super crash];
 }
 
 @end

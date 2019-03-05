@@ -9,7 +9,19 @@
 #import "LazerSource.h"
 #import "LazerParticle.h"
 
-@implementation LazerSource
+static BOOL _turnedRed = NO;
+
+@implementation LazerSource {
+    BOOL stopped;
+}
+
++ (void)setTurnedRed:(BOOL)turnedRed {
+    _turnedRed = turnedRed;
+}
+
++ (BOOL)turnedRed {
+    return _turnedRed;
+}
 
 + (instancetype)lazerSourceWithFacing:(DirectionFacing)facing position:(CGPoint)position {
     LazerSource *sour = [LazerSource spriteNodeWithTexture:[MyTextureAtlas textureNamed:@"LazerSource"] size:OBJ_BLOCK_SIZE];
@@ -27,6 +39,9 @@
 }
 
 - (void)run {
+    if (stopped) {
+        return;
+    }
     CGFloat shootingOffset = self.size.width / 2 + 4;
     CGFloat zRota = self.zRotation;
     CGPoint shootingVector = CGPointMake(shootingOffset * cos(zRota), shootingOffset * sin(zRota));
@@ -35,6 +50,13 @@
     // shoot a Particle
     LazerParticle *par = [LazerParticle lazerParticleWithZRotation:zRota position:shootingPoint];
     [self.parent addChild:par];
+}
+
+- (void)stopShootingForAWhile {
+    stopped = YES;
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self->stopped = NO;
+    });
 }
 
 @end

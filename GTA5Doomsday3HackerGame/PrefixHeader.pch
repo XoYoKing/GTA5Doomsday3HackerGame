@@ -16,7 +16,7 @@
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
 // sizes
-#define OBJ_BLOCK_WIDTH (26)
+#define OBJ_BLOCK_WIDTH (26.0 * UIScreen.mainScreen.bounds.size.height / 320.0)
 #define OBJ_BLOCK_SIZE (CGSizeMake(OBJ_BLOCK_WIDTH, OBJ_BLOCK_WIDTH))
 
 // counts

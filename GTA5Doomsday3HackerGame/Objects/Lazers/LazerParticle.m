@@ -6,10 +6,12 @@
 //  Copyright © 2019 Jam. All rights reserved.
 //
 
+#import "LazerSource.h"
 #import "LazerParticle.h"
 #import "BaseReflector.h"
 #import "AutoReflector.h"
 #import "BasePacket.h"
+#import "FirePacket.h"
 
 @implementation LazerParticle {
     CGFloat startZRotation;
@@ -63,8 +65,8 @@
         BaseSprite *thisHitSpr = nil;
         for (BaseSprite *tSpr in objectsWithoutLastOne) {
             CGRect testRect = tSpr.frame;
-            if (CGRectIntersectsLine(testRect, lastLine)) { // 看看他们是否有机会撞上
-                CGPoint hitPoint = CGPointIntersectionFromRectToLine(testRect, lastLine);
+            CGPoint hitPoint = CGPointIntersectionFromRectToLine(testRect, lastLine);
+            if (!CGPointEqualToPoint(hitPoint, CGPointNotFound)) { // 看看他们是否有机会撞上
                 if ([tSpr isKindOfClass:[BaseReflector class]]) { // Reflector反应
                     ZZLine thisReflectedLine = [((BaseReflector*)tSpr) getNewLineWithOldLine:lastLine];
                     if (ZZLineEqualsToLine(thisReflectedLine, lastLine)) { // 无反射现象就直接下一个
@@ -77,6 +79,7 @@
                         hitPoint = CGPointMake(thisReflectedLine.x, thisReflectedLine.y);
                     }
                 }
+//                [self showPoint:hitPoint]; // 显示可能的所有碰撞点
                 CGFloat thisDistance = CGDistanceFromPoints(CGPointMake(lastLine.x, lastLine.y), hitPoint);
                 if (thisDistance < testMinDistance) {
                     testMinDistance = thisDistance;
@@ -100,6 +103,8 @@
             }
             ended = YES;
             [self drawSparkAtPoint:thisHitPoint];
+            
+            LazerSource.turnedRed = [thisHitSpr isMemberOfClass:[FirePacket class]]; // 撞到红点要变成红色
         }
 //        [self showPoint:thisHitPoint];
     }
@@ -122,6 +127,8 @@
     lazerNode.position = center;
     lazerNode.zRotation = zRotation;
     
+    [self blendColorWithSprite:lazerNode];
+    
     [self addChild:lazerNode];
 }
 
@@ -132,17 +139,24 @@
     lazerSpark.position = atPoint;
     lazerSpark.zRotation = M_PI * ZZRandom_1_0_1();
     
+    [self blendColorWithSprite:lazerSpark];
+    
     [self addChild:lazerSpark];
 }
 
 - (void)showPoint:(CGPoint)point {
     SKSpriteNode *testPointSpr = [SKSpriteNode spriteNodeWithColor:[SKColor redColor] size:CGSizeMake(4, 4)];
-    testPointSpr.position = point;
+    testPointSpr.position = CGPointOffset(point, -self.position.x, -self.position.y);
     testPointSpr.zPosition = 10000;
     [self addChild:testPointSpr];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [testPointSpr removeFromParent];
     });
+}
+
+- (void)blendColorWithSprite:(SKSpriteNode *)sprite {
+    sprite.color = LazerSource.turnedRed ? [SKColor redColor] : [SKColor cyanColor];
+    sprite.colorBlendFactor = 1;
 }
 
 @end

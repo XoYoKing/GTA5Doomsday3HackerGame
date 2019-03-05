@@ -12,7 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LazerSource : BaseSprite
 
+@property (nonatomic, assign, class) BOOL turnedRed;
+
 + (instancetype)lazerSourceWithFacing:(DirectionFacing)facing position:(CGPoint)position;
+
+- (void)stopShootingForAWhile;
 
 @end
 

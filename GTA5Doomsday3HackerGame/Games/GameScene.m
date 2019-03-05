@@ -34,10 +34,10 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(rotationActionNotification:) name:RotationActionNotificatioin object:nil];
     
     [self loadObjectsFromFile];
-    
+
     // test line Intersects Rect
 /**
-    ZZLine line = ZZLineMake(150, 150, M_PI + M_PI / 6);
+    ZZLine line = ZZLineMake(0, 200, M_PI / 4);
     CGRect rect = CGRectMake(100, 100, 100, 100);
     BOOL inter = CGRectIntersectsLine(rect, line);
     CGPoint point = CGPointIntersectionFromRectToLine(rect, line);

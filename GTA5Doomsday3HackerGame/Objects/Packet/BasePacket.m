@@ -44,10 +44,8 @@ const NSInteger hitsToDie = 200;
 
 - (CGRect)frame {
     CGRect rect = super.frame;
-    CGFloat shrinkValue = rect.size.width * 0.05;
+    CGFloat shrinkValue = rect.size.width * 0.1;
     return CGRectInset(rect, shrinkValue, shrinkValue);
-
-    // 原始的frame会根据scale、zRotation缩放。。。
 }
 
 @end

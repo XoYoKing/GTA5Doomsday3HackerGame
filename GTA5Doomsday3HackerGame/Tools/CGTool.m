@@ -28,17 +28,7 @@ bool ZZLineEqualsToLine(ZZLine line1, ZZLine line2) {
 }
 
 bool CGRectIntersectsLine(CGRect rect, ZZLine line) {
-    CGFloat testStep = rect.size.height > rect.size.width ? rect.size.width : rect.size.height; // 用矩形的最小边长来测试
-    if (CGRectContainsPoint(rect, CGPointMake(line.x, line.y))) {
-        return true;
-    }
-    for (CGFloat currentStep = 0; currentStep < 10000; currentStep += testStep) {
-        CGPoint point = CGPointMake(line.x + currentStep * cos(line.alpha), line.y + currentStep * sin(line.alpha));
-        if (CGRectContainsPoint(rect, point)) {
-            return true;
-        }
-    }
-    return false;
+    return !CGPointEqualToPoint(CGPointIntersectionFromRectToLine(rect, line), CGPointNotFound);
 }
 
 CGPoint CGPointIntersectionFromLines(ZZLine line1, ZZLine line2) {
@@ -77,27 +67,18 @@ CGPoint CGPointIntersectionFromRectToLine(CGRect rect, ZZLine line) {
     
     CGPoint selectedPoint = CGPointNotFound;
     CGFloat minDistance = 10000000;
-    
-    bool isInside = CGRectContainsPoint(rect, CGPointMake(line.x, line.y));
-//    isInside = NO;
+
     ZZLine lines[4] = {l1, l2, l3, l4};
     for (int i = 0; i < 4; i ++) {
         ZZLine tl = lines[i];
         CGPoint intersectPoint = CGPointIntersectionFromLines(tl, line);
-        if (CGRectContainsPoint(biggerRect, intersectPoint)) {
+        if (CGRectContainsPoint(biggerRect, intersectPoint)) { // 碰撞点是否在框内
+            // 判断点的方向是否正确，再判断点的距离是否最近
+            CGFloat dist = CGDistanceFromPoints(CGPointMake(line.x, line.y), intersectPoint);
+            CGFloat cosdx = (intersectPoint.x - line.x) / dist;
+            CGFloat sindy = (intersectPoint.y - line.y) / dist;
             
-            // 如果起点在矩形外，那么去距离最近的点便可；若在内，则根据方向判断
-            if (isInside) {
-                // 起点在内，做一个测试的矩形测试一下一下情况
-                CGRect testRect = CGRectZero;
-                testRect.origin = intersectPoint;
-                testRect = CGRectInset(testRect, -1, -1);
-                if (CGRectIntersectsLine(testRect, line)) {
-                    selectedPoint = intersectPoint;
-                    break;
-                }
-            } else {
-                CGFloat dist = CGDistanceFromPoints(CGPointMake(line.x, line.y), intersectPoint);
+            if ((cosdx * cos(line.alpha)) >= 0 && (sindy * sin(line.alpha)) >= 0) {
                 if (dist < minDistance) {
                     minDistance = dist;
                     selectedPoint = intersectPoint;
