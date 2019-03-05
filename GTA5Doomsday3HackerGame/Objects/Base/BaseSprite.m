@@ -11,6 +11,12 @@
 
 @implementation BaseSprite
 
+//- (void)dealloc {
+//    if (![self isMemberOfClass:[LazerParticle class]]) {
+//        NSLog(@"dealloc: %@", self);
+//    }
+//}
+
 - (void)run {
     // do nothing
 }

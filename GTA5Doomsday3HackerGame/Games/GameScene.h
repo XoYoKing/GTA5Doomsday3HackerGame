@@ -8,6 +8,15 @@
 
 #import <SpriteKit/SpriteKit.h>
 
+typedef NS_ENUM(NSInteger, GameState) {
+    GameStateFail = -1,
+    GameStatePlaying = 0,
+    GameStateSuccess = 1,
+};
+
 @interface GameScene : SKScene
+
+@property (nonatomic, readonly) NSInteger leftLifes;
+@property (nonatomic, readonly) NSInteger leftSeconds;
 
 @end

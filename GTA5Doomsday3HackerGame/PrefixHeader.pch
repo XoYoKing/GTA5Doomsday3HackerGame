@@ -31,6 +31,8 @@
 #define ZZRandom_1_0_1() (ZZRandom_0_1() * (arc4random() % 2 == 0 ? 1 : -1))
 
 // notificationNames
-#define RotationActionNotificatioin @"RotationActionNotificatioin"
+#define RotationActionNotification @"RotationActionNotification"
+#define FirePacketExplosedNotification @"FirePacketExplosedNotification"
+#define GamingInformationNotification @"GamingInformationNotification"
 
 #endif /* PrefixHeader_pch */

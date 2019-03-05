@@ -9,7 +9,9 @@
 #import "FirePacket.h"
 #import "LazerSource.h"
 
-@implementation FirePacket
+@implementation FirePacket {
+    BOOL postNotification;
+}
 
 + (instancetype)firePacketWithPosition:(CGPoint)position {
     FirePacket *pack = [FirePacket spriteNodeWithTexture:[MyTextureAtlas textureNamed:@"FirePacket"] size:OBJ_BLOCK_SIZE];
@@ -30,6 +32,12 @@
         }
     }
     [super crash];
+    
+    if (postNotification) {
+        return;
+    }
+    postNotification = YES;
+    [[NSNotificationCenter defaultCenter] postNotificationName:FirePacketExplosedNotification object:nil];
 }
 
 @end

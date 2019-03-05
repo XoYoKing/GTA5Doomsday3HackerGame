@@ -17,21 +17,40 @@
 #import "FirePacket.h"
 #import "AutoReflector.h"
 
+#import "NSTimer+HICategory.h"
+
 @implementation GameScene {
-    CFTimeInterval lastUpdateTime;
     ManualReflector *currentManualReflector;
     BaseSprite *currentIndicator;
+    
+    NSInteger _leftLifes;
+    NSInteger _leftSeconds;
+    GameState _currentGameState;
+    
+    NSTimer *_timer;
+    
+    NSInteger totalDataPacketCount;
 }
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [_timer invalidate];
+    NSLog(@"dealloc: %@", self);
 }
 
 - (void)didMoveToView:(SKView *)view {
-    // Setup your scene here
+    // init
+    _leftLifes = 2;
+    _leftSeconds = 300;
+    _currentGameState = GameStatePlaying;
+    __weak typeof(self) weakSelf = self;
+    _timer = [NSTimer db_scheduledTimerWithTimeInterval:1 repeats:YES block:^(NSTimer *timer) {
+        [weakSelf reduceLeftSeconds];
+    }];
     self.backgroundColor = view.backgroundColor;
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(rotationActionNotification:) name:RotationActionNotificatioin object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(rotationActionNotification:) name:RotationActionNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didHitFirePacketNotification:) name:FirePacketExplosedNotification object:nil];
     
     [self loadObjectsFromFile];
 
@@ -60,6 +79,10 @@
 //*/
 }
 
+- (void)reduceLeftSeconds {
+    _leftSeconds --;
+}
+
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     UITouch *touch = touches.anyObject;
     CGPoint pointInSelf = [touch locationInNode:self];
@@ -74,36 +97,6 @@
     }
 }
 
-- (void)rotationActionNotification:(NSNotification *)notification {
-    NSNumber *num = notification.object;
-    [currentManualReflector rotateWithRotation:num.integerValue];
-}
-
-- (void)update:(CFTimeInterval)currentTime {
-    
-    lastUpdateTime = currentTime;
-    
-    NSMutableArray *lazers = [NSMutableArray array];
-    NSMutableArray *others = [NSMutableArray array];
-    
-    NSArray *children = self.children;
-    for (BaseSprite *node in children) {
-        if ([node isKindOfClass:[BaseSprite class]]) {
-            [node run];
-            if ([node isMemberOfClass:[LazerParticle class]]) {
-                [lazers addObject:node];
-            } else if (node != currentIndicator){
-                [others addObject:node];
-            }
-        }
-    }
-    
-    // test hits
-    for (LazerParticle *par in lazers) {
-        [par testWithObjects:others];
-    }
-}
-
 - (void)setCurrentManualReflector:(ManualReflector *)reflector {
     currentManualReflector = reflector;
     if (currentIndicator == nil) {
@@ -115,9 +108,11 @@
 }
 
 - (void)loadObjectsFromFile {
+    
+#warning please add more json files
     NSData *dataFromFile = [NSData dataWithContentsOfFile:[NSBundle.mainBundle pathForResource:@"mission01" ofType:@"json"]];
     NSArray *objects = [NSJSONSerialization JSONObjectWithData:dataFromFile options:NSJSONReadingAllowFragments error:nil];
-//    NSLog(@"%@", objects);
+    //    NSLog(@"%@", objects);
     
     for (NSDictionary *dic in objects) {
         NSString *name = [dic valueForKey:@"name"];
@@ -143,9 +138,115 @@
             [self addChild:[NormalBlock normalBlockWithFacing:face position:realPosition type:type]];
         } else if (class == [DataPacket class]) {
             [self addChild:[DataPacket dataPacketWithPosition:realPosition]];
+            totalDataPacketCount ++;
         } else if (class == [FirePacket class]) {
             [self addChild:[FirePacket firePacketWithPosition:realPosition]];
         }
+    }
+}
+
+#pragma mark - getter
+
+- (NSInteger)leftSeconds {
+    return _leftSeconds;
+}
+
+- (NSInteger)leftLifes {
+    return _leftLifes;
+}
+
+#pragma mark - Notifications
+
+- (void)rotationActionNotification:(NSNotification *)notification {
+    NSNumber *num = notification.object;
+    [currentManualReflector rotateWithRotation:num.integerValue];
+}
+
+- (void)didHitFirePacketNotification:(NSNotification *)notification {
+    _leftLifes--;
+}
+
+#pragma mark - Game logic
+
+- (void)update:(CFTimeInterval)currentTime {
+    
+    if (_currentGameState != GameStatePlaying) {
+        return;
+    }
+    
+    NSMutableArray *lazers = [NSMutableArray array];
+    NSMutableArray *others = [NSMutableArray array];
+    
+    NSArray *children = self.children;
+    for (BaseSprite *node in children) {
+        if ([node isKindOfClass:[BaseSprite class]]) {
+            [node run];
+            if ([node isMemberOfClass:[LazerParticle class]]) {
+                [lazers addObject:node];
+            } else if (node != currentIndicator){
+                [others addObject:node];
+            }
+        }
+    }
+    
+    // test hits
+    for (LazerParticle *par in lazers) {
+        [par testWithObjects:others];
+    }
+    
+    [self postCurrentGamingInfo];
+    [self checkIfGameOver];
+}
+
+- (void)postCurrentGamingInfo {
+    [[NSNotificationCenter defaultCenter] postNotificationName:GamingInformationNotification object:self];
+}
+
+- (void)checkIfGameOver {
+    if (_leftSeconds <= 0 || _leftLifes <= 0) {
+        _currentGameState = GameStateFail;
+    } else if (totalDataPacketCount > 0){
+        NSInteger leftDataPacketCount = 0;
+        NSArray *myChildren = self.children;
+        for (SKNode *node in myChildren) {
+            if ([node isMemberOfClass:[DataPacket class]]) {
+                leftDataPacketCount ++;
+            }
+        }
+        if (leftDataPacketCount == 0) {
+            _currentGameState = GameStateSuccess;
+        }
+    }
+
+    [self showResultIfNeed];
+}
+
+- (void)showResultIfNeed {
+    if (_currentGameState != GameStatePlaying) {
+        BOOL isWon = (_currentGameState == GameStateSuccess);
+        
+        SKSpriteNode *labelContent = [SKSpriteNode spriteNodeWithColor:isWon ? [SKColor colorWithRed:0 green:0.4 blue:0 alpha:1] : [SKColor colorWithRed:0.4 green:0 blue:0 alpha:1] size:self.size];
+        labelContent.position = CGPointMake(self.size.width / 2, self.size.height / 2);
+        labelContent.zPosition = 100000;
+        [self addChild:labelContent];
+        
+        SKLabelNode *label = [SKLabelNode labelNodeWithText:isWon ? @"成功" : @"失败"];
+        label.fontSize = 65;
+        label.fontName = @"Chalkduster";
+        label.fontColor = [SKColor whiteColor];
+        [labelContent addChild:label];
+        [label runAction:[SKAction sequence:[NSArray arrayWithObjects:
+                                             [SKAction fadeAlphaTo:0 duration:0.25],
+                                             [SKAction fadeAlphaTo:1 duration:0.25],
+                                             [SKAction fadeAlphaTo:0 duration:0.25],
+                                             [SKAction fadeAlphaTo:1 duration:0.25],
+                                             nil]]];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            GameScene *scene = [GameScene sceneWithSize:self.view.frame.size];
+            scene.scaleMode = SKSceneScaleModeResizeFill;
+            [self.view presentScene:scene];
+        });
     }
 }
 
