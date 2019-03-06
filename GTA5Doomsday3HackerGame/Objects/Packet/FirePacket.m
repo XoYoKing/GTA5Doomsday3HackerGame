@@ -32,11 +32,9 @@
         }
     }
     [super crash];
-    
-    if (postNotification) {
-        return;
-    }
-    postNotification = YES;
+}
+
+- (void)didFinishedCrash {
     [[NSNotificationCenter defaultCenter] postNotificationName:FirePacketExplosedNotification object:nil];
 }
 

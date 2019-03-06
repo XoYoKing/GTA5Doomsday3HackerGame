@@ -40,4 +40,10 @@
     return ZZLineMake(shootingPoint.x, shootingPoint.y, zRota);
 }
 
+- (CGRect)frame {
+    CGRect rect = super.frame;
+    CGFloat shrinkValue = rect.size.width * 0.15;
+    return CGRectInset(rect, shrinkValue, shrinkValue);
+}
+
 @end

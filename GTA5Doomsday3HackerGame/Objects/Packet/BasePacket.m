@@ -39,6 +39,7 @@ const NSInteger hitsToDie = 200;
     self.texture = self.explosionTexture;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self removeFromParent];
+        [self didFinishedCrash];
     });
 }
 
@@ -46,6 +47,10 @@ const NSInteger hitsToDie = 200;
     CGRect rect = super.frame;
     CGFloat shrinkValue = rect.size.width * 0.1;
     return CGRectInset(rect, shrinkValue, shrinkValue);
+}
+
+- (void)didFinishedCrash {
+    
 }
 
 @end

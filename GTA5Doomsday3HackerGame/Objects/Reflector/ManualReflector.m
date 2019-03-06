@@ -37,4 +37,8 @@
     [self runAction:[SKAction rotateByAngle:rotation duration:0.25]];
 }
 
+- (BOOL)isPointInSelf:(CGPoint)point {
+    return self.frame.size.width / 2 >= CGDistanceFromPoints(self.position, point);
+}
+
 @end

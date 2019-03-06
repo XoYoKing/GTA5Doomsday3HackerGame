@@ -10,9 +10,7 @@
 #import "GameScene.h"
 #import "NSTimer+HICategory.h"
 
-
 @interface GameViewController()
-
 
 @property (weak, nonatomic) IBOutlet UIButton *turnLeftButton;
 @property (weak, nonatomic) IBOutlet UIButton *turnRightButton;
@@ -38,21 +36,18 @@
     [super viewDidLoad];
     // Configure the view.
     
-    skView.frame = CGRectMake(0, 0, OBJ_BLOCK_WIDTH * OBJ_HORIZONTAL_COUNT, OBJ_BLOCK_WIDTH * OBJ_VERTICAL_COUNT);
-    skView.center = self.view.center;
-    [self.view insertSubview:skView atIndex:0];
+//    skView.frame = CGRectMake(0, 0, 16 * 10, 9 * 10);
+//    skView.center = self.view.center;
+//    [self.view insertSubview:skView atIndex:0];
     
-//    skView.showsFPS = YES;
-//    skView.showsNodeCount = YES;
-//    skView.showsDrawCount=YES;
+    skView.showsFPS = YES;
+    skView.showsNodeCount = YES;
+    skView.showsDrawCount=YES;
     /* Sprite Kit applies additional optimizations to improve rendering performance */
     skView.ignoresSiblingOrder = YES;
     
     // Create and configure the scene.
-    GameScene *scene = [GameScene sceneWithSize:skView.frame.size];
-    scene.scaleMode = SKSceneScaleModeResizeFill;
-    
-    // Present the scene.
+    GameScene *scene = [GameScene sceneWithSize:OBJ_GAME_SCENE_SIZE];
     [skView presentScene:scene];
 
     __weak typeof(self) weakSelf = self;

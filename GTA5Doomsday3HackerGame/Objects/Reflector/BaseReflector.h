@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign, readonly) CGFloat realZRotation;
 
+- (BOOL)isPointInSelf:(CGPoint)point;
+
 - (ZZLine)getNewLineWithOldLine:(ZZLine)oldLine;
 
 @end

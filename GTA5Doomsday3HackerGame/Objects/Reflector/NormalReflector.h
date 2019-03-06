@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)normalReflectorWithFacing:(DirectionFacing)facing position:(CGPoint)position;
 
+- (BOOL)isPointInDarkSide:(CGPoint)point;
+
 @end
 
 NS_ASSUME_NONNULL_END

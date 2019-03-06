@@ -10,6 +10,7 @@
 #import "LazerParticle.h"
 #import "BaseReflector.h"
 #import "AutoReflector.h"
+#import "NormalReflector.h"
 #import "BasePacket.h"
 #import "FirePacket.h"
 
@@ -63,40 +64,60 @@
             [objectsWithoutLastOne removeObject:lastHitSpr]; // 移除上次撞过的物体（通常是Reflector），防止重复检测
         }
         BaseSprite *thisHitSpr = nil;
+        ZZLine reflectedLine = ZZLineMake(0, 0, 0);
+        BOOL isReflected = NO;
         for (BaseSprite *tSpr in objectsWithoutLastOne) {
             CGRect testRect = tSpr.frame;
-            CGPoint hitPoint = CGPointIntersectionFromRectToLine(testRect, lastLine);
-            if (!CGPointEqualToPoint(hitPoint, CGPointNotFound)) { // 看看他们是否有机会撞上
-                if ([tSpr isKindOfClass:[BaseReflector class]]) { // Reflector反应
-                    ZZLine thisReflectedLine = [((BaseReflector*)tSpr) getNewLineWithOldLine:lastLine];
-                    if (ZZLineEqualsToLine(thisReflectedLine, lastLine)) { // 无反射现象就直接下一个
-                        continue;
-                    }
-                    if ([tSpr isMemberOfClass:[AutoReflector class]]) {
-                        // 是特殊拐弯射线
+            CGPoint testHitPoint = CGPointIntersectionFromRectToLine(testRect, lastLine);
+            ZZLine testReflectedLine = ZZLineMake(0, 0, 0);
+            BOOL testWillBeReflected = NO;
+            if (!CGPointEqualToPoint(testHitPoint, CGPointNotFound)) { // 看看他们是否有机会撞上
+                if ([tSpr isKindOfClass:[BaseReflector class]]
+//                    && ![tSpr isMemberOfClass:[NormalReflector class]]
+                    ) { // Reflector反应
+                    testWillBeReflected = YES; // 先假设会反射，后面有特殊情况再取NO
+                    BOOL willNotHitNotReflectingFace = [tSpr isMemberOfClass:[NormalReflector class]] && [((NormalReflector *)tSpr) isPointInDarkSide:[tSpr convertPoint:testHitPoint fromNode:self.parent]];
+                    if (willNotHitNotReflectingFace) {
+                        testWillBeReflected = NO;
                     } else {
-                        // 是镜子反射
-                        hitPoint = CGPointMake(thisReflectedLine.x, thisReflectedLine.y);
+                        testReflectedLine = [((BaseReflector*)tSpr) getNewLineWithOldLine:lastLine];
+                        if (ZZLineEqualsToLine(testReflectedLine, lastLine)) { // 无反射现象就直接下一个
+                            continue;
+                        }
+                        if ([tSpr isMemberOfClass:[AutoReflector class]]) {
+                            // 是特殊拐弯射线
+                        } else {
+                            // 是镜子反射
+                            testHitPoint = CGPointMake(testReflectedLine.x, testReflectedLine.y);
+                        }
                     }
                 }
-//                [self showPoint:hitPoint]; // 显示可能的所有碰撞点
-                CGFloat thisDistance = CGDistanceFromPoints(CGPointMake(lastLine.x, lastLine.y), hitPoint);
-                if (thisDistance < testMinDistance) {
+                CGFloat thisDistance = CGDistanceFromPoints(CGPointMake(lastLine.x, lastLine.y), testHitPoint);
+                if (thisDistance < testMinDistance) { // 取最近的一个作为这一轮的结果
                     testMinDistance = thisDistance;
-                    thisHitPoint = hitPoint;
+                    thisHitPoint = testHitPoint;
                     thisHitSpr = tSpr;
+                    reflectedLine = testReflectedLine;
+                    isReflected = testWillBeReflected;
                 }
             }
         }
         if (thisHitSpr == nil) { // 未撞到任何东西，与场景边框测试碰撞点
             thisHitPoint = CGPointIntersectionFromRectToLine(parentRect, lastLine);
         }
+        
+//        [self showPoint:thisHitPoint]; // 显示可能的所有碰撞点
+//        if ([thisHitSpr isMemberOfClass:[NormalReflector class]]) {
+//            CGPoint p = [thisHitSpr convertPoint:thisHitPoint fromNode:self.parent];
+//            NSLog(@"%@", NSStringFromCGPoint(p));
+//        }
+        
         // 拿lastLine的起始点与thisHitPoint画条线
         [self drawLazerFromPoint:CGPointMake(lastLine.x, lastLine.y) toPoint:thisHitPoint];
         
         lastHitSpr = thisHitSpr;
-        if ([thisHitSpr isKindOfClass:[BaseReflector class]]) {
-            lastLine = [((BaseReflector*)thisHitSpr) getNewLineWithOldLine:lastLine];
+        if (isReflected) {
+            lastLine = reflectedLine;
         } else {
             if ([thisHitSpr isKindOfClass:[BasePacket class]]) {
                 [((BasePacket *)thisHitSpr) getHurt];
@@ -155,7 +176,7 @@
 }
 
 - (void)blendColorWithSprite:(SKSpriteNode *)sprite {
-    sprite.color = LazerSource.turnedRed ? [SKColor redColor] : [SKColor cyanColor];
+    sprite.color = LazerSource.turnedRed ? [SKColor colorWithRed:1 green:0.2 blue:0.2 alpha:1] : [SKColor cyanColor];
     sprite.colorBlendFactor = 1;
 }
 

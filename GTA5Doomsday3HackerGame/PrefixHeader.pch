@@ -15,13 +15,14 @@
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
-// sizes
-#define OBJ_BLOCK_WIDTH (26.0 * UIScreen.mainScreen.bounds.size.height / 320.0)
-#define OBJ_BLOCK_SIZE (CGSizeMake(OBJ_BLOCK_WIDTH, OBJ_BLOCK_WIDTH))
-
 // counts
 #define OBJ_HORIZONTAL_COUNT (16)
 #define OBJ_VERTICAL_COUNT (9)
+
+// sizes
+#define OBJ_BLOCK_WIDTH (26.0)
+#define OBJ_BLOCK_SIZE (CGSizeMake(OBJ_BLOCK_WIDTH, OBJ_BLOCK_WIDTH))
+#define OBJ_GAME_SCENE_SIZE (CGSizeMake(OBJ_BLOCK_WIDTH * OBJ_HORIZONTAL_COUNT, OBJ_BLOCK_WIDTH * OBJ_VERTICAL_COUNT))
 
 // frames
 #define GAME_FPS (60)

@@ -14,12 +14,16 @@
     return self.zRotation;
 }
 
+- (BOOL)isPointInSelf:(CGPoint)point {
+    return CGRectContainsPoint(self.frame, point);
+}
+
 - (ZZLine)getNewLineWithOldLine:(ZZLine)oldLine {
     CGFloat selfRealRotation = self.realZRotation;
     ZZLine selfLine = ZZLineMake(self.position.x, self.position.y, selfRealRotation);
     
     CGPoint intersectionPoint = CGPointIntersectionFromLines(oldLine, selfLine);
-    if (!CGRectContainsPoint(self.frame, intersectionPoint)) {
+    if (![self isPointInSelf:intersectionPoint]) {
         return oldLine;
     }
     
