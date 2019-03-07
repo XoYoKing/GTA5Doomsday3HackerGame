@@ -482,7 +482,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = cn.dabby.GTA5Doomsday3HackerGame;
+				PRODUCT_BUNDLE_IDENTIFIER = jam.gta5doomsday3hackergame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -501,7 +501,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = cn.dabby.GTA5Doomsday3HackerGame;
+				PRODUCT_BUNDLE_IDENTIFIER = jam.gta5doomsday3hackergame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
