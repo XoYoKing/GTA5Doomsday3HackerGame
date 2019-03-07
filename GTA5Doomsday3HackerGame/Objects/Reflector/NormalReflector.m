@@ -36,4 +36,10 @@
     return (point.x * -1) - 1 > point.y;
 }
 
+- (CGRect)frame {
+    CGRect rect = super.frame;
+    CGFloat shrinkValue = rect.size.width * 0.05;
+    return CGRectInset(rect, shrinkValue, shrinkValue);
+}
+
 @end
