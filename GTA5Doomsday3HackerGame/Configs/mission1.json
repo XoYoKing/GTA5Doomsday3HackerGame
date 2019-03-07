@@ -1,5 +1,5 @@
 [
-{"name":"LazerSource","x":0,"y":8,"face":0},
+{"name":"LazerSource","x":-1,"y":8,"face":0},
 {"name":"ManualReflector","x":5,"y":8,"face":1},
 {"name":"ManualReflector","x":0,"y":0,"face":1},
 {"name":"ManualReflector","x":0,"y":4,"face":1},

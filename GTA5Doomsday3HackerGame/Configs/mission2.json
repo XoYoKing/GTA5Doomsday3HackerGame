@@ -1,4 +1,5 @@
 [
+{"name":"LazerSource","x":0,"y":1,"face":0,"disabled":1},
 {"name":"LazerSource","x":1,"y":1,"face":0},
 
 {"name":"NormalReflector","x":0,"y":8,"face":-4,"type":0},

@@ -121,10 +121,11 @@
         NSInteger y = [[dic valueForKey:@"y"] integerValue];
         NSInteger face = [[dic valueForKey:@"face"] integerValue];
         NSInteger type = [[dic valueForKey:@"type"] integerValue];
+        BOOL disabled = [[dic valueForKey:@"disabled"] boolValue];
         CGPoint realPosition = CGPointMake(OBJ_BLOCK_WIDTH / 2 + x * OBJ_BLOCK_WIDTH, OBJ_BLOCK_WIDTH / 2 + y * OBJ_BLOCK_WIDTH);
         Class class = NSClassFromString(name);
         if (class == [LazerSource class]) {
-            [self addChild:[LazerSource lazerSourceWithFacing:face position:realPosition]];
+            [self addChild:[LazerSource lazerSourceWithFacing:face position:realPosition disabled:disabled]];
         } else if (class == [ManualReflector class]) {
             ManualReflector *reflector = [ManualReflector manualReflectorWithFacing:face position:realPosition];
             [self addChild:reflector];

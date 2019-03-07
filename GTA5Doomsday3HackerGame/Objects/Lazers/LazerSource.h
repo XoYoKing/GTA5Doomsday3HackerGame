@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign, class) BOOL turnedRed;
 
-+ (instancetype)lazerSourceWithFacing:(DirectionFacing)facing position:(CGPoint)position;
++ (instancetype)lazerSourceWithFacing:(DirectionFacing)facing position:(CGPoint)position disabled:(BOOL)disabled;
 
 - (void)stopShootingForAWhile;
 

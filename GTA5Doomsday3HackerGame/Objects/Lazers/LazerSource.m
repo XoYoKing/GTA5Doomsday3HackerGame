@@ -13,6 +13,7 @@ static BOOL _turnedRed = NO;
 
 @implementation LazerSource {
     BOOL stopped;
+    BOOL disabled;
 }
 
 + (void)setTurnedRed:(BOOL)turnedRed {
@@ -23,7 +24,7 @@ static BOOL _turnedRed = NO;
     return _turnedRed;
 }
 
-+ (instancetype)lazerSourceWithFacing:(DirectionFacing)facing position:(CGPoint)position {
++ (instancetype)lazerSourceWithFacing:(DirectionFacing)facing position:(CGPoint)position disabled:(BOOL)disabled {
     LazerSource *sour = [LazerSource spriteNodeWithTexture:[MyTextureAtlas textureNamed:@"LazerSource"] size:OBJ_BLOCK_SIZE];
     sour.position = position;
     if (facing == DirectionFacingUp) {
@@ -35,11 +36,17 @@ static BOOL _turnedRed = NO;
     } else {
         sour.zRotation = 0;
     }
+    sour->disabled = disabled;
+    if (!disabled) {
+        SKSpriteNode *shooter = [SKSpriteNode spriteNodeWithTexture:[MyTextureAtlas textureNamed:@"LazerSourceShooter"] size:OBJ_BLOCK_SIZE];
+        shooter.position = CGPointMake(OBJ_BLOCK_WIDTH / 2, 0);
+        [sour addChild:shooter];
+    }
     return sour;
 }
 
 - (void)run {
-    if (stopped) {
+    if (stopped || disabled) {
         return;
     }
     CGFloat shootingOffset = self.size.width / 2 + 4;
