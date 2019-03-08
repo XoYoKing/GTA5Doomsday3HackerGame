@@ -19,4 +19,6 @@ typedef NS_ENUM(NSInteger, GameState) {
 @property (nonatomic, readonly) NSInteger leftLifes;
 @property (nonatomic, readonly) NSInteger leftSeconds;
 
+@property (nonatomic, strong) NSString *missionFile;
+
 @end

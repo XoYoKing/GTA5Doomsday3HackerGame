@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		060CC41822323E2500382BE7 /* mission1.json in Resources */ = {isa = PBXBuildFile; fileRef = 060CC41722323E2500382BE7 /* mission1.json */; };
+		060CC41A2232508B00382BE7 /* mission2.json in Resources */ = {isa = PBXBuildFile; fileRef = 060CC4192232508B00382BE7 /* mission2.json */; };
+		060CC41C2232547800382BE7 /* mission4.json in Resources */ = {isa = PBXBuildFile; fileRef = 060CC41B2232547800382BE7 /* mission4.json */; };
+		060CC41E2232550E00382BE7 /* IMG_6863.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 060CC41D2232550E00382BE7 /* IMG_6863.JPG */; };
+		060CC42022325AAE00382BE7 /* mission13.json in Resources */ = {isa = PBXBuildFile; fileRef = 060CC41F22325AAE00382BE7 /* mission13.json */; };
 		069F291B2226321D006EB035 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 069F291A2226321D006EB035 /* AppDelegate.m */; };
 		069F29222226321D006EB035 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 069F29212226321D006EB035 /* GameScene.m */; };
 		069F29252226321D006EB035 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 069F29242226321D006EB035 /* GameViewController.m */; };
@@ -21,20 +26,25 @@
 		069F294922265CD3006EB035 /* ManualReflector.m in Sources */ = {isa = PBXBuildFile; fileRef = 069F294822265CD3006EB035 /* ManualReflector.m */; };
 		069F294D22266117006EB035 /* MyTextureAtlas.m in Sources */ = {isa = PBXBuildFile; fileRef = 069F294B22266116006EB035 /* MyTextureAtlas.m */; };
 		069F294F22266128006EB035 /* texture.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 069F294E22266128006EB035 /* texture.atlas */; };
-		06AF9684222FBF0700E6FDB1 /* mission2.json in Resources */ = {isa = PBXBuildFile; fileRef = 06AF9683222FBF0700E6FDB1 /* mission2.json */; };
-		06B8116B222D137C005D9321 /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = 06B8116A222D137C005D9321 /* test.json */; };
+		06AF9684222FBF0700E6FDB1 /* mission3.json in Resources */ = {isa = PBXBuildFile; fileRef = 06AF9683222FBF0700E6FDB1 /* mission3.json */; };
+		06B8116B222D137C005D9321 /* test.txt in Resources */ = {isa = PBXBuildFile; fileRef = 06B8116A222D137C005D9321 /* test.txt */; };
 		06B8116E222D1924005D9321 /* BasePacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B8116D222D1924005D9321 /* BasePacket.m */; };
 		06CD4F412229051C00A172FB /* CGTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CD4F402229051C00A172FB /* CGTool.m */; };
 		06E8FE412227E3AF00EC85CB /* DataPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 06E8FE402227E3AF00EC85CB /* DataPacket.m */; };
 		06E8FE442227EDA300EC85CB /* FirePacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 06E8FE432227EDA300EC85CB /* FirePacket.m */; };
 		06F3D07F2227A9FF00056627 /* BaseReflector.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F3D07E2227A9FF00056627 /* BaseReflector.m */; };
 		06F3D0832227B6E600056627 /* NormalBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = 06F3D0822227B6E600056627 /* NormalBlock.m */; };
-		06F3D0862227C2C300056627 /* mission1.json in Resources */ = {isa = PBXBuildFile; fileRef = 06F3D0852227C2C300056627 /* mission1.json */; };
+		06F3D0862227C2C300056627 /* mission12.json in Resources */ = {isa = PBXBuildFile; fileRef = 06F3D0852227C2C300056627 /* mission12.json */; };
 		3909EBC5222831170030740F /* AutoReflector.m in Sources */ = {isa = PBXBuildFile; fileRef = 3909EBC4222831170030740F /* AutoReflector.m */; };
 		3909EBC9222832280030740F /* NSTimer+HICategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3909EBC8222832280030740F /* NSTimer+HICategory.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		060CC41722323E2500382BE7 /* mission1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mission1.json; sourceTree = "<group>"; };
+		060CC4192232508B00382BE7 /* mission2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mission2.json; sourceTree = "<group>"; };
+		060CC41B2232547800382BE7 /* mission4.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mission4.json; sourceTree = "<group>"; };
+		060CC41D2232550E00382BE7 /* IMG_6863.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_6863.JPG; sourceTree = "<group>"; };
+		060CC41F22325AAE00382BE7 /* mission13.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mission13.json; sourceTree = "<group>"; };
 		069F29162226321D006EB035 /* GTA5Doomsday3HackerGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GTA5Doomsday3HackerGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		069F29192226321D006EB035 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		069F291A2226321D006EB035 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -61,8 +71,8 @@
 		069F294B22266116006EB035 /* MyTextureAtlas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyTextureAtlas.m; sourceTree = "<group>"; };
 		069F294C22266117006EB035 /* MyTextureAtlas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyTextureAtlas.h; sourceTree = "<group>"; };
 		069F294E22266128006EB035 /* texture.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = texture.atlas; sourceTree = "<group>"; };
-		06AF9683222FBF0700E6FDB1 /* mission2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mission2.json; sourceTree = "<group>"; };
-		06B8116A222D137C005D9321 /* test.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
+		06AF9683222FBF0700E6FDB1 /* mission3.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mission3.json; sourceTree = "<group>"; };
+		06B8116A222D137C005D9321 /* test.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = test.txt; sourceTree = "<group>"; };
 		06B8116C222D1924005D9321 /* BasePacket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BasePacket.h; sourceTree = "<group>"; };
 		06B8116D222D1924005D9321 /* BasePacket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BasePacket.m; sourceTree = "<group>"; };
 		06CD4F3F2229051C00A172FB /* CGTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGTool.h; sourceTree = "<group>"; };
@@ -75,7 +85,7 @@
 		06F3D07E2227A9FF00056627 /* BaseReflector.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseReflector.m; sourceTree = "<group>"; };
 		06F3D0812227B6E600056627 /* NormalBlock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NormalBlock.h; sourceTree = "<group>"; };
 		06F3D0822227B6E600056627 /* NormalBlock.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NormalBlock.m; sourceTree = "<group>"; };
-		06F3D0852227C2C300056627 /* mission1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mission1.json; sourceTree = "<group>"; };
+		06F3D0852227C2C300056627 /* mission12.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mission12.json; sourceTree = "<group>"; };
 		3909EBC3222831170030740F /* AutoReflector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutoReflector.h; sourceTree = "<group>"; };
 		3909EBC4222831170030740F /* AutoReflector.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutoReflector.m; sourceTree = "<group>"; };
 		3909EBC7222832280030740F /* NSTimer+HICategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+HICategory.h"; sourceTree = "<group>"; };
@@ -119,6 +129,7 @@
 				06F3D07B222669E300056627 /* Games */,
 				069F29192226321D006EB035 /* AppDelegate.h */,
 				069F291A2226321D006EB035 /* AppDelegate.m */,
+				060CC41D2232550E00382BE7 /* IMG_6863.JPG */,
 				069F29262226321D006EB035 /* Main.storyboard */,
 				069F29292226321F006EB035 /* Assets.xcassets */,
 				069F292B2226321F006EB035 /* LaunchScreen.storyboard */,
@@ -222,9 +233,13 @@
 		06F3D0842227C26B00056627 /* Configs */ = {
 			isa = PBXGroup;
 			children = (
-				06F3D0852227C2C300056627 /* mission1.json */,
-				06AF9683222FBF0700E6FDB1 /* mission2.json */,
-				06B8116A222D137C005D9321 /* test.json */,
+				06B8116A222D137C005D9321 /* test.txt */,
+				06F3D0852227C2C300056627 /* mission12.json */,
+				060CC41F22325AAE00382BE7 /* mission13.json */,
+				060CC41722323E2500382BE7 /* mission1.json */,
+				060CC4192232508B00382BE7 /* mission2.json */,
+				06AF9683222FBF0700E6FDB1 /* mission3.json */,
+				060CC41B2232547800382BE7 /* mission4.json */,
 			);
 			path = Configs;
 			sourceTree = "<group>";
@@ -297,13 +312,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				06F3D0862227C2C300056627 /* mission1.json in Resources */,
+				06F3D0862227C2C300056627 /* mission12.json in Resources */,
 				069F29282226321D006EB035 /* Main.storyboard in Resources */,
+				060CC41A2232508B00382BE7 /* mission2.json in Resources */,
+				060CC41822323E2500382BE7 /* mission1.json in Resources */,
+				060CC42022325AAE00382BE7 /* mission13.json in Resources */,
 				069F294F22266128006EB035 /* texture.atlas in Resources */,
 				069F292A2226321F006EB035 /* Assets.xcassets in Resources */,
+				060CC41C2232547800382BE7 /* mission4.json in Resources */,
+				060CC41E2232550E00382BE7 /* IMG_6863.JPG in Resources */,
 				069F292D2226321F006EB035 /* LaunchScreen.storyboard in Resources */,
-				06AF9684222FBF0700E6FDB1 /* mission2.json in Resources */,
-				06B8116B222D137C005D9321 /* test.json in Resources */,
+				06AF9684222FBF0700E6FDB1 /* mission3.json in Resources */,
+				06B8116B222D137C005D9321 /* test.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

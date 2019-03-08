@@ -108,10 +108,10 @@
 }
 
 - (void)loadObjectsFromFile {
-    
-#warning please add more json files
-    NSInteger rand = arc4random() % 2 + 1;
-    NSData *dataFromFile = [NSData dataWithContentsOfFile:[NSBundle.mainBundle pathForResource:[NSString stringWithFormat:@"mission%ld", (long)rand] ofType:@"json"]];
+    NSArray *jsonPaths = [NSBundle.mainBundle pathsForResourcesOfType:@"json" inDirectory:nil];
+    NSString *filePath = [jsonPaths objectAtIndex:arc4random() % jsonPaths.count];
+    self.missionFile = [filePath lastPathComponent];
+    NSData *dataFromFile = [NSData dataWithContentsOfFile:filePath];
     NSArray *objects = [NSJSONSerialization JSONObjectWithData:dataFromFile options:NSJSONReadingAllowFragments error:nil];
     //    NSLog(@"%@", objects);
     

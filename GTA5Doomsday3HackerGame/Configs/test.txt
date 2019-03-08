@@ -1,0 +1,20 @@
+[
+    {"name":"LazerSource","x":0,"y":8,"face":0},
+    {"name":"AutoReflector","x":5,"y":6,"face":1},
+    {"name":"ManualReflector","x":5,"y":8,"face":0},
+    {"name":"NormalReflector","x":7,"y":8,"face":-1},
+    {"name":"ManualReflector","x":0,"y":0,"face":1},
+    {"name":"ManualReflector","x":0,"y":4,"face":1},
+    {"name":"ManualReflector","x":5,"y":4,"face":1},
+    {"name":"ManualReflector","x":7,"y":1,"face":1},
+    {"name":"ManualReflector","x":9,"y":0,"face":1},
+    {"name":"ManualReflector","x":10,"y":8,"face":1},
+    {"name":"ManualReflector","x":12,"y":4,"face":1},
+    {"name":"ManualReflector","x":14,"y":1,"face":1},
+    {"name":"NormalReflector","x":7,"y":4,"face":-1},
+    {"name":"NormalReflector","x":12,"y":6,"face":-4},
+    {"name":"NormalReflector","x":14,"y":6,"face":-3},
+    {"name":"NormalReflector","x":15,"y":8,"face":-3},
+    {"name":"NormalReflector","x":15,"y":0,"face":-2}
+]
+

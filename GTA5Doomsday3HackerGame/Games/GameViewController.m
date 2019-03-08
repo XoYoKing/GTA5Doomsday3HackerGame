@@ -23,6 +23,7 @@
     
     __weak IBOutlet UILabel *leftTimeLabel;
     __weak IBOutlet UILabel *leftLifeLabel;
+    __weak IBOutlet UILabel *missionNameLabel;
     
     NSTimer *_timer;
 }
@@ -76,6 +77,7 @@
 }
 
 - (void)sendRotationNotification:(NSInteger)rota {
+    [_timer setFireDate:[NSDate dateWithTimeIntervalSinceNow:0.25]];
     [[NSNotificationCenter defaultCenter] postNotificationName:RotationActionNotification object:@(rota)];
 }
 
@@ -85,7 +87,8 @@
         NSInteger lifes = scene.leftLifes;
         NSInteger seconds = scene.leftSeconds;
         leftLifeLabel.text = [NSString stringWithFormat:@"%ld", (long)lifes];
-        leftTimeLabel.text = [NSString stringWithFormat:@"%ld:%02ld", seconds / 60, seconds % 60];
+        leftTimeLabel.text = [NSString stringWithFormat:@"%ld:%02ld", (long)seconds / 60, (long)seconds % 60];
+        missionNameLabel.text = scene.missionFile;
     }
 }
 

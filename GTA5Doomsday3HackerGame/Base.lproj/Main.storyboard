@@ -117,11 +117,19 @@
                                     <constraint firstAttribute="width" secondItem="R94-eH-OFR" secondAttribute="height" multiplier="16:9" id="uez-mE-k2h"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8WV-hQ-qMx">
+                                <rect key="frame" x="70" y="0.0" width="42" height="39.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.086274509803921567" green="0.34509803921568627" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="R94-eH-OFR" firstAttribute="centerX" secondItem="4qk-I5-YsI" secondAttribute="centerX" id="4O5-gD-D8D"/>
+                            <constraint firstItem="8WV-hQ-qMx" firstAttribute="leading" secondItem="R94-eH-OFR" secondAttribute="leading" id="NBA-oK-s3h"/>
                             <constraint firstItem="Z01-nD-gVG" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" id="Nvy-fv-gWU"/>
+                            <constraint firstItem="R94-eH-OFR" firstAttribute="top" secondItem="8WV-hQ-qMx" secondAttribute="bottom" id="OZt-re-eWk"/>
                             <constraint firstItem="4qk-I5-YsI" firstAttribute="bottom" secondItem="hQs-yq-qm8" secondAttribute="bottom" id="TU9-an-V65"/>
                             <constraint firstItem="f4g-qO-2Tr" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" id="aES-RW-WYK"/>
                             <constraint firstItem="f4g-qO-2Tr" firstAttribute="top" secondItem="4qk-I5-YsI" secondAttribute="top" id="dha-FQ-AgZ"/>
@@ -129,6 +137,7 @@
                             <constraint firstItem="4qk-I5-YsI" firstAttribute="trailing" secondItem="hQs-yq-qm8" secondAttribute="trailing" id="gFC-wm-Vl3"/>
                             <constraint firstItem="hQs-yq-qm8" firstAttribute="top" secondItem="4qk-I5-YsI" secondAttribute="top" id="gTD-6r-zSQ"/>
                             <constraint firstItem="R94-eH-OFR" firstAttribute="top" secondItem="Z01-nD-gVG" secondAttribute="bottom" id="kDD-Xt-jJR"/>
+                            <constraint firstItem="8WV-hQ-qMx" firstAttribute="top" secondItem="4qk-I5-YsI" secondAttribute="top" id="lVd-Uh-drU"/>
                             <constraint firstItem="4qk-I5-YsI" firstAttribute="bottom" secondItem="f4g-qO-2Tr" secondAttribute="bottom" id="lwX-ih-eTq"/>
                             <constraint firstItem="R94-eH-OFR" firstAttribute="centerY" secondItem="4qk-I5-YsI" secondAttribute="centerY" id="rwe-cY-Oa6"/>
                         </constraints>
@@ -137,6 +146,7 @@
                     <connections>
                         <outlet property="leftLifeLabel" destination="4PO-FS-vhW" id="8Ri-vn-xAk"/>
                         <outlet property="leftTimeLabel" destination="j0R-Yi-eiI" id="5Jk-ts-yOt"/>
+                        <outlet property="missionNameLabel" destination="8WV-hQ-qMx" id="mjk-fL-5z2"/>
                         <outlet property="skView" destination="R94-eH-OFR" id="uQp-yN-xJ5"/>
                         <outlet property="turnLeftButton" destination="f4g-qO-2Tr" id="oVG-2C-eIJ"/>
                         <outlet property="turnRightButton" destination="hQs-yq-qm8" id="a7H-yn-rl5"/>
