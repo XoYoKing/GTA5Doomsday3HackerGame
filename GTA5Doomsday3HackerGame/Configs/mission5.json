@@ -1,0 +1,57 @@
+[
+    {"name":"LazerSource","x":1,"y":8,"face":3},
+    
+    {"name":"ManualReflector","x":1,"y":0},
+    {"name":"ManualReflector","x":2,"y":7},
+    {"name":"ManualReflector","x":4,"y":1},
+    {"name":"ManualReflector","x":5,"y":4},
+    {"name":"ManualReflector","x":7,"y":4},
+    {"name":"ManualReflector","x":9,"y":4},
+    {"name":"ManualReflector","x":11,"y":4},
+    {"name":"ManualReflector","x":15,"y":8},
+    
+    {"name":"NormalReflector","x":0,"y":0,"face":-1},
+    {"name":"NormalReflector","x":3,"y":0,"face":-2},
+    {"name":"NormalReflector","x":3,"y":4,"face":-4},
+    {"name":"NormalReflector","x":6,"y":8,"face":-4},
+    {"name":"NormalReflector","x":15,"y":0,"face":-2},
+    
+    {"name":"AutoReflector","x":15,"y":4},
+    
+    {"name":"NormalBlock","x":3,"y":5,"face":1,"type":1},
+    {"name":"NormalBlock","x":3,"y":6,"face":1,"type":1},
+    {"name":"NormalBlock","x":3,"y":7,"face":1,"type":1},
+    {"name":"NormalBlock","x":3,"y":8,"face":1,"type":1},
+    {"name":"NormalBlock","x":4,"y":0,"face":0,"type":1},
+    {"name":"NormalBlock","x":5,"y":0,"face":0,"type":1},
+    {"name":"NormalBlock","x":6,"y":0,"face":0,"type":1},
+    {"name":"NormalBlock","x":8,"y":7,"face":1,"type":1},
+    {"name":"NormalBlock","x":9,"y":7,"face":1,"type":1},
+    {"name":"NormalBlock","x":10,"y":7,"face":1,"type":1},
+    {"name":"NormalBlock","x":5,"y":6,"face":1,"type":0},
+    {"name":"NormalBlock","x":5,"y":7,"face":1,"type":0},
+    {"name":"NormalBlock","x":5,"y":8,"face":1,"type":0},
+    {"name":"NormalBlock","x":6,"y":1,"face":0,"type":0},
+    {"name":"NormalBlock","x":7,"y":1,"face":0,"type":0},
+    {"name":"NormalBlock","x":8,"y":1,"face":0,"type":0},
+    {"name":"NormalBlock","x":10,"y":8,"face":0,"type":0},
+    {"name":"NormalBlock","x":12,"y":6,"face":1,"type":0},
+    {"name":"NormalBlock","x":12,"y":7,"face":1,"type":0},
+    
+    {"name":"DataPacket","x":0,"y":8},
+    {"name":"DataPacket","x":3,"y":1},
+    {"name":"DataPacket","x":4,"y":6},
+    {"name":"DataPacket","x":4,"y":8},
+    {"name":"DataPacket","x":6,"y":2},
+    {"name":"DataPacket","x":7,"y":0},
+    {"name":"DataPacket","x":9,"y":8},
+    {"name":"DataPacket","x":11,"y":8},
+    {"name":"DataPacket","x":13,"y":5},
+    {"name":"DataPacket","x":14,"y":2},
+    
+    {"name":"FirePacket","x":2,"y":8},
+    {"name":"FirePacket","x":11,"y":7},
+    {"name":"FirePacket","x":14,"y":7},
+    
+    {}
+]

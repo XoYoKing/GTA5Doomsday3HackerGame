@@ -12,6 +12,8 @@
 		060CC41C2232547800382BE7 /* mission4.json in Resources */ = {isa = PBXBuildFile; fileRef = 060CC41B2232547800382BE7 /* mission4.json */; };
 		060CC41E2232550E00382BE7 /* IMG_6863.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 060CC41D2232550E00382BE7 /* IMG_6863.JPG */; };
 		060CC42022325AAE00382BE7 /* mission13.json in Resources */ = {isa = PBXBuildFile; fileRef = 060CC41F22325AAE00382BE7 /* mission13.json */; };
+		060CC4222232764200382BE7 /* mission5.json in Resources */ = {isa = PBXBuildFile; fileRef = 060CC4212232764200382BE7 /* mission5.json */; };
+		060CC42422327BAD00382BE7 /* mission6.json in Resources */ = {isa = PBXBuildFile; fileRef = 060CC42322327BAD00382BE7 /* mission6.json */; };
 		069F291B2226321D006EB035 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 069F291A2226321D006EB035 /* AppDelegate.m */; };
 		069F29222226321D006EB035 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 069F29212226321D006EB035 /* GameScene.m */; };
 		069F29252226321D006EB035 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 069F29242226321D006EB035 /* GameViewController.m */; };
@@ -45,6 +47,8 @@
 		060CC41B2232547800382BE7 /* mission4.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mission4.json; sourceTree = "<group>"; };
 		060CC41D2232550E00382BE7 /* IMG_6863.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_6863.JPG; sourceTree = "<group>"; };
 		060CC41F22325AAE00382BE7 /* mission13.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mission13.json; sourceTree = "<group>"; };
+		060CC4212232764200382BE7 /* mission5.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mission5.json; sourceTree = "<group>"; };
+		060CC42322327BAD00382BE7 /* mission6.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mission6.json; sourceTree = "<group>"; };
 		069F29162226321D006EB035 /* GTA5Doomsday3HackerGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GTA5Doomsday3HackerGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		069F29192226321D006EB035 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		069F291A2226321D006EB035 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -240,6 +244,8 @@
 				060CC4192232508B00382BE7 /* mission2.json */,
 				06AF9683222FBF0700E6FDB1 /* mission3.json */,
 				060CC41B2232547800382BE7 /* mission4.json */,
+				060CC4212232764200382BE7 /* mission5.json */,
+				060CC42322327BAD00382BE7 /* mission6.json */,
 			);
 			path = Configs;
 			sourceTree = "<group>";
@@ -316,12 +322,14 @@
 				069F29282226321D006EB035 /* Main.storyboard in Resources */,
 				060CC41A2232508B00382BE7 /* mission2.json in Resources */,
 				060CC41822323E2500382BE7 /* mission1.json in Resources */,
+				060CC4222232764200382BE7 /* mission5.json in Resources */,
 				060CC42022325AAE00382BE7 /* mission13.json in Resources */,
 				069F294F22266128006EB035 /* texture.atlas in Resources */,
 				069F292A2226321F006EB035 /* Assets.xcassets in Resources */,
 				060CC41C2232547800382BE7 /* mission4.json in Resources */,
 				060CC41E2232550E00382BE7 /* IMG_6863.JPG in Resources */,
 				069F292D2226321F006EB035 /* LaunchScreen.storyboard in Resources */,
+				060CC42422327BAD00382BE7 /* mission6.json in Resources */,
 				06AF9684222FBF0700E6FDB1 /* mission3.json in Resources */,
 				06B8116B222D137C005D9321 /* test.txt in Resources */,
 			);

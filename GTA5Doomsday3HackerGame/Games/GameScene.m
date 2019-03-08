@@ -110,6 +110,10 @@
 - (void)loadObjectsFromFile {
     NSArray *jsonPaths = [NSBundle.mainBundle pathsForResourcesOfType:@"json" inDirectory:nil];
     NSString *filePath = [jsonPaths objectAtIndex:arc4random() % jsonPaths.count];
+    
+    // test
+    //filePath = [NSBundle.mainBundle pathForResource:@"mission6" ofType:@"json"];
+    
     self.missionFile = [filePath lastPathComponent];
     NSData *dataFromFile = [NSData dataWithContentsOfFile:filePath];
     NSArray *objects = [NSJSONSerialization JSONObjectWithData:dataFromFile options:NSJSONReadingAllowFragments error:nil];
