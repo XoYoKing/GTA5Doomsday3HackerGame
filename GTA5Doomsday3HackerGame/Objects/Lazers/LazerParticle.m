@@ -123,7 +123,7 @@
                 [((BasePacket *)thisHitSpr) getHurt];
             }
             ended = YES;
-            [self drawSparkAtPoint:thisHitPoint];
+            [self drawSparkAtPoint:thisHitPoint fromLine:lastLine];
             
             LazerSource.turnedRed = [thisHitSpr isMemberOfClass:[FirePacket class]]; // 撞到红点要变成红色
         }
@@ -153,12 +153,14 @@
     [self addChild:lazerNode];
 }
 
-- (void)drawSparkAtPoint:(CGPoint)atPoint {
+- (void)drawSparkAtPoint:(CGPoint)atPoint fromLine:(ZZLine)line{
     atPoint = CGPointOffset(atPoint, -self.position.x, -self.position.y);
     SKSpriteNode *lazerSpark = [SKSpriteNode spriteNodeWithTexture:[MyTextureAtlas textureNamed:@"LazerSpark"] size:OBJ_BLOCK_SIZE];
     lazerSpark.zPosition = 100;
     lazerSpark.position = atPoint;
-    lazerSpark.zRotation = M_PI * ZZRandom_1_0_1();
+    lazerSpark.zRotation = line.alpha + M_PI_2 + (M_PI / 10 * ZZRandom_1_0_1());
+//    lazerSpark
+    lazerSpark.xScale = arc4random() % 2 == 0 ? 1 : -1;
     
     [self blendColorWithSprite:lazerSpark];
     

@@ -8,7 +8,7 @@
 
 #import "BasePacket.h"
 
-const NSInteger hitsToDie = 200;
+const NSInteger hitsToDie = 150;
 
 @implementation BasePacket {
     NSInteger hits;
@@ -45,7 +45,7 @@ const NSInteger hitsToDie = 200;
 
 - (CGRect)frame {
     CGRect rect = super.frame;
-    CGFloat shrinkValue = rect.size.width * 0.1;
+    CGFloat shrinkValue = rect.size.width * 0.15;
     return CGRectInset(rect, shrinkValue, shrinkValue);
 }
 

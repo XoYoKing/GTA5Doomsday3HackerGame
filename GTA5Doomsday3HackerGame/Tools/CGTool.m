@@ -63,7 +63,7 @@ CGPoint CGPointIntersectionFromRectToLine(CGRect rect, ZZLine line) {
     ZZLine l3 = ZZLineMake(rectDiagonalPoint.x, rectDiagonalPoint.y, 0);
     ZZLine l4 = ZZLineMake(rectDiagonalPoint.x, rectDiagonalPoint.y, M_PI_2);
     
-    CGRect biggerRect = CGRectInset(rect, -1, -1);
+    CGRect biggerRect = CGRectInset(rect, -0.1, -0.1); // 放大一点的，避免不够精确引起的误差
     
     CGPoint selectedPoint = CGPointNotFound;
     CGFloat minDistance = 10000000;
