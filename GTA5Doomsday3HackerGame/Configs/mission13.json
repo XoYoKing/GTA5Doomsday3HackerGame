@@ -1,19 +1,19 @@
 [
     {"name":"LazerSource","x":5,"y":4,"face":0},
     
-    {"name":"NormalReflector","x":0,"y":0,"face":-1},
-    {"name":"NormalReflector","x":15,"y":0,"face":-2},
-    {"name":"NormalReflector","x":15,"y":8,"face":-3},
+    {"name":"NormalReflector","x":0,"y":0,"face":1},
+    {"name":"NormalReflector","x":15,"y":0,"face":2},
+    {"name":"NormalReflector","x":15,"y":8,"face":3},
     
-    {"name":"ManualReflector","x":9,"y":4},
-    {"name":"ManualReflector","x":0,"y":2},
-    {"name":"ManualReflector","x":0,"y":8},
-    {"name":"ManualReflector","x":6,"y":1},
-    {"name":"ManualReflector","x":6,"y":7},
-    {"name":"ManualReflector","x":11,"y":4},
-    {"name":"ManualReflector","x":13,"y":1},
-    {"name":"ManualReflector","x":13,"y":7},
-    {"name":"ManualReflector","x":15,"y":4},
+    {"name":"ManualReflector","x":9,"y":4,"face":1},
+    {"name":"ManualReflector","x":0,"y":2,"face":2},
+    {"name":"ManualReflector","x":0,"y":8,"face":1},
+    {"name":"ManualReflector","x":6,"y":1,"face":3},
+    {"name":"ManualReflector","x":6,"y":7,"face":1},
+    {"name":"ManualReflector","x":11,"y":4,"face":2},
+    {"name":"ManualReflector","x":13,"y":1,"face":1},
+    {"name":"ManualReflector","x":13,"y":7,"face":3},
+    {"name":"ManualReflector","x":15,"y":4,"face":1},
     
     {"name":"AutoReflector","x":3,"y":4},
     

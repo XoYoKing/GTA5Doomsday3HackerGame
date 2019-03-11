@@ -15,11 +15,11 @@
     ManualReflector *reflec = [ManualReflector spriteNodeWithTexture:[MyTextureAtlas textureNamed:@"ManualReflector"] size:OBJ_BLOCK_SIZE];
 //    ManualReflector *reflec = [ManualReflector spriteNodeWithColor:[SKColor clearColor] size:OBJ_BLOCK_SIZE];
     reflec.position = position;
-    if (facing == DirectionFacingUp) {
+    if (facing == DirectionFacingAngle90) {
         reflec.zRotation = M_PI_2;
-    } else if (facing == DirectionFacingQuadrantThree) {
+    } else if (facing == DirectionFacingAngle135) {
         reflec.zRotation = M_PI_2 + M_PI_4;
-    } else if (facing == DirectionFacingQuadrantOne) {
+    } else if (facing == DirectionFacingAngle45) {
         reflec.zRotation = M_PI_4;
     } else {
         reflec.zRotation = 0;

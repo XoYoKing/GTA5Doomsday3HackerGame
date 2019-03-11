@@ -14,11 +14,17 @@ typedef NS_ENUM(NSInteger, DirectionFacing) {
     DirectionFacingLeft = 2,
     DirectionFacingDown = 3,
     
-    //
-    DirectionFacingQuadrantOne = -1,
-    DirectionFacingQuadrantTwo = -2,
-    DirectionFacingQuadrantThree = -3,
-    DirectionFacingQuadrantFour = -4,
+    // NormalReflector
+    DirectionFacingQuadrantOne = 1,
+    DirectionFacingQuadrantTwo = 2,
+    DirectionFacingQuadrantThree = 3,
+    DirectionFacingQuadrantFour = 4,
+    
+    // ManualReflector
+    DirectionFacingAngle00 = 0,
+    DirectionFacingAngle45 = 1,
+    DirectionFacingAngle90 = 2,
+    DirectionFacingAngle135 = 3,
 };
 
 NS_ASSUME_NONNULL_BEGIN

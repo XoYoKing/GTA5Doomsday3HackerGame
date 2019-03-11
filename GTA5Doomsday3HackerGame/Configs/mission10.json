@@ -1,0 +1,54 @@
+[
+    {"name":"LazerSource","x":2,"y":4,"face":3},
+    
+    {"name":"ManualReflector","x":2,"y":0,"face":1},
+    {"name":"ManualReflector","x":2,"y":6,"face":1},
+    {"name":"ManualReflector","x":3,"y":5,"face":1},
+    {"name":"ManualReflector","x":4,"y":8,"face":1},
+    {"name":"ManualReflector","x":5,"y":3.6,"face":1},
+    {"name":"ManualReflector","x":15,"y":1,"face":1},
+    
+    {"name":"AutoReflector","x":0,"y":4},
+    {"name":"AutoReflector","x":10,"y":4},
+    
+    {"name":"NormalReflector","x":0,"y":0,"face":1},
+    {"name":"NormalReflector","x":1,"y":4,"face":2},
+    {"name":"NormalReflector","x":5,"y":8,"face":4},
+    {"name":"NormalReflector","x":15,"y":0,"face":2},
+    {"name":"NormalReflector","x":15,"y":8,"face":3},
+    
+    {"name":"NormalBlock","x":0,"y":5,"face":0,"type":0},
+    {"name":"NormalBlock","x":1,"y":3,"face":0,"type":0},
+    {"name":"NormalBlock","x":5,"y":0,"face":1,"type":0},
+    {"name":"NormalBlock","x":5,"y":1,"face":1,"type":0},
+    {"name":"NormalBlock","x":8,"y":4,"face":1,"type":1},
+    {"name":"NormalBlock","x":8,"y":5,"face":1,"type":1},
+    {"name":"NormalBlock","x":8,"y":6,"face":1,"type":1},
+    {"name":"NormalBlock","x":8,"y":7,"face":1,"type":1},
+    {"name":"NormalBlock","x":9,"y":4,"face":1,"type":1},
+    {"name":"NormalBlock","x":9,"y":5,"face":1,"type":1},
+    {"name":"NormalBlock","x":9,"y":6,"face":1,"type":1},
+    {"name":"NormalBlock","x":9,"y":7,"face":1,"type":1},
+    {"name":"NormalBlock","x":11,"y":1,"face":1,"type":1},
+    {"name":"NormalBlock","x":11,"y":2,"face":1,"type":1},
+    {"name":"NormalBlock","x":11,"y":3,"face":1,"type":1},
+    {"name":"NormalBlock","x":11,"y":4,"face":1,"type":1},
+    {"name":"NormalBlock","x":12,"y":1,"face":1,"type":0},
+    {"name":"NormalBlock","x":12,"y":2,"face":1,"type":0},
+    {"name":"NormalBlock","x":12,"y":5,"face":0,"type":0},
+    {"name":"NormalBlock","x":13,"y":5,"face":0,"type":0},
+    {"name":"NormalBlock","x":14,"y":5,"face":0,"type":0},
+    
+    {"name":"DataPacket","x":1,"y":8},
+    {"name":"DataPacket","x":2,"y":5},
+    {"name":"DataPacket","x":4,"y":0},
+    {"name":"DataPacket","x":13,"y":1},
+    {"name":"DataPacket","x":13,"y":4},
+    {"name":"DataPacket","x":15,"y":6},
+    
+    {"name":"FirePacket","x":0,"y":6},
+    {"name":"FirePacket","x":6,"y":0},
+    {"name":"FirePacket","x":12,"y":4},
+    
+    {}
+]

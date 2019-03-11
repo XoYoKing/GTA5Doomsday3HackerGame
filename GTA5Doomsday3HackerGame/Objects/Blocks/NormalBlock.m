@@ -63,7 +63,7 @@
             }
         }
         
-        if (!hasLeft && !hasRight && !hasTop && !hasBottom) {
+        if ((!hasLeft && !hasRight && self->myFacing == DirectionFacingRight) || (!hasTop && !hasBottom && self->myFacing == DirectionFacingUp)) {
             self.texture = [MyTextureAtlas textureNamed:@"NormalBlockChipSmall"];
         } else if (self->myFacing == DirectionFacingRight) {
             if (!(hasLeft && hasRight) && (hasLeft || hasRight)) {

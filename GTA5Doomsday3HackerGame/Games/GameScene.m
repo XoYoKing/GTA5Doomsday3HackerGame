@@ -112,17 +112,17 @@
     NSString *filePath = [jsonPaths objectAtIndex:arc4random() % jsonPaths.count];
     
     // test
-    //filePath = [NSBundle.mainBundle pathForResource:@"mission6" ofType:@"json"];
+    // filePath = [NSBundle.mainBundle pathForResource:@"mission11" ofType:@"json"];
     
-    self.missionFile = [filePath lastPathComponent];
+    self.missionFile = [[filePath lastPathComponent] stringByDeletingPathExtension];
     NSData *dataFromFile = [NSData dataWithContentsOfFile:filePath];
     NSArray *objects = [NSJSONSerialization JSONObjectWithData:dataFromFile options:NSJSONReadingAllowFragments error:nil];
     //    NSLog(@"%@", objects);
     
     for (NSDictionary *dic in objects) {
         NSString *name = [dic valueForKey:@"name"];
-        NSInteger x = [[dic valueForKey:@"x"] integerValue];
-        NSInteger y = [[dic valueForKey:@"y"] integerValue];
+        CGFloat x = [[dic valueForKey:@"x"] floatValue];
+        CGFloat y = [[dic valueForKey:@"y"] floatValue];
         NSInteger face = [[dic valueForKey:@"face"] integerValue];
         NSInteger type = [[dic valueForKey:@"type"] integerValue];
         BOOL disabled = [[dic valueForKey:@"disabled"] boolValue];
