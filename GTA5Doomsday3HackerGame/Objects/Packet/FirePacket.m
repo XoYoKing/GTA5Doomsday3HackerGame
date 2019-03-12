@@ -24,6 +24,10 @@
     return [MyTextureAtlas textureNamed:@"RedExplosion"];
 }
 
+- (SKTexture *)tintTexture {
+    return [MyTextureAtlas textureNamed:@"FirePacketTint"];
+}
+
 - (void)crash {
     NSArray *parentsChildren = self.parent.children;
     for (LazerSource *lazSour in parentsChildren) {

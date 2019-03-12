@@ -21,4 +21,8 @@
     return [MyTextureAtlas textureNamed:@"CyanExplosion"];
 }
 
+- (SKTexture *)tintTexture {
+    return [MyTextureAtlas textureNamed:@"DataPacketTint"];
+}
+
 @end

@@ -13,16 +13,36 @@ const NSInteger hitsToDie = 150;
 @implementation BasePacket {
     NSInteger hits;
     BOOL dying;
+    SKSpriteNode *normalChild;
+    SKSpriteNode *tintChild;
 }
 
 - (SKTexture *)explosionTexture {
     return nil;
 }
 
+- (SKTexture *)tintTexture {
+    return nil;
+}
+
++ (instancetype)spriteNodeWithTexture:(SKTexture *)texture size:(CGSize)size {
+    BasePacket *ba = [super spriteNodeWithTexture:nil size:size];
+    ba->normalChild = [SKSpriteNode spriteNodeWithTexture:texture size:size];
+    [ba addChild:ba->normalChild];
+    SKTexture *tinTex = ba.tintTexture;
+    if (tinTex) {
+        ba->tintChild = [SKSpriteNode spriteNodeWithTexture:tinTex size:size];
+        ba->tintChild.alpha = 0;
+        [ba addChild:ba->tintChild];
+    }
+    return ba;
+}
+
 - (void)getHurt {
     hits ++;
-    //        self.colorBlendFactor = (CGFloat)hits / (CGFloat)hitsToDie;
-    self.anchorPoint = CGPointMake(0.5 + 0.05 * ZZRandom_1_0_1(), 0.5 + 0.05 * ZZRandom_1_0_1());
+    normalChild.anchorPoint = CGPointMake(0.5 + 0.05 * ZZRandom_1_0_1(), 0.5 + 0.05 * ZZRandom_1_0_1());
+    tintChild.anchorPoint = normalChild.anchorPoint;
+    tintChild.alpha = (CGFloat)hits / (CGFloat)hitsToDie;
     if (hits >= hitsToDie) {
         [self crash];
     }
@@ -33,6 +53,8 @@ const NSInteger hitsToDie = 150;
         return;
     }
     dying = YES;
+    [normalChild removeFromParent];
+    [tintChild removeFromParent];
     self.zRotation = ZZRandom_0_1() * M_PI * 2;
     self.xScale = 1.5;
     self.yScale = 1.5;
