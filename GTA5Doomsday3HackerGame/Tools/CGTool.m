@@ -63,7 +63,7 @@ CGPoint CGPointIntersectionFromRectToLine(CGRect rect, ZZLine line) {
     ZZLine l3 = ZZLineMake(rectDiagonalPoint.x, rectDiagonalPoint.y, 0);
     ZZLine l4 = ZZLineMake(rectDiagonalPoint.x, rectDiagonalPoint.y, M_PI_2);
     
-    CGRect biggerRect = CGRectInset(rect, -0.1, -0.1); // 放大一点的，避免不够精确引起的误差
+    CGRect biggerRect = CGRectInset(rect, -1, -1); // 放大一点的，避免不够精确引起的误差
     
     CGPoint selectedPoint = CGPointNotFound;
     CGFloat minDistance = 10000000;
@@ -86,6 +86,32 @@ CGPoint CGPointIntersectionFromRectToLine(CGRect rect, ZZLine line) {
             }
         }
     }
+    // 排除擦边情况
+    // 如果交点在四个角附近，要判断是否擦边
+    if (!CGPointEqualToPoint(selectedPoint, CGPointNotFound)) {
+        CGFloat tolerance = 1.0;
+        CGFloat testDistance = rect.size.width * 0.5 * M_SQRT2 - tolerance; // 我假设它是正方形（此游戏只用到正方形），其他比例比较复杂，。。。
+        CGPoint centerPoint = CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect));
+        // 求点与直线的距离
+        // y = kx + b
+        CGFloat k = tan(line.alpha);
+        if (k > 10000000) { // k不存在
+            if (CGFloatABS(line.x - centerPoint.x) > testDistance) {
+                selectedPoint = CGPointNotFound;
+            }
+        } else {
+            CGFloat b = line.y - k * line.x;
+            // Ax + By + C = 0
+            CGFloat A = k;
+            CGFloat B = -1;
+            CGFloat C = b;
+            CGFloat dis = CGFloatABS(A * centerPoint.x + B * centerPoint.y + C) / sqrt(A * A + B * B);
+            if (dis > testDistance) {
+                selectedPoint = CGPointNotFound;
+            }
+        }
+    }
+    
     return selectedPoint;
 }
 

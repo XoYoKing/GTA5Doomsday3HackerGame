@@ -158,9 +158,9 @@
     SKSpriteNode *lazerSpark = [SKSpriteNode spriteNodeWithTexture:[MyTextureAtlas textureNamed:@"LazerSpark"] size:OBJ_BLOCK_SIZE];
     lazerSpark.zPosition = 100;
     lazerSpark.position = atPoint;
-    lazerSpark.zRotation = line.alpha + M_PI_2 + (M_PI / 10 * ZZRandom_1_0_1());
+    lazerSpark.zRotation = line.alpha + (M_PI / 10 * ZZRandom_1_0_1());
 //    lazerSpark
-    lazerSpark.xScale = arc4random() % 2 == 0 ? 1 : -1;
+    lazerSpark.yScale = arc4random() % 2 == 0 ? 1 : -1;
     
     [self blendColorWithSprite:lazerSpark];
     

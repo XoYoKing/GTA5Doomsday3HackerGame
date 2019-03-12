@@ -33,7 +33,7 @@
 }
 
 - (ZZLine)getNewLineWithOldLine:(ZZLine)oldLine {
-    CGFloat shootingOffset = OBJ_BLOCK_WIDTH / 2;
+    CGFloat shootingOffset = OBJ_BLOCK_WIDTH * 0.45;
     CGFloat zRota = self.zRotation;
     CGPoint shootingVector = CGPointMake(shootingOffset * cos(zRota), shootingOffset * sin(zRota));
     CGPoint shootingPoint = CGPointOffsetVector(self.position, shootingVector);

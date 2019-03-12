@@ -112,7 +112,7 @@
     NSString *filePath = [jsonPaths objectAtIndex:arc4random() % jsonPaths.count];
     
     // test
-    // filePath = [NSBundle.mainBundle pathForResource:@"mission11" ofType:@"json"];
+    // filePath = [NSBundle.mainBundle pathForResource:@"mission10" ofType:@"json"];
     
     self.missionFile = [[filePath lastPathComponent] stringByDeletingPathExtension];
     NSData *dataFromFile = [NSData dataWithContentsOfFile:filePath];
