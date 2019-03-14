@@ -15,6 +15,16 @@
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
 
+// type define
+
+typedef NS_ENUM(NSInteger, BaseZPosition) {
+    BaseZPositionZero = 0,
+    BaseZPositionLazer = 1,
+    BaseZPositionObjects = 2,
+    BaseZPositionIndicator = 3,
+    BaseZPositionAlert = 4,
+};
+
 // counts
 #define OBJ_HORIZONTAL_COUNT (16)
 #define OBJ_VERTICAL_COUNT (9)
@@ -26,6 +36,9 @@
 
 // frames
 #define GAME_FPS (60)
+
+// times
+#define HANDLE_DELAY_TIME (0.2)
 
 // randoms
 #define ZZRandom_0_1() ((CGFloat)(arc4random() % 100000 / (CGFloat)100000))

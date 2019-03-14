@@ -34,7 +34,7 @@
     } else if (reflecRotation == ReflectorRotationClockwise) {
         rotation = -rotation;
     }
-    [self runAction:[SKAction rotateByAngle:rotation duration:0.25]];
+    [self runAction:[SKAction rotateByAngle:rotation duration:HANDLE_DELAY_TIME]];
 }
 
 - (BOOL)isPointInSelf:(CGPoint)point {

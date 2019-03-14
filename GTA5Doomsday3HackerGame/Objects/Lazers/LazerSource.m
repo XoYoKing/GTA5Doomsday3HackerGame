@@ -39,6 +39,7 @@ static BOOL _turnedRed = NO;
     sour->disabled = disabled;
     if (!disabled) {
         SKSpriteNode *shooter = [SKSpriteNode spriteNodeWithTexture:[MyTextureAtlas textureNamed:@"LazerSourceShooter"] size:OBJ_BLOCK_SIZE];
+        shooter.zPosition = -1;
         shooter.position = CGPointMake(OBJ_BLOCK_WIDTH / 2, 0);
         [sour addChild:shooter];
     }

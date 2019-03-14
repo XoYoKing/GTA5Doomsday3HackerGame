@@ -24,6 +24,7 @@
     LazerParticle *par = [LazerParticle node];
     par->startZRotation = zRotation;
     par.position = position;
+    par.zPosition = BaseZPositionLazer;
     return par;
 }
 
@@ -144,7 +145,6 @@
     CGFloat zRotation = atan2(fromPoint.y - toPoint.y, fromPoint.x - toPoint.x);
     
     SKSpriteNode *lazerNode = [SKSpriteNode spriteNodeWithTexture:[MyTextureAtlas textureNamed:@"LazerParticle"] size:CGSizeMake(distance, 10)];
-    lazerNode.zPosition = 100;
     lazerNode.position = center;
     lazerNode.zRotation = zRotation;
     
@@ -156,7 +156,6 @@
 - (void)drawSparkAtPoint:(CGPoint)atPoint fromLine:(ZZLine)line{
     atPoint = CGPointOffset(atPoint, -self.position.x, -self.position.y);
     SKSpriteNode *lazerSpark = [SKSpriteNode spriteNodeWithTexture:[MyTextureAtlas textureNamed:@"LazerSpark"] size:OBJ_BLOCK_SIZE];
-    lazerSpark.zPosition = 100;
     lazerSpark.position = atPoint;
     lazerSpark.zRotation = line.alpha + (M_PI / 10 * ZZRandom_1_0_1());
 //    lazerSpark
@@ -170,7 +169,6 @@
 - (void)showPoint:(CGPoint)point {
     SKSpriteNode *testPointSpr = [SKSpriteNode spriteNodeWithColor:[SKColor redColor] size:CGSizeMake(4, 4)];
     testPointSpr.position = CGPointOffset(point, -self.position.x, -self.position.y);
-    testPointSpr.zPosition = 10000;
     [self addChild:testPointSpr];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [testPointSpr removeFromParent];

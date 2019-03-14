@@ -100,11 +100,13 @@
 - (void)setCurrentManualReflector:(ManualReflector *)reflector {
     currentManualReflector = reflector;
     if (currentIndicator == nil) {
-        currentIndicator = [BaseSprite spriteNodeWithTexture:[MyTextureAtlas textureNamed:@"CurrentIndicator"] size:CGSizeMake(OBJ_BLOCK_WIDTH + 4, OBJ_BLOCK_WIDTH + 4)];
-        currentIndicator.zPosition = 10;
+        currentIndicator = [BaseSprite spriteNodeWithTexture:[MyTextureAtlas textureNamed:@"CurrentIndicator"] size:CGSizeMake(OBJ_BLOCK_WIDTH + 8, OBJ_BLOCK_WIDTH + 8)];
+        currentIndicator.zPosition = BaseZPositionIndicator;
+        [currentIndicator runAction:[SKAction repeatActionForever:[SKAction sequence:[NSArray arrayWithObjects:[SKAction fadeAlphaTo:0.6 duration:0.5], [SKAction fadeAlphaTo:1 duration:0.5], nil]]]];
         [self addChild:currentIndicator];
     }
     currentIndicator.position = currentManualReflector.position;
+    currentIndicator.zRotation = M_PI * ZZRandom_1_0_1();
 }
 
 - (void)loadObjectsFromFile {
@@ -233,7 +235,7 @@
         
         SKSpriteNode *labelContent = [SKSpriteNode spriteNodeWithColor:isWon ? [SKColor colorWithRed:0 green:0.4 blue:0 alpha:1] : [SKColor colorWithRed:0.4 green:0 blue:0 alpha:1] size:self.size];
         labelContent.position = CGPointMake(self.size.width / 2, self.size.height / 2);
-        labelContent.zPosition = 100000;
+        labelContent.zPosition = BaseZPositionAlert;
         [self addChild:labelContent];
         
         SKLabelNode *label = [SKLabelNode labelNodeWithText:isWon ? @"成功" : @"失败"];

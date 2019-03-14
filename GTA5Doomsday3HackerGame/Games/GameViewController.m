@@ -52,7 +52,7 @@
     [skView presentScene:scene];
 
     __weak typeof(self) weakSelf = self;
-    _timer = [NSTimer db_scheduledTimerWithTimeInterval:0.25 repeats:YES block:^(NSTimer *timer) {
+    _timer = [NSTimer db_scheduledTimerWithTimeInterval:HANDLE_DELAY_TIME repeats:YES block:^(NSTimer *timer) {
         if (weakSelf.turnLeftButton.isTouchInside) {
             [weakSelf turnLeft:nil];
         }
@@ -77,7 +77,7 @@
 }
 
 - (void)sendRotationNotification:(NSInteger)rota {
-    [_timer setFireDate:[NSDate dateWithTimeIntervalSinceNow:0.25]];
+    [_timer setFireDate:[NSDate dateWithTimeIntervalSinceNow:HANDLE_DELAY_TIME]];
     [[NSNotificationCenter defaultCenter] postNotificationName:RotationActionNotification object:@(rota)];
 }
 

@@ -56,16 +56,20 @@ const NSInteger hitsToDie = 150;
     [normalChild removeFromParent];
     [tintChild removeFromParent];
     self.zRotation = ZZRandom_0_1() * M_PI * 2;
-    self.xScale = 1.5;
-    self.yScale = 1.5;
+    self.xScale = 0.5;
+    self.yScale = 0.5;
     self.texture = self.explosionTexture;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    
+    [self runAction:[SKAction sequence:[NSArray arrayWithObjects:[SKAction scaleTo:1.5 duration:0.1], [SKAction fadeOutWithDuration:0.25], nil]] completion:^{
         [self removeFromParent];
         [self didFinishedCrash];
-    });
+    }];
 }
 
 - (CGRect)frame {
+    if (dying) {
+        return CGRectZero;
+    }
     CGRect rect = super.frame;
     CGFloat shrinkValue = rect.size.width * 0.15;
     return CGRectInset(rect, shrinkValue, shrinkValue);

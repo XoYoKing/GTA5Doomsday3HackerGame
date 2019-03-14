@@ -17,6 +17,12 @@
 //    }
 //}
 
++ (instancetype)spriteNodeWithTexture:(SKTexture *)texture size:(CGSize)size {
+    BaseSprite *spr = [super spriteNodeWithTexture:texture size:size];
+    spr.zPosition = BaseZPositionObjects;
+    return spr;
+}
+
 - (void)run {
     // do nothing
 }
