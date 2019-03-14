@@ -72,6 +72,16 @@
     [self sendRotationNotification:-1];
 }
 
+- (IBAction)skipMission:(UIButton *)sender {
+    // touch down and hold
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        if (sender.isTouchInside) {
+            GameScene *scene = [GameScene sceneWithSize:OBJ_GAME_SCENE_SIZE];
+            [self->skView presentScene:scene];
+        }
+    });
+}
+
 - (BOOL)prefersStatusBarHidden {
     return YES;
 }

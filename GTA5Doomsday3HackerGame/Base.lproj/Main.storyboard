@@ -112,7 +112,7 @@
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R94-eH-OFR" customClass="SKView">
                                 <rect key="frame" x="70" y="39.5" width="428" height="241"/>
-                                <color key="backgroundColor" red="0.0078431372549019607" green="0.16470588235294117" blue="0.18431372549019609" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.027450980392156862" green="0.19215686274509802" blue="0.23137254901960785" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="R94-eH-OFR" secondAttribute="height" multiplier="16:9" id="uez-mE-k2h"/>
                                 </constraints>
@@ -123,14 +123,29 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ma7-sh-saz">
+                                <rect key="frame" x="234" y="280.5" width="100" height="39.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Vlk-Rj-u80"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                                <state key="normal" title="放弃">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="skipMission:" destination="BV1-FR-VrT" eventType="touchDown" id="n4O-Xv-W5c"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.086274509803921567" green="0.34509803921568627" blue="0.13725490196078433" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.10588235294117647" green="0.29019607843137252" blue="0.20784313725490194" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="R94-eH-OFR" firstAttribute="centerX" secondItem="4qk-I5-YsI" secondAttribute="centerX" id="4O5-gD-D8D"/>
                             <constraint firstItem="8WV-hQ-qMx" firstAttribute="leading" secondItem="R94-eH-OFR" secondAttribute="leading" id="NBA-oK-s3h"/>
                             <constraint firstItem="Z01-nD-gVG" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" id="Nvy-fv-gWU"/>
                             <constraint firstItem="R94-eH-OFR" firstAttribute="top" secondItem="8WV-hQ-qMx" secondAttribute="bottom" id="OZt-re-eWk"/>
                             <constraint firstItem="4qk-I5-YsI" firstAttribute="bottom" secondItem="hQs-yq-qm8" secondAttribute="bottom" id="TU9-an-V65"/>
+                            <constraint firstItem="Ma7-sh-saz" firstAttribute="top" secondItem="R94-eH-OFR" secondAttribute="bottom" id="TrA-uJ-ajQ"/>
+                            <constraint firstItem="Ma7-sh-saz" firstAttribute="centerX" secondItem="R94-eH-OFR" secondAttribute="centerX" id="VIC-lC-ujN"/>
                             <constraint firstItem="f4g-qO-2Tr" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" id="aES-RW-WYK"/>
                             <constraint firstItem="f4g-qO-2Tr" firstAttribute="top" secondItem="4qk-I5-YsI" secondAttribute="top" id="dha-FQ-AgZ"/>
                             <constraint firstItem="Z01-nD-gVG" firstAttribute="trailing" secondItem="R94-eH-OFR" secondAttribute="trailing" id="f44-fj-XA8"/>
@@ -140,6 +155,7 @@
                             <constraint firstItem="8WV-hQ-qMx" firstAttribute="top" secondItem="4qk-I5-YsI" secondAttribute="top" id="lVd-Uh-drU"/>
                             <constraint firstItem="4qk-I5-YsI" firstAttribute="bottom" secondItem="f4g-qO-2Tr" secondAttribute="bottom" id="lwX-ih-eTq"/>
                             <constraint firstItem="R94-eH-OFR" firstAttribute="centerY" secondItem="4qk-I5-YsI" secondAttribute="centerY" id="rwe-cY-Oa6"/>
+                            <constraint firstItem="4qk-I5-YsI" firstAttribute="bottom" secondItem="Ma7-sh-saz" secondAttribute="bottom" id="sA3-o5-iO1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
                     </view>

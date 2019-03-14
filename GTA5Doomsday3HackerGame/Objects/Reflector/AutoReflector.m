@@ -11,6 +11,8 @@
 
 @implementation AutoReflector {
     NSTimer *_timer;
+    SKSpriteNode *backgroundNode;
+    SKSpriteNode *shooterNode;
 }
 
 - (void)dealloc {
@@ -18,11 +20,21 @@
 }
 
 + (instancetype)autoReflectorWithPosition:(CGPoint)position {
-    AutoReflector *reflec = [AutoReflector spriteNodeWithTexture:[MyTextureAtlas textureNamed:@"AutoReflector"]
+    AutoReflector *reflec = [AutoReflector spriteNodeWithTexture:nil
                                                             size:OBJ_BLOCK_SIZE];
+    reflec->backgroundNode = [SKSpriteNode spriteNodeWithTexture:[MyTextureAtlas textureNamed:@"AutoReflector"] size:OBJ_BLOCK_SIZE];
+    [reflec addChild:reflec->backgroundNode];
+    reflec->shooterNode = [SKSpriteNode spriteNodeWithTexture:[MyTextureAtlas textureNamed:@"AutoReflectorShooter"] size:OBJ_BLOCK_SIZE];
+    reflec->shooterNode.zPosition = reflec->backgroundNode.zPosition + 1;
+    [reflec addChild:reflec->shooterNode];
     reflec.position = position;
     [reflec startRotate];
     return reflec;
+}
+
+- (void)setZRotation:(CGFloat)zRotation {
+    [super setZRotation:zRotation];
+    backgroundNode.zRotation = -zRotation;
 }
 
 - (void)startRotate {
@@ -33,7 +45,7 @@
 }
 
 - (ZZLine)getNewLineWithOldLine:(ZZLine)oldLine {
-    CGFloat shootingOffset = OBJ_BLOCK_WIDTH * 0.45;
+    CGFloat shootingOffset = OBJ_BLOCK_WIDTH * 0.1;
     CGFloat zRota = self.zRotation;
     CGPoint shootingVector = CGPointMake(shootingOffset * cos(zRota), shootingOffset * sin(zRota));
     CGPoint shootingPoint = CGPointOffsetVector(self.position, shootingVector);
