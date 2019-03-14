@@ -40,7 +40,8 @@ const NSInteger hitsToDie = 150;
 
 - (void)getHurt {
     hits ++;
-    normalChild.anchorPoint = CGPointMake(0.5 + 0.05 * ZZRandom_1_0_1(), 0.5 + 0.05 * ZZRandom_1_0_1());
+    CGFloat shakeValue = 0.02;
+    normalChild.anchorPoint = CGPointMake(0.5 + shakeValue * ZZRandom_1_0_1(), 0.5 + shakeValue * ZZRandom_1_0_1());
     tintChild.anchorPoint = normalChild.anchorPoint;
     tintChild.alpha = (CGFloat)hits / (CGFloat)hitsToDie;
     if (hits >= hitsToDie) {
