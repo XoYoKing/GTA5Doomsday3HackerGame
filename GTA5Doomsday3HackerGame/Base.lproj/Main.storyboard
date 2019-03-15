@@ -125,15 +125,16 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ma7-sh-saz">
                                 <rect key="frame" x="234" y="280.5" width="100" height="39.5"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="Vlk-Rj-u80"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="8"/>
-                                <state key="normal" title="放弃">
+                                <state key="normal" title="长按跳过">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="skipMission:" destination="BV1-FR-VrT" eventType="touchDown" id="n4O-Xv-W5c"/>
+                                    <outletCollection property="gestureRecognizers" destination="PAZ-D6-lFc" appends="YES" id="ta7-Wn-mUy"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -169,6 +170,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="1" id="PAZ-D6-lFc">
+                    <connections>
+                        <action selector="skipMission:" destination="BV1-FR-VrT" id="qCQ-RX-nyH"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-18" y="113"/>
         </scene>

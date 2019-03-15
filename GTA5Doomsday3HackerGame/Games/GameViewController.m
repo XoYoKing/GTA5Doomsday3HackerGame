@@ -8,12 +8,14 @@
 
 #import "GameViewController.h"
 #import "GameScene.h"
-#import "NSTimer+HICategory.h"
 
 @interface GameViewController()
 
 @property (weak, nonatomic) IBOutlet UIButton *turnLeftButton;
 @property (weak, nonatomic) IBOutlet UIButton *turnRightButton;
+
+@property (nonatomic, strong) NSString *currentMissionFilePath;
+@property (nonatomic, strong) NSMutableArray *missionFilePaths;
 
 @end
 
@@ -33,6 +35,20 @@
     NSLog(@"dealloc: %@", self);
 }
 
+- (NSMutableArray *)missionFilePaths {
+    if (_missionFilePaths.count == 0) {
+        _missionFilePaths = [NSMutableArray array];
+        
+        NSArray *jsonPaths = [NSBundle.mainBundle pathsForResourcesOfType:@"json" inDirectory:nil];
+        [_missionFilePaths addObjectsFromArray:jsonPaths.shuffledArray];
+        
+        if ([_missionFilePaths containsObject:self.currentMissionFilePath]) {
+            [_missionFilePaths removeObject:self.currentMissionFilePath];
+        }
+    }
+    return _missionFilePaths;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Configure the view.
@@ -47,9 +63,7 @@
     /* Sprite Kit applies additional optimizations to improve rendering performance */
     skView.ignoresSiblingOrder = YES;
     
-    // Create and configure the scene.
-    GameScene *scene = [GameScene sceneWithSize:OBJ_GAME_SCENE_SIZE];
-    [skView presentScene:scene];
+    [self playNextMission];
 
     __weak typeof(self) weakSelf = self;
     _timer = [NSTimer db_scheduledTimerWithTimeInterval:HANDLE_DELAY_TIME repeats:YES block:^(NSTimer *timer) {
@@ -62,6 +76,17 @@
     }];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveGamingInfoNotification:) name:GamingInformationNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveGameDidFinishNotification:) name:GameDidFinishNotification object:nil];
+}
+
+- (void)playNextMission {
+    // Create and configure the scene.
+    self.currentMissionFilePath = self.missionFilePaths.lastObject;
+    [self.missionFilePaths removeLastObject];
+    
+    GameScene *scene = [GameScene sceneWithSize:OBJ_GAME_SCENE_SIZE];
+    scene.missionFile = self.currentMissionFilePath;
+    [skView presentScene:scene];
 }
 
 - (IBAction)turnLeft:(id)sender {
@@ -72,14 +97,12 @@
     [self sendRotationNotification:-1];
 }
 
-- (IBAction)skipMission:(UIButton *)sender {
-    // touch down and hold
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        if (sender.isTouchInside) {
-            GameScene *scene = [GameScene sceneWithSize:OBJ_GAME_SCENE_SIZE];
-            [self->skView presentScene:scene];
+- (IBAction)skipMission:(UILongPressGestureRecognizer *)longPressGestureRecognizer {
+    if ([longPressGestureRecognizer isKindOfClass:[UIGestureRecognizer class] ]) {
+        if (longPressGestureRecognizer.state == UIGestureRecognizerStateRecognized) {
+            [self playNextMission];
         }
-    });
+    }
 }
 
 - (BOOL)prefersStatusBarHidden {
@@ -100,6 +123,10 @@
         leftTimeLabel.text = [NSString stringWithFormat:@"%ld:%02ld", (long)seconds / 60, (long)seconds % 60];
         missionNameLabel.text = scene.missionFile;
     }
+}
+
+- (void)receiveGameDidFinishNotification:(NSNotification *)notification {
+    [self playNextMission];
 }
 
 @end

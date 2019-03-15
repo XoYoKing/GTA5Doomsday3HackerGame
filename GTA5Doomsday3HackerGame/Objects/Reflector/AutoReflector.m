@@ -7,7 +7,6 @@
 //
 
 #import "AutoReflector.h"
-#import "NSTimer+HICategory.h"
 
 @implementation AutoReflector {
     NSTimer *_timer;

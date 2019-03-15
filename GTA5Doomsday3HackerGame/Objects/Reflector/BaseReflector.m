@@ -10,6 +10,12 @@
 
 @implementation BaseReflector
 
++ (instancetype)spriteNodeWithTexture:(SKTexture *)texture size:(CGSize)size {
+    BaseReflector *spr = [super spriteNodeWithTexture:texture size:size];
+    spr.zPosition = BaseZPositionReflector;
+    return spr;
+}
+
 - (CGFloat)realZRotation {
     return self.zRotation;
 }

@@ -11,6 +11,8 @@
 
 #import "MyTextureAtlas.h"
 #import "CGTool.h"
+#import "NSTimer+HICategory.h"
+#import "NSArray+Shuffle.h"
 
 // Include any system framework and library headers here that should be included in all compilation units.
 // You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
@@ -19,10 +21,11 @@
 
 typedef NS_ENUM(NSInteger, BaseZPosition) {
     BaseZPositionZero = 0,
-    BaseZPositionLazer = 1,
-    BaseZPositionObjects = 2,
-    BaseZPositionIndicator = 3,
-    BaseZPositionAlert = 4,
+    BaseZPositionReflector,
+    BaseZPositionLazer,
+    BaseZPositionObjects,
+    BaseZPositionIndicator,
+    BaseZPositionAlert,
 };
 
 // counts
@@ -48,5 +51,6 @@ typedef NS_ENUM(NSInteger, BaseZPosition) {
 #define RotationActionNotification @"RotationActionNotification"
 #define FirePacketExplosedNotification @"FirePacketExplosedNotification"
 #define GamingInformationNotification @"GamingInformationNotification"
+#define GameDidFinishNotification @"GameDidFinishNotification"
 
 #endif /* PrefixHeader_pch */

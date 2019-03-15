@@ -19,6 +19,7 @@
 		060CC42A2236373700382BE7 /* mission9.json in Resources */ = {isa = PBXBuildFile; fileRef = 060CC4292236373700382BE7 /* mission9.json */; };
 		060CC42C22363B7700382BE7 /* mission10.json in Resources */ = {isa = PBXBuildFile; fileRef = 060CC42B22363B7700382BE7 /* mission10.json */; };
 		060CC42E22363FC500382BE7 /* mission11.json in Resources */ = {isa = PBXBuildFile; fileRef = 060CC42D22363FC500382BE7 /* mission11.json */; };
+		066AAB8D223B3DC300938C46 /* NSArray+Shuffle.m in Sources */ = {isa = PBXBuildFile; fileRef = 066AAB8C223B3DC300938C46 /* NSArray+Shuffle.m */; };
 		069F291B2226321D006EB035 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 069F291A2226321D006EB035 /* AppDelegate.m */; };
 		069F29222226321D006EB035 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 069F29212226321D006EB035 /* GameScene.m */; };
 		069F29252226321D006EB035 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 069F29242226321D006EB035 /* GameViewController.m */; };
@@ -59,6 +60,8 @@
 		060CC4292236373700382BE7 /* mission9.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mission9.json; sourceTree = "<group>"; };
 		060CC42B22363B7700382BE7 /* mission10.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mission10.json; sourceTree = "<group>"; };
 		060CC42D22363FC500382BE7 /* mission11.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mission11.json; sourceTree = "<group>"; };
+		066AAB8B223B3DC300938C46 /* NSArray+Shuffle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+Shuffle.h"; sourceTree = "<group>"; };
+		066AAB8C223B3DC300938C46 /* NSArray+Shuffle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Shuffle.m"; sourceTree = "<group>"; };
 		069F29162226321D006EB035 /* GTA5Doomsday3HackerGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GTA5Doomsday3HackerGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		069F29192226321D006EB035 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		069F291A2226321D006EB035 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -272,6 +275,8 @@
 				3909EBC8222832280030740F /* NSTimer+HICategory.m */,
 				06CD4F3F2229051C00A172FB /* CGTool.h */,
 				06CD4F402229051C00A172FB /* CGTool.m */,
+				066AAB8B223B3DC300938C46 /* NSArray+Shuffle.h */,
+				066AAB8C223B3DC300938C46 /* NSArray+Shuffle.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -375,6 +380,7 @@
 				069F293C22263506006EB035 /* LazerSource.m in Sources */,
 				3909EBC9222832280030740F /* NSTimer+HICategory.m in Sources */,
 				06B8116E222D1924005D9321 /* BasePacket.m in Sources */,
+				066AAB8D223B3DC300938C46 /* NSArray+Shuffle.m in Sources */,
 				069F294922265CD3006EB035 /* ManualReflector.m in Sources */,
 				069F29302226321F006EB035 /* main.m in Sources */,
 				069F291B2226321D006EB035 /* AppDelegate.m in Sources */,

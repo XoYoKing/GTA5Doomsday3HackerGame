@@ -17,7 +17,11 @@
 #import "FirePacket.h"
 #import "AutoReflector.h"
 
-#import "NSTimer+HICategory.h"
+typedef NS_ENUM(NSInteger, GameState) {
+    GameStateFail = -1,
+    GameStatePlaying = 0,
+    GameStateSuccess = 1,
+};
 
 @implementation GameScene {
     ManualReflector *currentManualReflector;
@@ -110,8 +114,7 @@
 }
 
 - (void)loadObjectsFromFile {
-    NSArray *jsonPaths = [NSBundle.mainBundle pathsForResourcesOfType:@"json" inDirectory:nil];
-    NSString *filePath = [jsonPaths objectAtIndex:arc4random() % jsonPaths.count];
+    NSString *filePath = self.missionFile;
     
     // test
     // filePath = [NSBundle.mainBundle pathForResource:@"mission10" ofType:@"json"];
@@ -251,8 +254,7 @@
                                              nil]]];
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            GameScene *scene = [GameScene sceneWithSize:OBJ_GAME_SCENE_SIZE];
-            [self.view presentScene:scene];
+            [[NSNotificationCenter defaultCenter] postNotificationName:GameDidFinishNotification object:nil];
         });
     }
 }
