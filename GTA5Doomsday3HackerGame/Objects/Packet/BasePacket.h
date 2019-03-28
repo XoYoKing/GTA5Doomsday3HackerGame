@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface BasePacket : BaseSprite
 
-@property (nonatomic, strong, readonly) SKTexture *tintTexture;
+@property (nonatomic, strong, readonly) SKTexture *tintTexture; 
 @property (nonatomic, strong, readonly) SKTexture *explosionTexture;
 - (void)getHurt;
 
