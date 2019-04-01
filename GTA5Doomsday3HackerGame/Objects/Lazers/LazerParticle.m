@@ -69,6 +69,9 @@
         BOOL isReflected = NO;
         for (BaseSprite *tSpr in objectsWithoutLastOne) {
             CGRect testRect = tSpr.frame;
+            if (!CGRectIntersectsLine(testRect, lastLine)) {
+                continue;
+            }
             CGPoint testHitPoint = CGPointIntersectionFromRectToLine(testRect, lastLine);
             ZZLine testReflectedLine = ZZLineMake(0, 0, 0);
             BOOL testWillBeReflected = NO;

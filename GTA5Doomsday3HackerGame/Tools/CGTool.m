@@ -28,7 +28,25 @@ bool ZZLineEqualsToLine(ZZLine line1, ZZLine line2) {
 }
 
 bool CGRectIntersectsLine(CGRect rect, ZZLine line) {
-    return !CGPointEqualToPoint(CGPointIntersectionFromRectToLine(rect, line), CGPointNotFound);
+    CGPoint rectOriginPoint = rect.origin;
+    CGPoint rectDiagonalPoint = CGPointMake(CGRectGetMaxX(rect), CGRectGetMaxY(rect));
+    
+    ZZLine l1 = ZZLineMake(rectOriginPoint.x, rectOriginPoint.y, 0);
+    ZZLine l2 = ZZLineMake(rectOriginPoint.x, rectOriginPoint.y, M_PI_2);
+    ZZLine l3 = ZZLineMake(rectDiagonalPoint.x, rectDiagonalPoint.y, 0);
+    ZZLine l4 = ZZLineMake(rectDiagonalPoint.x, rectDiagonalPoint.y, M_PI_2);
+    
+    CGRect biggerRect = CGRectInset(rect, -1, -1); // 放大一点的，避免不够精确引起的误差
+    
+    ZZLine lines[4] = {l1, l2, l3, l4};
+    for (int i = 0; i < 4; i ++) {
+        ZZLine tl = lines[i];
+        CGPoint intersectPoint = CGPointIntersectionFromLines(tl, line);
+        if (CGRectContainsPoint(biggerRect, intersectPoint)) { // 碰撞点是否在框内
+            return YES;
+        }
+    }
+    return NO;
 }
 
 CGPoint CGPointIntersectionFromLines(ZZLine line1, ZZLine line2) {
