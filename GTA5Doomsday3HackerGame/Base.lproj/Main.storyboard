@@ -138,7 +138,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.10588235294117647" green="0.29019607843137252" blue="0.20784313725490194" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.29019607843137252" blue="0.20784313725490194" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="R94-eH-OFR" firstAttribute="centerX" secondItem="4qk-I5-YsI" secondAttribute="centerX" id="4O5-gD-D8D"/>
                             <constraint firstItem="8WV-hQ-qMx" firstAttribute="leading" secondItem="R94-eH-OFR" secondAttribute="leading" id="NBA-oK-s3h"/>

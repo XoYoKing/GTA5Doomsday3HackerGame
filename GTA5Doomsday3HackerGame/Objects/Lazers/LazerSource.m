@@ -14,6 +14,7 @@ static BOOL _turnedRed = NO;
 @implementation LazerSource {
     BOOL stopped;
     BOOL disabled;
+    LazerParticle *myParticle;
 }
 
 + (void)setTurnedRed:(BOOL)turnedRed {
@@ -47,17 +48,21 @@ static BOOL _turnedRed = NO;
 }
 
 - (void)run {
+    [myParticle removeFromParent];
     if (stopped || disabled) {
         return;
     }
-    CGFloat shootingOffset = self.size.width / 2 + 4;
-    CGFloat zRota = self.zRotation;
-    CGPoint shootingVector = CGPointMake(shootingOffset * cos(zRota), shootingOffset * sin(zRota));
-    CGPoint shootingPoint = CGPointOffsetVector(self.position, shootingVector);
-    
-    // shoot a Particle
-    LazerParticle *par = [LazerParticle lazerParticleWithZRotation:zRota position:shootingPoint];
-    [self.parent addChild:par];
+    if (!myParticle) {
+        CGFloat shootingOffset = self.size.width / 2 + 4;
+        CGFloat zRota = self.zRotation;
+        CGPoint shootingVector = CGPointMake(shootingOffset * cos(zRota), shootingOffset * sin(zRota));
+        CGPoint shootingPoint = CGPointOffsetVector(self.position, shootingVector);
+        
+        // shoot a Particle
+        LazerParticle *par = [LazerParticle lazerParticleWithZRotation:zRota position:shootingPoint];
+        myParticle = par;
+    }
+    [self.parent addChild:myParticle];
 }
 
 - (void)stopShootingForAWhile {

@@ -31,7 +31,7 @@
     return self.zRotation - M_PI_4;
 }
 
-- (BOOL)isPointInDarkSide:(CGPoint)point {
+- (BOOL)isPointInWrongSide:(CGPoint)point {
 //    return YES;
     return (point.x * -1) - 1 > point.y;
 }

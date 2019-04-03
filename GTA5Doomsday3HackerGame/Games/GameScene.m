@@ -16,6 +16,7 @@
 #import "DataPacket.h"
 #import "FirePacket.h"
 #import "AutoReflector.h"
+#import "GameResultView.h"
 
 typedef NS_ENUM(NSInteger, GameState) {
     GameStateFail = -1,
@@ -214,7 +215,7 @@ typedef NS_ENUM(NSInteger, GameState) {
 }
 
 - (void)checkIfGameOver {
-    if (_leftSeconds <= 0 || _leftLifes <= 0) {
+    if (_leftSeconds <= 0 || _leftLifes < 0) {
         _currentGameState = GameStateFail;
     } else if (totalDataPacketCount > 0){
         NSInteger leftDataPacketCount = 0;
@@ -235,27 +236,9 @@ typedef NS_ENUM(NSInteger, GameState) {
 - (void)showResultIfNeed {
     if (_currentGameState != GameStatePlaying) {
         BOOL isWon = (_currentGameState == GameStateSuccess);
-        
-        SKSpriteNode *labelContent = [SKSpriteNode spriteNodeWithColor:isWon ? [SKColor colorWithRed:0 green:0.4 blue:0 alpha:1] : [SKColor colorWithRed:0.4 green:0 blue:0 alpha:1] size:self.size];
-        labelContent.position = CGPointMake(self.size.width / 2, self.size.height / 2);
-        labelContent.zPosition = BaseZPositionAlert;
-        [self addChild:labelContent];
-        
-        SKLabelNode *label = [SKLabelNode labelNodeWithText:isWon ? @"成功" : @"失败"];
-        label.fontSize = 65;
-        label.fontName = @"Chalkduster";
-        label.fontColor = [SKColor whiteColor];
-        [labelContent addChild:label];
-        [label runAction:[SKAction sequence:[NSArray arrayWithObjects:
-                                             [SKAction fadeAlphaTo:0 duration:0.25],
-                                             [SKAction fadeAlphaTo:1 duration:0.25],
-                                             [SKAction fadeAlphaTo:0 duration:0.25],
-                                             [SKAction fadeAlphaTo:1 duration:0.25],
-                                             nil]]];
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [GameResultView showGameResultViewWithSuccess:isWon didFinishHandler:^{
             [[NSNotificationCenter defaultCenter] postNotificationName:GameDidFinishNotification object:nil];
-        });
+        }];
     }
 }
 

@@ -16,8 +16,6 @@
 
 @implementation LazerParticle {
     CGFloat startZRotation;
-    BOOL drawed;
-    __weak NSArray *testObjects;
 }
 
 + (instancetype)lazerParticleWithZRotation:(CGFloat)zRotation position:(CGPoint)position {
@@ -28,23 +26,12 @@
     return par;
 }
 
-- (void)run {
-    if (drawed) {
-        [self removeFromParent];
-    }
-}
-
 - (void)testWithObjects:(NSArray *)objects {
-    if (testObjects) {
-        return;
-    }
-    if (drawed) {
-        return;
-    }
-    drawed = YES;
+    
+    [self removeAllChildren];
+    
     CGRect parentRect = self.parent.frame;
     parentRect.origin = CGPointZero;
-    testObjects = objects;
     
     // 找出上述直线与objects的所有碰撞点，然后挑选最近的点为碰撞点作为下一个的起点
     ZZLine lastLine = ZZLineMake(self.position.x, self.position.y, startZRotation); // 射线和反射线
@@ -60,14 +47,13 @@
         }
         CGFloat testMinDistance = 1000000;
         CGPoint thisHitPoint = CGPointNotFound;
-        NSMutableArray *objectsWithoutLastOne = [NSMutableArray arrayWithArray:testObjects];
-        if (lastHitSpr) {
-            [objectsWithoutLastOne removeObject:lastHitSpr]; // 移除上次撞过的物体（通常是Reflector），防止重复检测
-        }
         BaseSprite *thisHitSpr = nil;
         ZZLine reflectedLine = ZZLineMake(0, 0, 0);
         BOOL isReflected = NO;
-        for (BaseSprite *tSpr in objectsWithoutLastOne) {
+        for (BaseSprite *tSpr in objects) {
+            if (tSpr == lastHitSpr) {
+                continue;
+            }
             CGRect testRect = tSpr.frame;
             if (!CGRectIntersectsLine(testRect, lastLine)) {
                 continue;
@@ -80,7 +66,7 @@
 //                    && ![tSpr isMemberOfClass:[NormalReflector class]]
                     ) { // Reflector反应
                     testWillBeReflected = YES; // 先假设会反射，后面有特殊情况再取NO
-                    BOOL willNotHitNotReflectingFace = [tSpr isMemberOfClass:[NormalReflector class]] && [((NormalReflector *)tSpr) isPointInDarkSide:[tSpr convertPoint:testHitPoint fromNode:self.parent]];
+                    BOOL willNotHitNotReflectingFace = [tSpr isMemberOfClass:[NormalReflector class]] && [((NormalReflector *)tSpr) isPointInWrongSide:[tSpr convertPoint:testHitPoint fromNode:self.parent]];
                     if (willNotHitNotReflectingFace) {
                         testWillBeReflected = NO;
                     } else {

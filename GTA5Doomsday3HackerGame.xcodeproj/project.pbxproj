@@ -37,6 +37,8 @@
 		06AF9684222FBF0700E6FDB1 /* mission3.json in Resources */ = {isa = PBXBuildFile; fileRef = 06AF9683222FBF0700E6FDB1 /* mission3.json */; };
 		06B8116B222D137C005D9321 /* test.txt in Resources */ = {isa = PBXBuildFile; fileRef = 06B8116A222D137C005D9321 /* test.txt */; };
 		06B8116E222D1924005D9321 /* BasePacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 06B8116D222D1924005D9321 /* BasePacket.m */; };
+		06C6069C225494EC006F3CA2 /* GameResultView.m in Sources */ = {isa = PBXBuildFile; fileRef = 06C6069B225494EC006F3CA2 /* GameResultView.m */; };
+		06C6069E22549505006F3CA2 /* GameResultView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06C6069D22549505006F3CA2 /* GameResultView.xib */; };
 		06CD4F412229051C00A172FB /* CGTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 06CD4F402229051C00A172FB /* CGTool.m */; };
 		06E8FE412227E3AF00EC85CB /* DataPacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 06E8FE402227E3AF00EC85CB /* DataPacket.m */; };
 		06E8FE442227EDA300EC85CB /* FirePacket.m in Sources */ = {isa = PBXBuildFile; fileRef = 06E8FE432227EDA300EC85CB /* FirePacket.m */; };
@@ -92,6 +94,9 @@
 		06B8116A222D137C005D9321 /* test.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = test.txt; sourceTree = "<group>"; };
 		06B8116C222D1924005D9321 /* BasePacket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BasePacket.h; sourceTree = "<group>"; };
 		06B8116D222D1924005D9321 /* BasePacket.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BasePacket.m; sourceTree = "<group>"; };
+		06C6069A225494EC006F3CA2 /* GameResultView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameResultView.h; sourceTree = "<group>"; };
+		06C6069B225494EC006F3CA2 /* GameResultView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameResultView.m; sourceTree = "<group>"; };
+		06C6069D22549505006F3CA2 /* GameResultView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameResultView.xib; sourceTree = "<group>"; };
 		06CD4F3F2229051C00A172FB /* CGTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGTool.h; sourceTree = "<group>"; };
 		06CD4F402229051C00A172FB /* CGTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGTool.m; sourceTree = "<group>"; };
 		06E8FE3F2227E3AF00EC85CB /* DataPacket.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataPacket.h; sourceTree = "<group>"; };
@@ -234,6 +239,9 @@
 				069F29212226321D006EB035 /* GameScene.m */,
 				069F29232226321D006EB035 /* GameViewController.h */,
 				069F29242226321D006EB035 /* GameViewController.m */,
+				06C6069A225494EC006F3CA2 /* GameResultView.h */,
+				06C6069B225494EC006F3CA2 /* GameResultView.m */,
+				06C6069D22549505006F3CA2 /* GameResultView.xib */,
 			);
 			path = Games;
 			sourceTree = "<group>";
@@ -342,6 +350,7 @@
 				060CC42622362DD400382BE7 /* mission7.json in Resources */,
 				069F29282226321D006EB035 /* Main.storyboard in Resources */,
 				060CC41A2232508B00382BE7 /* mission2.json in Resources */,
+				06C6069E22549505006F3CA2 /* GameResultView.xib in Resources */,
 				060CC41822323E2500382BE7 /* mission1.json in Resources */,
 				060CC4222232764200382BE7 /* mission5.json in Resources */,
 				060CC42022325AAE00382BE7 /* mission13.json in Resources */,
@@ -382,6 +391,7 @@
 				06B8116E222D1924005D9321 /* BasePacket.m in Sources */,
 				066AAB8D223B3DC300938C46 /* NSArray+Shuffle.m in Sources */,
 				069F294922265CD3006EB035 /* ManualReflector.m in Sources */,
+				06C6069C225494EC006F3CA2 /* GameResultView.m in Sources */,
 				069F29302226321F006EB035 /* main.m in Sources */,
 				069F291B2226321D006EB035 /* AppDelegate.m in Sources */,
 				06CD4F412229051C00A172FB /* CGTool.m in Sources */,
